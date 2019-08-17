@@ -5,6 +5,8 @@
     <th>Price</th>
     <th>Category</th>
     <th>Image</th>
+    <th>Quantity</th>
+    <th>Total Price</th>
     <th></th>
   </tr>
 
@@ -14,6 +16,8 @@
         <td><%= '%.2f' % cart.furniture.price %></td>
         <td><%= cart.furniture.category %></td>
         <td><img src="<%= cart.furniture.img_url %>" width="300px"/></td>
+        <td><%= cart.quantity %></td>
+        <td><%= '%.2f' % (cart.quantity*cart.furniture.price) %></td>
         <td><%= link_to 'Delete', cart_path(cart),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>

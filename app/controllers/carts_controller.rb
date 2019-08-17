@@ -6,7 +6,6 @@ class CartsController < ApplicationController
 
         @cart = Cart.new(cart_params)
         @cart.user_id = current_user.id
-        @cart.quantity = 1
         if @cart.save
             redirect_to furnitures_path
         else
@@ -24,6 +23,6 @@ class CartsController < ApplicationController
 
     private
     def cart_params
-        params.require(:cart).permit(:furniture_id)
+        params.require(:cart).permit(:furniture_id,:quantity)
     end
 end
