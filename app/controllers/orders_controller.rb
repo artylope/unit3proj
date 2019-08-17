@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+    def index
+        @orders = Order.all
+    end
+
+
     def create
         @carts = Cart.where(user_id: current_user.id).where("id = ?", params[:selected_cart_id])
         p @carts
@@ -16,6 +21,10 @@ class OrdersController < ApplicationController
         @carts.destroy_all
         redirect_to furnitures_path
 
+    end
+
+    def show
+        @order = Order.find(params[:id])
     end
 
     private

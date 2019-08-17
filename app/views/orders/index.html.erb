@@ -1,0 +1,18 @@
+<h1>All Orders</h1>
+<table>
+  <tr>
+    <th>Order Id</th>
+    <th>Total price</th>
+    <th></th>
+  </tr>
+
+  <% @orders.each do |order| %>
+    <tr>
+        <td><%= order.id %></td>
+        <td><%= '%.2f' % (order.furnitures_order.map{|x|x.quantity*x.furniture.price}.sum) %></td>
+        <td><%= link_to 'Show', order_path(order) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back to main', root_path %>

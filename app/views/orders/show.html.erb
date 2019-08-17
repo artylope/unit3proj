@@ -1,0 +1,39 @@
+<p>
+  <strong>Order ID:</strong>
+  <%= @order.id %>
+</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Image</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+
+    </tr>
+    <% total = 0%>
+    <% @order.furnitures_order.each do |order| %>
+
+
+    <tr>
+        <td><%= order.furniture.name %></td>
+        <td><%= '%.2f' % order.furniture.price %></td>
+        <td><%= order.furniture.category %></td>
+        <td><img src="<%= order.furniture.img_url %>" width="300px"/></td>
+        <td><%= order.quantity %></td>
+        <td><%= '%.2f' % (order.quantity*order.furniture.price) %></td>
+        <%total = total + order.quantity*order.furniture.price%>
+    </tr>
+
+    <% end %>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total</td>
+    <td><%='%.2f' %total%></td>
+</table>
+
+
+<%= link_to 'Back to Orders', orders_path %>
