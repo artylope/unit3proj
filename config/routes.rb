@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     root "furnitures#index"
     resources :furnitures
     resources :carts
+    resources :orders
 
 end

@@ -3,6 +3,7 @@ class FurnituresOrders < ActiveRecord::Migration[5.2]
     create_table :furnitures_orders do |t|
         t.references :order
         t.references :furnitures
+        t.integer :quantity
         t.timestamps
     end
   end
