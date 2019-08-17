@@ -1,0 +1,24 @@
+<h1>Cart</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Category</th>
+    <th>Image</th>
+    <th></th>
+  </tr>
+
+  <% @carts.each do |cart| %>
+    <tr>
+        <td><%= cart.furniture.name %></td>
+        <td><%= '%.2f' % cart.furniture.price %></td>
+        <td><%= cart.furniture.category %></td>
+        <td><img src="<%= cart.furniture.img_url %>" width="300px"/></td>
+        <td><%= link_to 'Delete', cart_path(cart),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back to main', root_path %>

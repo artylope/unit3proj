@@ -1,0 +1,22 @@
+<p>
+  <strong>Name:</strong>
+  <%= @furniture.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @furniture.price %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @furniture.category %>
+</p>
+
+<p>
+  <strong>Image:</strong><br/>
+  <img src="<%= @furniture.img_url %>" width="200px"/>
+</p>
+
+<%= link_to 'Edit', edit_furniture_path(@furniture) %> |
+<%= link_to 'Back', root_path %>

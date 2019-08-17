@@ -1,0 +1,45 @@
+<h1>Edit Furniture</h1>
+
+<%= form_with(model: @furniture, local: true) do |form| %>
+
+  <% if @furniture.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@furniture.errors.count, "error") %> prohibited
+        this furniture from being saved:
+      </h2>
+      <ul>
+        <% @furniture.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :price %><br>
+    <%= form.number_field :price ,step: 0.01 %>
+  </p>
+
+  <p>
+    <%= form.label :category %><br>
+    <%= form.text_field :category %>
+  </p>
+
+  <p>
+    <%= form.label :img_url %><br>
+    <%= form.text_field :img_url %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>
