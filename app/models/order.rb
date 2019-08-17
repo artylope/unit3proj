@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
-    has_and_belongs_to_many :furnitures
+    has_many :furnitures, through: :furnitures_orders
     belongs_to :user
 end
