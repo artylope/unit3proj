@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_073817) do
+ActiveRecord::Schema.define(version: 2019_08_19_085043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(version: 2019_08_17_073817) do
     t.datetime "updated_at", null: false
     t.index ["furniture_id"], name: "index_carts_on_furniture_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "furniture_options_tables", force: :cascade do |t|
+    t.text "capacity"
+    t.text "color"
+    t.bigint "furniture_id"
+    t.text "image"
+    t.float "price"
+    t.float "width"
+    t.float "height"
+    t.float "length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["furniture_id"], name: "index_furniture_options_tables_on_furniture_id"
   end
 
   create_table "furnitures", force: :cascade do |t|
