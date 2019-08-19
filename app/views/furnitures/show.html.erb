@@ -17,6 +17,11 @@
   <strong>Image:</strong><br/>
   <img src="<%= @furniture.img_url %>" width="200px"/>
 </p>
+<p>
+    <%=select_tag("color", options_for_select(@furniture.furniture_option.map(&:color).uniq))%>
+    <%=select_tag("capacity", options_for_select(@furniture.furniture_option.map(&:capacity).uniq))%>
+</p>
+
 
 <%= link_to 'Edit', edit_furniture_path(@furniture) %> |
 <%= link_to 'Back', root_path %>
