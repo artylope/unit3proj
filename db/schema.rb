@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 2019_08_19_085043) do
   enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
-    t.bigint "furniture_id"
+    t.bigint "furniture_option_id"
     t.bigint "user_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["furniture_id"], name: "index_carts_on_furniture_id"
+    t.index ["furniture_option_id"], name: "index_carts_on_furniture_option_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 2019_08_19_085043) do
 
   create_table "furnitures_orders", force: :cascade do |t|
     t.bigint "order_id"
-    t.bigint "furniture_id"
+    t.bigint "furniture_option_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["furniture_id"], name: "index_furnitures_orders_on_furniture_id"
+    t.index ["furniture_option_id"], name: "index_furnitures_orders_on_furniture_option_id"
     t.index ["order_id"], name: "index_furnitures_orders_on_order_id"
   end
 

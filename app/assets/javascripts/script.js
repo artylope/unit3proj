@@ -19,6 +19,7 @@ Paloma.controller('Furnitures', {
                     console.log(data[0].image)
                     $(".furniture_image").attr("src",data[0].image)
                     $(".price").text(data[0].price)
+                    $(".furniture_option_id_input").val(data[0].id)
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     console.log('Error in Database');
