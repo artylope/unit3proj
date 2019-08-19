@@ -15,11 +15,12 @@ Furniture.create(
 Furniture.create(
   :name => 'Rivet Sloanne', :price => 150.71, :category => 'Sofa', :img_url => 'http://cdn.shopify.com/s/files/1/1935/8089/products/Sofa_MeridianBlue_Maple_860x520_43ebd4d9-5731-4c0e-bf9d-3a989868e997_1024x1024.jpg?v=1549467303'
 )
-
 Furniture.create(
     :name => 'Lidhult', :price => 1359.00, :category => 'Sofa', :img_url => 'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m')
+
+
 FurnitureOption.destroy_all
-FurnitureOption.create(:capacity => "2-seater", :color => "Beige", :furniture_id => 4, :image =>'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m',:price => 100.00, :width => 208.00, :height => 102, :length => 200)
-FurnitureOption.create(:capacity => "3-seater", :color => "Beige", :furniture_id => 4, :image =>'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m',:price => 130.00, :width => 208.00, :height => 102, :length => 300)
-FurnitureOption.create(:capacity => "2-seater", :color => "Blue", :furniture_id => 4, :image =>'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m',:price => 105.00, :width => 208.00, :height => 102, :length => 200)
-FurnitureOption.create(:capacity => "3-seater", :color => "Blue", :furniture_id => 4, :image =>'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m',:price => 150.00, :width => 208.00, :height => 102, :length => 300)
+FurnitureOption.create(:capacity => "2-seater", :color => "Beige", :furniture_id => 4, :image =>'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m',:price => 1359.00, :width => 208.00, :height => 102, :length => 200)
+FurnitureOption.create(:capacity => "3-seater", :color => "Beige", :furniture_id => 4, :image =>'https://www.ikea.com/PIAimages/0620132_PE689443_S5.JPG?f=m',:price => 2059.00, :width => 208.00, :height => 102, :length => 300)
+FurnitureOption.create(:capacity => "2-seater", :color => "Blue", :furniture_id => 4, :image =>'https://www.ikea.com/PIAimages/0619131_PE688941_S5.JPG?f=m',:price => 1359.00, :width => 208.00, :height => 102, :length => 200)
+FurnitureOption.create(:capacity => "3-seater", :color => "Blue", :furniture_id => 4, :image =>'https://www.ikea.com/PIAimages/0620129_PE689440_S5.JPG?f=m',:price => 2059.00, :width => 208.00, :height => 102, :length => 300)
