@@ -16,13 +16,6 @@
         <td><%= '%.2f' % furniture.price %></td>
         <td><%= furniture.category %></td>
         <td><img src="<%= furniture.img_url %>" width="300px"/></td>
-        <td>
-            <%= form_with scope: :cart, url: carts_path, local: true do |form| %>
-                <%= form.label :quantity%>
-                <%= form.number_field :quantity ,step: 1, min: 1%>
-                <%= form.hidden_field :furniture_id, :value => furniture.id  %><input type="submit" value="Add to cart"/>
-            <%end%>
-        </td>
         <td><%= link_to 'Show', furniture_path(furniture) %></td>
         <td><%= link_to 'Edit', edit_furniture_path(furniture) %>
         <td><%= link_to 'Destroy', furniture_path(furniture),

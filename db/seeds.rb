@@ -5,12 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Furniture.destroy_all
 Furniture.create(
-  :name => 'Argos Home Tammy', :price => 100.49, :category => 'Sofa', :img_url => 'https://media.4rgos.it/i/Argos/9182723_R_Z001A?w=750&h=440&qlt=70'
-)
+    :name => 'Lidhult', :price => 1359.00, :category => 'Sofa', :img_url => 'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m')
 Furniture.create(
-  :name => 'Roxxane Sofa', :price => 79.69, :category => 'Sofa', :img_url => 'http://cdn.shopify.com/s/files/1/2660/5106/products/gvlzogz8lvl8qdfqdfgj_d8e97acc-4cf2-4d8c-9eda-b3fc3decb58e_800x.jpg?v=1535301597'
-)
-Furniture.create(
-  :name => 'Rivet Sloanne', :price => 150.71, :category => 'Sofa', :img_url => 'http://cdn.shopify.com/s/files/1/1935/8089/products/Sofa_MeridianBlue_Maple_860x520_43ebd4d9-5731-4c0e-bf9d-3a989868e997_1024x1024.jpg?v=1549467303'
-)
+    :name => 'Vimle', :price => 830.00, :category => 'Sofa', :img_url => 'https://www.ikea.com/PIAimages/0725527_PE734920_S5.JPG?f=l')
+
+
+FurnitureOption.destroy_all
+FurnitureOption.create(:capacity => "2-seater", :color => "Beige", :furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m',:price => 1359.00, :width => 208.00, :height => 102, :length => 200)
+FurnitureOption.create(:capacity => "3-seater", :color => "Beige", :furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0620132_PE689443_S5.JPG?f=m',:price => 2059.00, :width => 208.00, :height => 102, :length => 300)
+FurnitureOption.create(:capacity => "2-seater", :color => "Blue", :furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0619131_PE688941_S5.JPG?f=m',:price => 1359.00, :width => 208.00, :height => 102, :length => 200)
+FurnitureOption.create(:capacity => "3-seater", :color => "Blue", :furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0620129_PE689440_S5.JPG?f=m',:price => 2059.00, :width => 208.00, :height => 102, :length => 300)
+
+FurnitureOption.create(:capacity => "3-seater", :color => "Dalstorp multicolor", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0725527_PE734920_S5.JPG?f=l',:price => 830.00, :width => 241.00, :height => 83, :length => 211)
+FurnitureOption.create(:capacity => "3-seater", :color => "Farsta dark brown", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0514392_PE639462_S5.JPG?f=l',:price => 880.00, :width => 241.00, :height => 83, :length => 300)
+FurnitureOption.create(:capacity => "3-seater", :color => "Gunnared medium grey", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0514368_PE639441_S5.JPG?f=l',:price => 850.00, :width => 241.00, :height => 83, :length => 200)
+FurnitureOption.create(:capacity => "4-seater", :color => "Dalstorp multicolor", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0766712_PE753877_S5.JPG?f=l',:price => 1750.00, :width => 235.00, :height => 83, :length => 300)
+FurnitureOption.create(:capacity => "4-seater", :color => "Farsta dark brown", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0579268_PE675219_S5.JPG?f=l',:price => 1750.00, :width => 235.00, :height => 83, :length => 300)
+FurnitureOption.create(:capacity => "4-seater", :color => "Gunnared medium grey", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0579267_PE675221_S5.JPG?f=l',:price => 1830.00, :width => 235.00, :height => 83, :length => 300)

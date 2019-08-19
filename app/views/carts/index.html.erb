@@ -16,12 +16,12 @@
 
         <tr>
             <td><%=form.check_box :selected_cart_id, { multiple: true }, cart.id ,nil%></td>
-            <td><%= cart.furniture.name %></td>
-            <td><%= '%.2f' % cart.furniture.price %></td>
-            <td><%= cart.furniture.category %></td>
-            <td><img src="<%= cart.furniture.img_url %>" width="300px"/></td>
+            <td><%= cart.furniture_option.furniture.name %></td>
+            <td><%= '%.2f' % cart.furniture_option.price %></td>
+            <td><%= cart.furniture_option.furniture.category %></td>
+            <td><img src="<%= cart.furniture_option.image %>" width="300px"/></td>
             <td><%= cart.quantity %></td>
-            <td><%= '%.2f' % (cart.quantity*cart.furniture.price) %></td>
+            <td><%= '%.2f' % (cart.quantity*cart.furniture_option.price) %></td>
             <td><%= link_to 'Delete', cart_path(cart),
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %></td>
