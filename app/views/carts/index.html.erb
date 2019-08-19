@@ -12,32 +12,22 @@
         <th>Total Price</th>
         <th></th>
       </tr>
-      <%total = 0%>
       <% @carts.each do |cart| %>
 
         <tr>
-            <td><input type="checkbox" name="selected_cart_id" value="<%=cart.id%>"/></td>
+            <td><%=form.check_box :selected_cart_id, { multiple: true }, cart.id ,nil%></td>
             <td><%= cart.furniture.name %></td>
             <td><%= '%.2f' % cart.furniture.price %></td>
             <td><%= cart.furniture.category %></td>
             <td><img src="<%= cart.furniture.img_url %>" width="300px"/></td>
             <td><%= cart.quantity %></td>
             <td><%= '%.2f' % (cart.quantity*cart.furniture.price) %></td>
-            <%total=total+(cart.quantity*cart.furniture.price)%>
             <td><%= link_to 'Delete', cart_path(cart),
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
 
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>Total</td>
-        <td><%='%.2f' %total%></td>
-        <td></td>
 
     </table>
     <%= form.submit "Check out", data: { confirm: 'Confirm purchase?' }%>
