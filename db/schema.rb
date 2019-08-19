@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_08_19_085043) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "furniture_options_tables", force: :cascade do |t|
+  create_table "furniture_options", force: :cascade do |t|
     t.text "capacity"
     t.text "color"
     t.bigint "furniture_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_08_19_085043) do
     t.float "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["furniture_id"], name: "index_furniture_options_tables_on_furniture_id"
+    t.index ["furniture_id"], name: "index_furniture_options_on_furniture_id"
   end
 
   create_table "furnitures", force: :cascade do |t|

@@ -1,6 +1,6 @@
 class CreateFurnitureOptionsTable < ActiveRecord::Migration[5.2]
   def change
-    create_table :furniture_options_tables do |t|
+    create_table :furniture_options do |t|
         t.text :capacity
         t.text :color
         t.references :furniture
