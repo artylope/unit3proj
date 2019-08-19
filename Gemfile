@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-
+#paloma for page-specific js
+gem 'paloma', '~> 5.1.0'
+#jQuery
+gem 'jquery-rails'
 # Use Devise for user login and sign up
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
