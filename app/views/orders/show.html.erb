@@ -8,6 +8,8 @@
         <th>Price</th>
         <th>Category</th>
         <th>Image</th>
+        <th>Capacity</th>
+        <th>Color</th>
         <th>Quantity</th>
         <th>Total Price</th>
 
@@ -17,13 +19,15 @@
 
 
     <tr>
-        <td><%= order.furniture.name %></td>
-        <td><%= '%.2f' % order.furniture.price %></td>
-        <td><%= order.furniture.category %></td>
-        <td><img src="<%= order.furniture.img_url %>" width="300px"/></td>
+        <td><%= order.furniture_option.furniture.name %></td>
+        <td><%= '%.2f' % order.furniture_option.price %></td>
+        <td><%= order.furniture_option.furniture.category %></td>
+        <td><img src="<%= order.furniture_option.image %>" width="300px"/></td>
+        <td><%= order.furniture_option.capacity%></td>
+        <td><%= order.furniture_option.color%></td>
         <td><%= order.quantity %></td>
-        <td><%= '%.2f' % (order.quantity*order.furniture.price) %></td>
-        <%total = total + order.quantity*order.furniture.price%>
+        <td><%= '%.2f' % (order.quantity*order.furniture_option.price) %></td>
+        <%total = total + order.quantity*order.furniture_option.price%>
     </tr>
 
     <% end %>
