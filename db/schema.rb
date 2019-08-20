@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_085043) do
+ActiveRecord::Schema.define(version: 2019_08_20_103552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2019_08_19_085043) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "furnitures_main_categories", force: :cascade do |t|
+    t.bigint "furniture_id"
+    t.bigint "main_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["furniture_id"], name: "index_furnitures_main_categories_on_furniture_id"
+    t.index ["main_category_id"], name: "index_furnitures_main_categories_on_main_category_id"
+  end
+
   create_table "furnitures_orders", force: :cascade do |t|
     t.bigint "order_id"
     t.bigint "furniture_option_id"
@@ -58,6 +67,12 @@ ActiveRecord::Schema.define(version: 2019_08_19_085043) do
     t.datetime "updated_at", null: false
     t.index ["furniture_option_id"], name: "index_furnitures_orders_on_furniture_option_id"
     t.index ["order_id"], name: "index_furnitures_orders_on_order_id"
+  end
+
+  create_table "main_categories", force: :cascade do |t|
+    t.text "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|

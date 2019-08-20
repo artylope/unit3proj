@@ -1,6 +1,12 @@
 class FurnituresController < ApplicationController
     def index
-        @furnitures = Furniture.all
+        if params.key? ("category")
+            @furnitures = Furniture.where(category:params[:category].titleize)
+        elsif params.key? ("main_category")
+            @furnitures = MainCategory.find_by(title:params[:main_category].titleize).furniture
+        else
+            @furnitures = Furniture.all
+        end
     end
 
     def new
