@@ -4,10 +4,7 @@
 General Assembly Software Engineering Immersive 19
 Unit 3 Project - Ruby on Rails
 
-## Done By
-[Kenny Ang](https://github.com/kach92)
-[Mah CK](https://github.com/marcykay)
-[Ang Yi Xin](https://github.com/artylope)
+Built by - [Kenny Ang](https://github.com/kach92), [Mah CK](https://github.com/marcykay), [Ang Yi Xin](https://github.com/artylope)
 
 
 Oak & Brass is a Furniture E-Commerce Web App built using Ruby on Rails (v 2.6.3). To set up, download the project and do a bundle install. It is not a real shop. It is a technical demo.
