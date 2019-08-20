@@ -42,6 +42,16 @@ class FurnituresController < ApplicationController
         redirect_to furnitures_path
     end
 
+    def optionajax
+        color = JSON.parse(params[:color])
+        capacity = JSON.parse(params[:capacity])
+        furniture_id = JSON.parse(params[:id])
+        @furniture = Furniture.find(furniture_id).furniture_option.where(color: color, capacity: capacity)
+        respond_to do |format|
+            format.json { render json: @furniture.to_json }
+        end
+    end
+
     private
     def furniture_params
         params.require(:furniture).permit(:name, :price, :category, :img_url)

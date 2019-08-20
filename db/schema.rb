@@ -10,19 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_073817) do
+ActiveRecord::Schema.define(version: 2019_08_19_085043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
-    t.bigint "furniture_id"
+    t.bigint "furniture_option_id"
     t.bigint "user_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["furniture_id"], name: "index_carts_on_furniture_id"
+    t.index ["furniture_option_id"], name: "index_carts_on_furniture_option_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "furniture_options", force: :cascade do |t|
+    t.text "capacity"
+    t.text "color"
+    t.bigint "furniture_id"
+    t.text "image"
+    t.float "price"
+    t.float "width"
+    t.float "height"
+    t.float "length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["furniture_id"], name: "index_furniture_options_on_furniture_id"
   end
 
   create_table "furnitures", force: :cascade do |t|
@@ -36,11 +50,11 @@ ActiveRecord::Schema.define(version: 2019_08_17_073817) do
 
   create_table "furnitures_orders", force: :cascade do |t|
     t.bigint "order_id"
-    t.bigint "furniture_id"
+    t.bigint "furniture_option_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["furniture_id"], name: "index_furnitures_orders_on_furniture_id"
+    t.index ["furniture_option_id"], name: "index_furnitures_orders_on_furniture_option_id"
     t.index ["order_id"], name: "index_furnitures_orders_on_order_id"
   end
 

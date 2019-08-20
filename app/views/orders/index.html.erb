@@ -9,7 +9,7 @@
   <% @orders.each do |order| %>
     <tr>
         <td><%= order.id %></td>
-        <td><%= '%.2f' % (order.furnitures_order.map{|x|x.quantity*x.furniture.price}.sum) %></td>
+        <td><%= '%.2f' % (order.furnitures_order.map{|x|x.quantity*x.furniture_option.price}.sum) %></td>
         <td><%= link_to 'Show', order_path(order) %></td>
     </tr>
   <% end %>

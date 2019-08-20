@@ -3,8 +3,8 @@
   <%= @furniture.name %>
 </p>
 
-<p>
-  <strong>Price:</strong>
+<p><strong>Price:</strong></p><p class="price">
+
   <%= @furniture.price %>
 </p>
 
@@ -15,8 +15,22 @@
 
 <p>
   <strong>Image:</strong><br/>
-  <img src="<%= @furniture.img_url %>" width="200px"/>
+  <img class="furniture_image"src="<%= @furniture.img_url %>" width="200px"/>
 </p>
+<p>
+    <%=select_tag("color", options_for_select(@furniture.furniture_option.map(&:color).uniq), { :class => 'color' })%>
+    <%=select_tag("capacity", options_for_select(@furniture.furniture_option.map(&:capacity).uniq), { :class => 'capacity' })%>
+</p>
+<%= content_tag :div, class: "temp_information", data: {temp: @furniture.id} do %>
+<% end %>
+
+
+<%= form_with scope: :cart, url: carts_path, local: true do |form| %>
+    <%= form.label :quantity%>
+    <%= form.number_field :quantity ,step: 1, min: 1%>
+    <%= form.hidden_field :furniture_option_id, :value => @furniture.furniture_option[0].id  ,class:"furniture_option_id_input"%><input type="submit" value="Add to cart"/>
+<%end%>
+
 
 <%= link_to 'Edit', edit_furniture_path(@furniture) %> |
 <%= link_to 'Back', root_path %>
