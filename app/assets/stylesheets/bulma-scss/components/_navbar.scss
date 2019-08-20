@@ -9,7 +9,7 @@ $navbar-fixed-z: 30 !default;
 
 $navbar-item-color: $grey-dark !default;
 $navbar-item-hover-color: $link !default;
-$navbar-item-hover-background-color: $white-bis !default;
+$navbar-item-hover-background-color: $white;
 $navbar-item-active-color: $black !default;
 $navbar-item-active-background-color: transparent !default;
 $navbar-item-img-max-height: 1.75rem !default;
@@ -25,9 +25,10 @@ $navbar-tab-active-border-bottom-style: solid !default;
 $navbar-tab-active-border-bottom-width: 3px !default;
 
 $navbar-dropdown-background-color: $white !default;
-$navbar-dropdown-border-top: 2px solid $border !default;
+$navbar-dropdown-border-top: none;
 $navbar-dropdown-offset: -4px !default;
-$navbar-dropdown-arrow: $link !default;
+$navbar-dropdown-arrow: $grey-dark !default;
+$navbar-dropdown-arrow-hover: $link !default;
 $navbar-dropdown-radius: $radius-large !default;
 $navbar-dropdown-z: 20 !default;
 
@@ -292,13 +293,14 @@ a.navbar-item,
 .navbar-link:not(.is-arrowless) {
   padding-right: 2.5em;
 
-  &::after {
-    @extend %arrow;
-
-    border-color: $navbar-dropdown-arrow;
-    margin-top: -0.375em;
-    right: 1.125em;
-  }
+  // &::after {
+  //   @extend %arrow;
+  //
+  //   border-color: $navbar-dropdown-arrow;
+  //   margin-top: -0.375em;
+  //   right: 1.125em;
+  //
+  // }
 }
 
 .navbar-dropdown {
