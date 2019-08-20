@@ -10,6 +10,9 @@ Furniture.create(
     :name => 'Lidhult', :price => 1359.00, :category => 'Sofa', :img_url => 'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m')
 Furniture.create(
     :name => 'Vimle', :price => 830.00, :category => 'Sofa', :img_url => 'https://www.ikea.com/PIAimages/0725527_PE734920_S5.JPG?f=l')
+Furniture.create(
+    :name => 'Havsta', :price => 490.00, :category => 'Cabinets', :img_url => 'https://www.ikea.com/PIAimages/0675394_PE718310_S5.JPG?f=l')
+
 
 
 FurnitureOption.destroy_all
@@ -24,3 +27,7 @@ FurnitureOption.create(:capacity => "3-seater", :color => "Gunnared medium grey"
 FurnitureOption.create(:capacity => "4-seater", :color => "Dalstorp multicolor", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0766712_PE753877_S5.JPG?f=l',:price => 1750.00, :width => 235.00, :height => 83, :length => 300)
 FurnitureOption.create(:capacity => "4-seater", :color => "Farsta dark brown", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0579268_PE675219_S5.JPG?f=l',:price => 1750.00, :width => 235.00, :height => 83, :length => 300)
 FurnitureOption.create(:capacity => "4-seater", :color => "Gunnared medium grey", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0579267_PE675221_S5.JPG?f=l',:price => 1830.00, :width => 235.00, :height => 83, :length => 300)
+FurnitureOption.create(:kuan => "with doors", :color => "White", :furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0675394_PE718310_S5.JPG?f=l',:price => 490.00, :width => 47.00, :height => 212.00, :length => 81.00)
+FurnitureOption.create(:kuan => "with doors", :color => "Dark Brown", :furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0626912_PE693102_S5.JPG?f=l',:price => 490.00, :width => 47.00, :height => 212.00, :length => 81.00)
+FurnitureOption.create(:kuan => "w glass-doors", :color => "White", :furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0675391_PE718312_S5.JPG?f=l',:price => 510.00, :width => 47.00, :height => 212.00, :length => 81.00)
+FurnitureOption.create(:kuan => "w glass-doors", :color => "Dark Brown", :furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0626909_PE693101_S5.JPG?f=xxxl',:price => 510.00, :width => 47.00, :height => 212.00, :length => 81.00)

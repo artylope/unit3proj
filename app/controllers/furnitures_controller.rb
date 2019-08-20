@@ -46,9 +46,9 @@ class FurnituresController < ApplicationController
         color = if JSON.parse(params[:color]) == "" then nil else JSON.parse(params[:color]) end
         capacity = if JSON.parse(params[:capacity]) == "" then nil else JSON.parse(params[:capacity]) end
         material = if JSON.parse(params[:material]) == "" then nil else JSON.parse(params[:material]) end
-        type = if JSON.parse(params[:type]) == "" then nil else JSON.parse(params[:type]) end
+        kuan = if JSON.parse(params[:kuan]) == "" then nil else JSON.parse(params[:kuan]) end
         furniture_id = JSON.parse(params[:id])
-        @furniture = Furniture.find(furniture_id).furniture_option.where(color: color, capacity: capacity,material: material,type: type)
+        @furniture = Furniture.find(furniture_id).furniture_option.where(color: color, capacity: capacity,material: material,kuan: kuan)
         respond_to do |format|
             format.json { render json: @furniture.to_json }
         end

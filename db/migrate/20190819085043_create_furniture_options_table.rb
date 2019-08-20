@@ -4,7 +4,7 @@ class CreateFurnitureOptionsTable < ActiveRecord::Migration[5.2]
         t.text :capacity
         t.text :color
         t.text :material
-        t.text :type
+        t.text :kuan
         t.references :furniture
         t.text :image
         t.float :price
