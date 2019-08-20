@@ -11,7 +11,7 @@ Furniture.create(
 Furniture.create(
     :name => 'Vimle', :price => 830.00, :category => 'Sofa', :img_url => 'https://www.ikea.com/PIAimages/0725527_PE734920_S5.JPG?f=l')
 Furniture.create(
-    :name => 'Havsta', :price => 490.00, :category => 'Cabinets', :img_url => 'https://www.ikea.com/PIAimages/0675394_PE718310_S5.JPG?f=l')
+    :name => 'Havsta', :price => 490.00, :category => 'Cabinet', :img_url => 'https://www.ikea.com/PIAimages/0675394_PE718310_S5.JPG?f=l')
 
 
 
