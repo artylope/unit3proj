@@ -77,17 +77,29 @@ Paloma.controller('Furnitures', {
             let itemsArr = []
             items.forEach(x=>itemsArr.push(x))
             if($(this).val() === "name-asc"){
-                itemsArr.sort(function(a,b){
-
-                    return a.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText < b.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText})
+                itemsArr = itemsArr.sort(function(a,b){
+                    if(a.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText < b.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText) { return -1; }
+                    if(a.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText > b.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText) { return 1; }
+                    return 0;
+                   })
+            }else if($(this).val() === "name-dsc"){
+                itemsArr = itemsArr.sort(function(a,b){
+                    if(a.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText > b.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText) { return -1; }
+                    if(a.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText < b.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText) { return 1; }
+                    return 0;
+                   })
+            }else if($(this).val() === "price-asc"){
+                itemsArr = itemsArr.sort(function(a,b){
+                    return parseFloat(a.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[3].innerText.replace( /^\D+/g, ''))-parseFloat(b.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[3].innerText.replace( /^\D+/g, ''))
+                })
+            }else if($(this).val() === "price-dsc"){
+                itemsArr = itemsArr.sort(function(a,b){
+                    return parseFloat(b.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[3].innerText.replace( /^\D+/g, ''))-parseFloat(a.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[3].innerText.replace( /^\D+/g, ''))
+                })
             }
             let mother = document.querySelector(".sort-mother")
-            console.log(mother.childNodes)
-            var child = mother.lastElementChild;
-                while (child) {
-                    mother.removeChild(child);
-                    child = mother.lastElementChild;
-                }
+            mother.innerHTML = ""
+            console.log(mother.innerHTML)
             itemsArr.forEach(x=>mother.appendChild(x))
 
         }
