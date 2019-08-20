@@ -44,7 +44,7 @@ Paloma.controller('Furnitures', {
             // console.log($('.color').val())
             // console.log($('.capacity').val())
             $.ajax({
-                url: `/furnitures/${furniture_id}/optionajax?color="${$('.color').val()}"&capacity="${$('.capacity').val()}"`,
+                url: `/furnitures/${furniture_id}/optionajax?color="${$('.color').val()}"&capacity="${$('.capacity').val()}"&material="${$('.material').val()}"&kuan="${$('.kuan').val()}"`,
                 type: 'GET',
                 dataType: 'json',
 
@@ -61,8 +61,11 @@ Paloma.controller('Furnitures', {
 
 
         }
+        ajaxCall();
         $(".color").change(ajaxCall)
         $(".capacity").change(ajaxCall)
+        $(".material").change(ajaxCall)
+        $(".kuan").change(ajaxCall)
 
   }
 });

@@ -17,10 +17,9 @@
   <strong>Image:</strong><br/>
   <img class="furniture_image"src="<%= @furniture.img_url %>" width="200px"/>
 </p>
-<p>
-    <%=select_tag("color", options_for_select(@furniture.furniture_option.map(&:color).uniq), { :class => 'color' })%>
-    <%=select_tag("capacity", options_for_select(@furniture.furniture_option.map(&:capacity).uniq), { :class => 'capacity' })%>
-</p>
+
+
+<%= render "shared/show_selections", object: @furniture %>
 <%= content_tag :div, class: "temp_information", data: {temp: @furniture.id} do %>
 <% end %>
 

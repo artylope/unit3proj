@@ -3,6 +3,8 @@ class CreateFurnitureOptionsTable < ActiveRecord::Migration[5.2]
     create_table :furniture_options do |t|
         t.text :capacity
         t.text :color
+        t.text :material
+        t.text :kuan
         t.references :furniture
         t.text :image
         t.float :price
