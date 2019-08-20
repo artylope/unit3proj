@@ -10,11 +10,12 @@
     padding: 10px;
 
 
+
     .filter-container{
       background-color: white;
       box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03), 0 1px 2px rgba(102, 119, 136, 0.3);
       border-radius: 5px;
-      padding: 10px;
+      padding: 20px;
     }
   }
 
@@ -55,6 +56,10 @@
     padding: 0px;
     padding-left: 10px;
     padding-top: 10px;
+
+    .filter-container{
+      height: 700px;
+    }
   }
 
   #products-listing{
