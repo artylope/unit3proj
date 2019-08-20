@@ -1,5 +1,77 @@
-@import "../partials/variables.scss";
 
 #products{
+  background: #f5f5f5;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  height: 100%;
+  width: 100%;
 
+  #sidebar-filter{
+    padding: 10px;
+
+
+
+    .filter-container{
+      background-color: white;
+      box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03), 0 1px 2px rgba(102, 119, 136, 0.3);
+      border-radius: 5px;
+      padding: 20px;
+    }
+  }
+
+  #products-listing{
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .columns{
+      flex-wrap: wrap;
+
+      .card{
+        transition: all 0.1s ease;
+
+        &:hover{
+          transform: translateY(-5px);
+          // border: 1px solid rgba(42, 60, 120, 0.5);
+          box-shadow: 0 6px 8px rgba(42, 60, 120, 0.1), 0 1px 2px rgba(42, 60, 120, 0.1);
+        }
+
+        img{
+          overflow: hidden;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+
+      }
+
+    }
+
+  }
+}
+
+
+
+@media (min-width: 1024px) {
+  #sidebar-filter{
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 10px;
+
+    .filter-container{
+      height: 700px;
+    }
+  }
+
+  #products-listing{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero{
+    background: url('https://cdn.shopify.com/s/files/1/1504/1606/collections/Nordik-2018-01-29-033.jpg?v=1519090182');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 400px;
+  }
 }
