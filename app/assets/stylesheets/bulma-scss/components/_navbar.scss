@@ -9,7 +9,7 @@ $navbar-fixed-z: 30 !default;
 
 $navbar-item-color: $grey-dark !default;
 $navbar-item-hover-color: $link !default;
-$navbar-item-hover-background-color: $white;
+$navbar-item-hover-background-color: none;
 $navbar-item-active-color: $black !default;
 $navbar-item-active-background-color: transparent !default;
 $navbar-item-img-max-height: 1.75rem !default;
@@ -526,6 +526,8 @@ a.navbar-item,
     background-color: $navbar-dropdown-background-color;
     border-bottom-left-radius: $navbar-dropdown-radius;
     border-bottom-right-radius: $navbar-dropdown-radius;
+    border-top-left-radius: $navbar-dropdown-radius;
+    border-top-right-radius: $navbar-dropdown-radius;
     border-top: $navbar-dropdown-border-top;
     box-shadow: 0 8px 8px rgba($black, 0.1);
     display: none;

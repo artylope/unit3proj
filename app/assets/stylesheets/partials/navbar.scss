@@ -15,6 +15,7 @@
 
 .navbar-brand{
   font-size: 1.8em;
+  font-weight: bold;
   .navbar-item{
     margin-right: 30px;
   }
@@ -32,7 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $primary;
+    background: $blue;
     border-radius: 50%;
     color: white;
     z-index: 99;

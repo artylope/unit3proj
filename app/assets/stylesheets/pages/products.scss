@@ -1,5 +1,4 @@
 
-
 #products{
   margin-top: 30px;
   height: 100%;
@@ -34,5 +33,18 @@
 
     }
 
+  }
+}
+
+
+
+@media (min-width: 1024px) {
+  .hero{
+    background: url('https://cdn.shopify.com/s/files/1/1504/1606/collections/Nordik-2018-01-29-033.jpg?v=1519090182');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 400px;
   }
 }
