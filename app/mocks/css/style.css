@@ -7020,15 +7020,13 @@ h6 {
 
 /* import pages specific css */
 #products {
-  margin-top: 30px;
+  margin-top: 20px;
   height: 100%;
   width: 100%; }
-  #products #sidebar-filter {
-    padding-left: 10px; }
-    #products #sidebar-filter .filter-container {
-      background-color: #eee;
-      border-radius: 5px;
-      padding: 10px; }
+  #products #sidebar-filter .filter-container {
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 10px; }
   #products #products-listing .columns {
     flex-wrap: wrap; }
     #products #products-listing .columns .card {
