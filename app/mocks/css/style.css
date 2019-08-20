@@ -19,7 +19,7 @@
   -ms-user-select: none;
   user-select: none; }
 
-.select:not(.is-multiple):not(.is-loading)::after {
+.select:not(.is-multiple):not(.is-loading)::after, .navbar-link:not(.is-arrowless)::after {
   border: 3px solid transparent;
   border-radius: 2px;
   border-right: 0;
@@ -4743,6 +4743,10 @@ a.navbar-item,
 
 .navbar-link:not(.is-arrowless) {
   padding-right: 2.5em; }
+  .navbar-link:not(.is-arrowless)::after {
+    border-color: #4a4a4a;
+    margin-top: -0.375em;
+    right: 1.125em; }
 
 .navbar-dropdown {
   font-size: 0.875rem;
@@ -7005,7 +7009,7 @@ h6 {
 
 @media (min-width: 1024px) {
   .navbar-end .navbar-item:last-child {
-    margin-left: 30px; }
+    margin-left: 10px; }
   .cart-count-container {
     position: absolute;
     left: 62px;
