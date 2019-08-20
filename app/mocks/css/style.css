@@ -6978,6 +6978,12 @@ h5,
 h6 {
   font-family: 'Lexend Deca', sans-serif; }
 
+.card {
+  border-radius: 5px;
+  box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03), 0 1px 2px rgba(102, 119, 136, 0.3);
+  box-sizing: border-box;
+  border: 1px transparent; }
+
 .navbar {
   font-family: 'Lexend Deca', sans-serif;
   height: 60px; }
@@ -7038,10 +7044,6 @@ h6 {
     #products #products-listing .columns {
       flex-wrap: wrap; }
       #products #products-listing .columns .card {
-        border-radius: 5px;
-        box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03), 0 1px 2px rgba(102, 119, 136, 0.3);
-        box-sizing: border-box;
-        border: 1px transparent;
         transition: all 0.1s ease; }
         #products #products-listing .columns .card:hover {
           transform: translateY(-5px);
@@ -7068,3 +7070,8 @@ h6 {
     background-size: cover;
     position: relative;
     height: 400px; } }
+
+#product-detail {
+  background: #f5f5f5;
+  padding-top: 50px;
+  padding-bottom: 100px; }

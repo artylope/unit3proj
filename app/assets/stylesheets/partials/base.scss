@@ -13,3 +13,10 @@ body{
 h1,h2,h3,h4,h5,h6{
   font-family: 'Lexend Deca', sans-serif;
 }
+
+.card{
+    border-radius: 5px;
+    box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03), 0 1px 2px rgba(102, 119, 136, 0.3);
+    box-sizing: border-box;
+    border: 1px transparent;
+}
