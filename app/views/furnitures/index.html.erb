@@ -15,32 +15,36 @@
 				<div id="products-listing" class="column is-four-fifths">
 
 					<div class="container">
-
-						<div class="columns is-variable is-2 is-desktop is-mobile">
+                        <select class="sort-by">
+                            <option>Sort by</option>
+                            <option value="name-asc">Name A-Z</option>
+                        </select>
+						<div class="columns is-variable is-2 is-desktop is-mobile sort-mother">
 							<!-- is-1 defines the gap of the rows -->
 
-							<% @furnitures.each do |furniture| %>
 
-								<div class="column is-one-third-desktop is-one-third-tablet is-half-mobile">
+    							<% @furnitures.each do |furniture| %>
 
-									<div class="card">
-										<a href="<%="./furnitures/" + furniture.id.to_s%>">
-											<div class="card-image">
-												<figure class="image is-4by3">
-													<img src="<%= furniture.img_url %>" alt="">
-												</figure>
-											</div>
-											<div class="card-content">
-												<div class="content">
-													<h3><%= furniture.name %></h3>
-													<p class="price">$<%= '%.2f' % furniture.price %></p>
-												</div>
-											</div>
-										</a>
-									</div>
-								</div>
+    								<div class="column is-one-third-desktop is-one-third-tablet is-half-mobile for-sort">
 
-							<% end %>
+    									<div class="card">
+    										<a href="<%="./furnitures/" + furniture.id.to_s%>">
+    											<div class="card-image">
+    												<figure class="image is-4by3">
+    													<img src="<%= furniture.img_url %>" alt="">
+    												</figure>
+    											</div>
+    											<div class="card-content">
+    												<div class="content">
+    													<h3><%= furniture.name %></h3>
+    													<p class="price">$<%= '%.2f' % furniture.price %></p>
+    												</div>
+    											</div>
+    										</a>
+    									</div>
+    								</div>
+
+    							<% end %>
 
 						</div>
 

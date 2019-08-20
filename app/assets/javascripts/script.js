@@ -67,5 +67,32 @@ Paloma.controller('Furnitures', {
         $(".material").change(ajaxCall)
         $(".kuan").change(ajaxCall)
 
-  }
+    },
+    index: function(){
+
+
+        const doSort = function(){
+            console.log("TEST")
+            let items = document.querySelectorAll(".for-sort");
+            let itemsArr = []
+            items.forEach(x=>itemsArr.push(x))
+            if($(this).val() === "name-asc"){
+                itemsArr.sort(function(a,b){
+
+                    return a.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText < b.childNodes[1].childNodes[1].childNodes[3].childNodes[1].childNodes[1].innerText})
+            }
+            let mother = document.querySelector(".sort-mother")
+            console.log(mother.childNodes)
+            var child = mother.lastElementChild;
+                while (child) {
+                    mother.removeChild(child);
+                    child = mother.lastElementChild;
+                }
+            itemsArr.forEach(x=>mother.appendChild(x))
+
+        }
+
+        $(".sort-by").change(doSort)
+    }
+
 });
