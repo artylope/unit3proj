@@ -1,3 +1,6 @@
+/* import bulma-scss */
+@import "../../assets/stylesheets/bulma-scss/bulma.scss";
+
 /* import common partials specific css */
 @import "../../assets/stylesheets/partials/base.scss";
 @import "../../assets/stylesheets/partials/navbar.scss";
@@ -7,7 +10,3 @@
 @import "../../assets/stylesheets/pages/product_detail.scss";
 @import "../../assets/stylesheets/pages/cart.scss";
 @import "../../assets/stylesheets/pages/users.scss";
-
-body{
-  background: red;
-}

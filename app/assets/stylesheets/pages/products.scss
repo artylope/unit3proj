@@ -1,5 +1,38 @@
-@import "../partials/variables.scss";
+
 
 #products{
+  margin-top: 30px;
+  height: 100%;
+  width: 100%;
 
+  #sidebar-filter{
+    padding-left: 10px;
+
+    .filter-container{
+      background-color: #eee;
+      border-radius: 5px;
+      padding: 10px;
+    }
+  }
+
+  #products-listing{
+
+    .columns{
+      flex-wrap: wrap;
+
+      .card{
+        border-radius: 5px;
+        box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03), 0 1px 2px rgba(102, 119, 136, 0.3);
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+
+        &:hover{
+          transform: translateY(-5px);
+        }
+
+      }
+
+    }
+
+  }
 }
