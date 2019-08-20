@@ -6,13 +6,13 @@
   i{
     margin-right: 5px;
   }
-}
 
+}
 
 .cart-count-container{
   position: absolute;
-  left: 55px;
-  top: 8px;
+  left: 75px;
+  top: 10px;
 
 
   .cart-count{
@@ -21,10 +21,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: red;
+    background: $primary;
     border-radius: 50%;
     color: white;
     z-index: 99;
     font-size: 10px;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .navbar-end{
+    .navbar-item{
+      &:last-child{
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .cart-count-container{
+    position: absolute;
+    left: 62px;
+    top: 8px;
   }
 }
