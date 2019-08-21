@@ -1,3 +1,7 @@
+<section class="hero">
+        <%= render "shared/navbar", :locales => {:carts => @carts}  %>
+</section>
+
 <p>
   <strong>Name:</strong>
   <%= @furniture.name %>
@@ -31,5 +35,4 @@
 <%end%>
 
 
-<%= link_to 'Edit', edit_furniture_path(@furniture) %> |
 <%= link_to 'Back', root_path %>

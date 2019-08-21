@@ -1,5 +1,6 @@
 class FurnituresController < ApplicationController
     def index
+        @carts = Cart.all
         if params.key? ("category")
             @furnitures = Furniture.where(category:params[:category].titleize)
         elsif params.key? ("main_category")
@@ -7,6 +8,7 @@ class FurnituresController < ApplicationController
         else
             @furnitures = Furniture.all
         end
+
     end
 
     def new
@@ -23,6 +25,7 @@ class FurnituresController < ApplicationController
     end
 
     def show
+        @carts = Cart.all
         @furniture = Furniture.find(params[:id])
     end
 

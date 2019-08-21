@@ -1,8 +1,8 @@
 <%# this renders the navbar %>
 
 	<section class="hero">
-		<%= render "shared/navbar", object: @furnitures %>
-	</section>
+        <%= render "shared/navbar", :locales => {:carts => @carts}  %>
+</section>
 
 	<section id="products">
 		<div class="container is-fluid">
