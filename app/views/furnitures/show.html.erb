@@ -61,7 +61,7 @@
                         <button class="button" id="qty-add-1"><i class='bx bx-plus'></i></button>
                       </div>
 
-                      <div class="product-add-to-cart">
+                      <div class="product-add-to-cart" id="product-add-to-cart">
                         <button class="button is-large is-primary add-to-cart-button" id="add-to-cart-button">Add to Cart</button>
                       </div>
 
@@ -84,12 +84,13 @@
 
   //clicking on add and minus modifiers affects the quantity value
 
-  let prodQty = document.getElementById('quantity-input').value;
+  let prodQty = document.querySelector('#quantity-input').value;
   prodQty = parseInt(prodQty);
   console.log('prod quantity ' + prodQty);
-  let addOne = document.getElementById('qty-add-1');
-  let minusOne =document.getElementById('qty-minus-1');
+  let addOne = document.querySelector('#qty-add-1');
+  let minusOne = document.querySelector('#qty-minus-1');
   let addToCart = document.querySelector('#add-to-cart-button');
+  let addToCartSection = document.querySelector('#product-add-to-cart')
 
   //clicking on add , adds 1 to qty
 
@@ -120,5 +121,40 @@
   })
 
 
+  //clicking on add to cart, do a plus 1 animation
+  addToCart.addEventListener('click', function(){
+    console.log('click');
+    addToCart.classList.add("is-loading");
+
+    let cartAddedStatus = false;
+
+    setTimeout(function(){
+      cartAddedStatus = true;
+
+
+      //if true, do this animation
+      if(cartAddedStatus ===true ){
+
+        addToCart.classList.remove("is-loading");
+        var plusOne = document.createElement("div");
+        plusOne.innerText = "+1";
+        plusOne.classList.add("cart-plus-one");
+        addToCartSection.appendChild(plusOne);
+        console.log('added');
+        setTimeout(function(){
+          plusOne.remove();
+        }, 500);
+
+      } else {
+
+        addToCart.classList.remove("is-loading");
+        console.log('not added');
+      }
+
+
+    }, 1000);
+
+
+  })
 
 </script>
