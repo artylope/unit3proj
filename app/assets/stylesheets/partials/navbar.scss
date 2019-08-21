@@ -27,35 +27,44 @@ $blue: #2A3C78;
   position: absolute;
   left: 75px;
   top: 10px;
+}
 
+.wish-count-container{
+  position: absolute;
+  left: 95px;
+  top: 10px;
+}
 
-  .cart-count{
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $blue;
-    border-radius: 50%;
-    color: white;
-    z-index: 99;
-    font-size: 10px;
-  }
+.count{
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $blue;
+  border-radius: 50%;
+  color: white;
+  z-index: 99;
+  font-size: 10px;
 }
 
 
 @media (min-width: 1024px) {
   .navbar-end{
     .navbar-item{
-      &:last-child{
-        margin-left: 10px;
-      }
+        margin-left: 20px;
     }
   }
 
   .cart-count-container{
     position: absolute;
     left: 62px;
+    top: 8px;
+  }
+
+  .wish-count-container{
+    position: absolute;
+    left: 90px;
     top: 8px;
   }
 }
