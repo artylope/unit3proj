@@ -1,7 +1,7 @@
 <section class="hero">
         <%= render "shared/navbar", :locales => {:carts => @carts}  %>
 </section>
-
+<%= render "shared/cart_modal" %>
 <p>
   <strong>Name:</strong>
   <%= @furniture.name %>

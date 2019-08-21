@@ -1,0 +1,23 @@
+<div class="modal">
+
+        <%= form_with scope: :order, url: orders_path ,local: true do |form| %>
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                  <p class="modal-card-title">Modal title</p>
+                  <button class="delete" id="modal-x-button"aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <table>
+
+
+                    </table>
+                </section>
+                <footer class="modal-card-foot">
+                    <%= form.submit "Checkout", class:"button is-success"%>
+                    <button class="button" id="modal-cancel-button">Cancel</button>
+                </footer>
+            </div>
+        <% end %>
+
+</div>

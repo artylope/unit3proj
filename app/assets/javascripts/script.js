@@ -88,6 +88,61 @@ Paloma.controller('Furnitures', {
             })
         })
 
+        //FOR MODAL///////////////////////////////
+
+        const togglingOn = function(){
+            $(".modal").addClass("is-active")
+
+            $.ajax({
+                url: `/carts`,
+                type: 'GET',
+                dataType: 'json',
+
+                success: function(data, textStatus, xhr) {
+                    console.log(data)
+
+                    $("table").html("")
+                    $("table").append(`<tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th></th>
+                      </tr>`)
+                    data.forEach(x=>{
+                        $("tbody").append(`
+                            <tr>
+                                <td><input type="checkbox" name="selected_cart_ids[]" value="${x.cart_id}"/></td>
+                                <td>${x.furniture_name}</td>
+                                <td>${x.price.toFixed(2)}</td>
+                                <td>${x.category}</td>
+                                <td><img src="${x.image}" style="width:200px;"/</td>
+                                <td>${x.quantity}</td>
+                                <td>${(x.quantity*x.price).toFixed(2)}</td>
+                                <td><div class="cart-delete">Delete<input value="${x.cart_id}"hidden/></div></td>
+                            </tr>
+                            `)
+                    })
+
+
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log('Error in Database');
+                }
+            })
+        }
+
+        const togglingOff = function(){
+            $(".modal").removeClass("is-active")
+        }
+        $(".cart-modal").click(togglingOn)
+        $("#modal-cancel-button").click(togglingOff)
+        $("#modal-x-button").click(togglingOff)
+        /////////////////////////////////////////
+
     },
     index: function(){
 
@@ -126,6 +181,59 @@ Paloma.controller('Furnitures', {
         }
 
         $(".sort-by").change(doSort)
+
+        //FOR MODAL///////////////////////////////
+        const togglingOn = function(){
+            $(".modal").toggle()
+            $.ajax({
+                url: `/carts`,
+                type: 'GET',
+                dataType: 'json',
+
+                success: function(data, textStatus, xhr) {
+                    console.log(data)
+
+                    $("table").html("")
+                    $("table").append(`<tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th></th>
+                      </tr>`)
+                    data.forEach(x=>{
+                        $("tbody").append(`
+                            <tr>
+                                <td><input type="checkbox" name="selected_cart_id" value="${x.cart_id}"/></td>
+                                <td>${x.furniture_name}</td>
+                                <td>${x.price.toFixed(2)}</td>
+                                <td>${x.category}</td>
+                                <td><img src="${x.image}" style="width:200px;"/</td>
+                                <td>${x.quantity}</td>
+                                <td>${(x.quantity*x.price).toFixed(2)}</td>
+                                <td>Delete</td>
+                            </tr>
+                            `)
+                    })
+
+
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log('Error in Database');
+                }
+            })
+        }
+
+        const togglingOff = function(){
+            $(".modal").toggle()
+        }
+        $(".cart-modal").click(togglingOn)
+        $("#modal-cancel-button").click(togglingOff)
+        $("#modal-x-button").click(togglingOff)
+        /////////////////////////////////////////
     }
 
 });

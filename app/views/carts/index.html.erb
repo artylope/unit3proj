@@ -1,36 +1,4 @@
 <h1>Cart</h1>
 
-<%= form_with scope: :order, url: orders_path, local: true do |form| %>
-    <table>
-      <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Image</th>
-        <th>Quantity</th>
-        <th>Total Price</th>
-        <th></th>
-      </tr>
-      <% @carts.each do |cart| %>
 
-        <tr>
-            <td><%=form.check_box :selected_cart_id, { multiple: true }, cart.id ,nil%></td>
-            <td><%= cart.furniture_option.furniture.name %></td>
-            <td><%= '%.2f' % cart.furniture_option.price %></td>
-            <td><%= cart.furniture_option.furniture.category %></td>
-            <td><img src="<%= cart.furniture_option.image %>" width="300px"/></td>
-            <td><%= cart.quantity %></td>
-            <td><%= '%.2f' % (cart.quantity*cart.furniture_option.price) %></td>
-            <td><%= link_to 'Delete', cart_path(cart),
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-
-
-    </table>
-    <%= form.submit "Check out", data: { confirm: 'Confirm purchase?' }%>
-    <%= link_to 'Back to main', root_path %>
-<% end %>
 

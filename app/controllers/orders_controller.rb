@@ -5,7 +5,13 @@ class OrdersController < ApplicationController
 
 
     def create
-        @carts = Cart.where(user_id: current_user.id).where(id: params[:order][:selected_cart_id])
+        puts "//////////////////////////////"
+        p params[:selected_cart_id]
+        @carts = Cart.where(user_id: current_user.id).where(id: params[:selected_cart_ids])
+        p @carts
+        puts "//////////////////////////////"
+
+
         @order = Order.new
         @order.user_id = current_user.id
         @order.total_price = @carts.map{|x|x.quantity*x.furniture_option.price}.sum
@@ -28,7 +34,7 @@ class OrdersController < ApplicationController
 
     private
     def furniture_params
-        params.require(:order).permit(:selected_cart_id)
+        params.require(:order).permit(:selected_cart_ids)
     end
 
 
