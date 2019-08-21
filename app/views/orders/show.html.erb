@@ -8,8 +8,7 @@
         <th>Price</th>
         <th>Category</th>
         <th>Image</th>
-        <th>Capacity</th>
-        <th>Color</th>
+        <th>Option</th>
         <th>Quantity</th>
         <th>Total Price</th>
 
@@ -17,20 +16,23 @@
     <% total = 0%>
     <% @order.furnitures_order.each do |order| %>
 
-
+    <%  arr = [order.furniture_option.color,order.furniture_option.capacity,order.furniture_option.material,order.furniture_option.kuan]
+        arr = arr.compact.join(", ")
+    %>
     <tr>
         <td><%= order.furniture_option.furniture.name %></td>
         <td><%= '%.2f' % order.furniture_option.price %></td>
         <td><%= order.furniture_option.furniture.category %></td>
         <td><img src="<%= order.furniture_option.image %>" width="300px"/></td>
-        <td><%= order.furniture_option.capacity%></td>
-        <td><%= order.furniture_option.color%></td>
+        <td><%= arr %></td>
         <td><%= order.quantity %></td>
         <td><%= '%.2f' % (order.quantity*order.furniture_option.price) %></td>
         <%total = total + order.quantity*order.furniture_option.price%>
     </tr>
 
     <% end %>
+    <td></td>
+    <td></td>
     <td></td>
     <td></td>
     <td></td>
