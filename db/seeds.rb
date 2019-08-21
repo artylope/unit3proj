@@ -6,25 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Furniture.create(
-    :name => 'Lidhult', :price => 1359.00, :category => 'Sofa', :img_url => 'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m')
+    :name => 'Lidhult', :price => 1359.00, :category => 'Sofa', :img_url => 'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m')#1
 Furniture.create(
-    :name => 'Vimle', :price => 830.00, :category => 'Sofa', :img_url => 'https://www.ikea.com/PIAimages/0725527_PE734920_S5.JPG?f=l')
+    :name => 'Vimle', :price => 830.00, :category => 'Sofa', :img_url => 'https://www.ikea.com/PIAimages/0725527_PE734920_S5.JPG?f=l')#2
 Furniture.create(
-    :name => 'Havsta', :price => 490.00, :category => 'Cabinet', :img_url => 'https://www.ikea.com/PIAimages/0675394_PE718310_S5.JPG?f=l')
+    :name => 'Havsta', :price => 490.00, :category => 'Cabinet', :img_url => 'https://www.ikea.com/PIAimages/0675394_PE718310_S5.JPG?f=l')#3
 Furniture.create(
-    :name => 'Seppo', :price => 69.00, :category => 'Lighting', :img_url => 'https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/5/7/a/5/57a5d2a7192cee997f6c2d9ce8b07f35f9349b99_CLPSEP011WHT_UK_Seppo_Ceiling_Bar_White_LB01_ctr.jpg')
+    :name => 'Seppo', :price => 69.00, :category => 'Lighting', :img_url => 'https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/5/7/a/5/57a5d2a7192cee997f6c2d9ce8b07f35f9349b99_CLPSEP011WHT_UK_Seppo_Ceiling_Bar_White_LB01_ctr.jpg')#4
 Furniture.create(
-    :name => 'Roscoe', :price => 399.00, :category => 'Bed', :img_url => 'https://res.cloudinary.com/made-com/image/upload/c_pad,d_made.svg,f_auto,w_265,dpr_1.0,q_auto:best/v4/catalog/product/catalog/a/7/5/9/a759a58dcbf37c72cb0c0a4ba630c8c5275e61ee_BEDROS008BLU_UK_Roscoe_Super_Kingsize_Bed_Aegean_Blue_PL.jpg')
+    :name => 'Roscoe', :price => 399.00, :category => 'Bed', :img_url => 'https://res.cloudinary.com/made-com/image/upload/c_pad,d_made.svg,f_auto,w_265,dpr_1.0,q_auto:best/v4/catalog/product/catalog/a/7/5/9/a759a58dcbf37c72cb0c0a4ba630c8c5275e61ee_BEDROS008BLU_UK_Roscoe_Super_Kingsize_Bed_Aegean_Blue_PL.jpg')#5
 Furniture.create(
-    :name => 'Lule', :price => 279.00, :category => 'Chair', :img_url => 'https://res-3.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/a/0/0/b/a00bf5ff56192470aa87ddd1a5c743e744ddae20_CHALLE025GRE_UK_Setof2_Lule_High_Back_Carver_Dining_Chairs_Pine_Green_velvet_Oak_LB01.jpg')
+    :name => 'Lule', :price => 279.00, :category => 'Chair', :img_url => 'https://res-3.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/a/0/0/b/a00bf5ff56192470aa87ddd1a5c743e744ddae20_CHALLE025GRE_UK_Setof2_Lule_High_Back_Carver_Dining_Chairs_Pine_Green_velvet_Oak_LB01.jpg')#6
 Furniture.create(
-    :name => 'Lomond', :price => 599.00, :category => 'Table', :img_url => 'https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/6/8/3/e/683e8e8bb0f0f17ab7c2a0ed341dd5f3570e3857_SETLOM032GRY_UK_Lomond_Dining_table_bench_set_Grey_wash_and_Black_LB01.jpg')
+    :name => 'Lomond', :price => 599.00, :category => 'Table', :img_url => 'https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/6/8/3/e/683e8e8bb0f0f17ab7c2a0ed341dd5f3570e3857_SETLOM032GRY_UK_Lomond_Dining_table_bench_set_Grey_wash_and_Black_LB01.jpg')#7
 Furniture.create(
-    :name => 'Julius', :price => 29.00, :category => 'Cushion', :img_url => 'https://res-4.cloudinary.com/made-com/image/upload/b_auto,c_pad,h_550,w_2100/c_crop,g_auto,h_550,w_1050,d_made.svg,dpr_1.0,q_auto:best,f_auto/v4/catalog/product/asset/d/a/d/4/dad446943eca358d443a9dceeefa41c1f91e39af_CUSJUL005BLU_UK_Julius_Setof2_Velvet_Cushions_45x45cm_Ink_Blue_LB01.jpg')
+    :name => 'Julius', :price => 29.00, :category => 'Cushion', :img_url => 'https://res-4.cloudinary.com/made-com/image/upload/b_auto,c_pad,h_550,w_2100/c_crop,g_auto,h_550,w_1050,d_made.svg,dpr_1.0,q_auto:best,f_auto/v4/catalog/product/asset/d/a/d/4/dad446943eca358d443a9dceeefa41c1f91e39af_CUSJUL005BLU_UK_Julius_Setof2_Velvet_Cushions_45x45cm_Ink_Blue_LB01.jpg')#8
 Furniture.create(
-    :name => 'Jago', :price => 199.00, :category => 'Rug', :img_url => 'https://res-3.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/2/2/c/a/22caf895a7a02d7ecc463d24f9ce3200d8222bb8_RUGJAG018BLU_UK_Jago_Rug_200cm_diam_Teal_LB01.jpg')
+    :name => 'Jago', :price => 199.00, :category => 'Rug', :img_url => 'https://res-3.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/2/2/c/a/22caf895a7a02d7ecc463d24f9ce3200d8222bb8_RUGJAG018BLU_UK_Jago_Rug_200cm_diam_Teal_LB01.jpg')#9
 Furniture.create(
-    :name => 'Lilo', :price => 18.00, :category => 'Decor', :img_url => 'https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/d/9/8/4/d98428cfb9c594e33a7fcecfa9c52c173b2c05e1_BTALIL005ZBR_UK_Lilo_Soap_Dispenser_Tumbler_Set_Brushed_Brass_LB01.jpg')
+    :name => 'Lilo', :price => 18.00, :category => 'Decor', :img_url => 'https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/d/9/8/4/d98428cfb9c594e33a7fcecfa9c52c173b2c05e1_BTALIL005ZBR_UK_Lilo_Soap_Dispenser_Tumbler_Set_Brushed_Brass_LB01.jpg')#10
 
 
 
@@ -100,6 +100,7 @@ FurnituresMainCategory.create(:furniture_id => 5, :main_category_id => 1)
 FurnituresMainCategory.create(:furniture_id => 5, :main_category_id => 4)
 FurnituresMainCategory.create(:furniture_id => 6, :main_category_id => 1)
 FurnituresMainCategory.create(:furniture_id => 6, :main_category_id => 4)
+FurnituresMainCategory.create(:furniture_id => 6, :main_category_id => 5)
 FurnituresMainCategory.create(:furniture_id => 6, :main_category_id => 7)
 FurnituresMainCategory.create(:furniture_id => 6, :main_category_id => 8)
 FurnituresMainCategory.create(:furniture_id => 7, :main_category_id => 1)
