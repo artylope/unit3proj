@@ -3,4 +3,142 @@
   background: #f5f5f5;
   padding-top: 50px;
   padding-bottom: 100px;
+
+  .product-images-all{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+    .product-image-main{
+      img{
+
+      }
+
+    }
+
+    .product-image-selector{
+      img{
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        overflow: hidden;
+        border: 1px solid #eee;
+      }
+    }
+
+
+  }
+
+  .product-info-container{
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 50px;
+
+    .product-info-base{
+      margin-top: 10px;
+      margin-bottom: 30px;
+
+      h1{
+        font-size: 2.4em;
+      }
+
+      h2{
+        font-size: 1.8em;
+      }
+
+    }
+
+    .product-options{
+      margin-top: 10px;
+      margin-bottom: 30px;
+
+      .each-product-option{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        &:first-child{
+          margin-top: 0px;
+        }
+
+        &:last-child{
+          margin-bottom: 0px;
+        }
+
+        .option-label{
+          font-weight: 400;
+          width: 80px;
+        }
+
+
+        .button{
+          margin-right: 5px;
+
+          &:first-child{
+            margin-left: 0px;
+          }
+
+          &:last-child{
+            margin-right: 0px;
+          }
+        }
+
+        .swatch{
+          display: inline-block;
+          margin-right: 10px;
+          width: 30px;
+          height:30px;
+          border-radius: 2px;
+          background: #eee;
+
+          &:first-child{
+            margin-left: 0px;
+          }
+
+          &:last-child{
+            margin-right: 0px;
+          }
+        }
+
+      }
+
+    }
+
+
+
+    .product-qty{
+      margin-top: 10px;
+      margin-bottom: 20px;
+
+      .qty-label{
+          font-weight: 400;
+          width: 80px;
+        }
+
+      .input{
+        display: inline-block;
+        width: 50px;
+      }
+
+    }
+
+    .product-add-to-cart{
+      margin-top: 10px;
+
+    }
+
+  }
+
+
+
+
 }
