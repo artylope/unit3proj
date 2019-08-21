@@ -53,7 +53,7 @@ Paloma.controller('Furnitures', {
                 success: function(data, textStatus, xhr) {
                     console.log(data[0].image)
                     $(".furniture_image").attr("src",data[0].image)
-                    $(".price").text(data[0].price)
+                    $(".price").text("$"+data[0].price.toFixed(2))
                     $(".furniture_option_id_input").val(data[0].id)
                     console.log("done")
                 },
