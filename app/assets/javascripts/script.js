@@ -38,24 +38,32 @@ $(document).ready(function(){
 
 Paloma.controller('Furnitures', {
     show: function(){
+        let color = null
+        let capacity = null
+        let kuan = null
+        let material = null
 
         let furniture_id = $('.temp_information').data('temp')
     // Executes when Rails Users#new is executed.
-        const ajaxCall = function(e){
-
-            // console.log($('.color').val())
-            // console.log($('.capacity').val())
+        const ajaxCallInitial = function(e){
+            //START FROM HERE
+            color = $(".color-initial").val()
+            capacity = $(".capacity-initial").val()
+            kuan = $(".kuan-initial").val()
+            material = $(".material-initial").val()
             $.ajax({
-                url: `/furnitures/${furniture_id}/optionajax?color="${$('.color').val()}"&capacity="${$('.capacity').val()}"&material="${$('.material').val()}"&kuan="${$('.kuan').val()}"`,
+                url: `/furnitures/${furniture_id}/optionajax?color="${color}"&capacity="${capacity}"&material="${material}"&kuan="${kuan}"`,
                 type: 'GET',
                 dataType: 'json',
 
                 success: function(data, textStatus, xhr) {
-                    console.log(data[0].image)
+                    console.log(data)
                     $(".furniture_image").attr("src",data[0].image)
                     $(".price").text("$"+data[0].price.toFixed(2))
                     $(".furniture_option_id_input").val(data[0].id)
                     console.log("done")
+
+
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     console.log('Error in Database');
@@ -64,12 +72,50 @@ Paloma.controller('Furnitures', {
 
 
         }
-        ajaxCall();
-        $(".color").change(ajaxCall)
-        $(".capacity").change(ajaxCall)
-        $(".material").change(ajaxCall)
-        $(".kuan").change(ajaxCall)
 
+        const ajaxCall = function(){
+            color = event.target.getAttribute("name") === "color"? event.target.getAttribute("value") : color;
+            capacity = event.target.getAttribute("name") === "capacity"? event.target.getAttribute("value") : capacity;
+            material = event.target.getAttribute("name") === "material"? event.target.getAttribute("value") : material;
+            kuan = event.target.getAttribute("name") === "kuan"? event.target.getAttribute("value") : kuan;
+            $.ajax({
+                url: `/furnitures/${furniture_id}/optionajax?color="${color}"&capacity="${capacity}"&material="${material}"&kuan="${kuan}"`,
+                type: 'GET',
+                dataType: 'json',
+
+                success: function(data, textStatus, xhr) {
+                    console.log(data)
+                    $(".furniture_image").attr("src",data[0].image)
+                    $(".price").text("$"+data[0].price.toFixed(2))
+                    $(".furniture_option_id_input").val(data[0].id)
+                    console.log("done")
+
+
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log('Error in Database');
+                }
+            })
+
+
+        }
+        ajaxCallInitial();
+        $(".color").each(function(){
+            let x = this
+            x.addEventListener("click",ajaxCall)
+        })
+        $(".capacity").each(function(){
+            let x = this
+            x.addEventListener("click",ajaxCall)
+        })
+        $(".material").each(function(){
+            let x = this
+            x.addEventListener("click",ajaxCall)
+        })
+        $(".kuan").each(function(){
+            let x = this
+            x.addEventListener("click",ajaxCall)
+        })
         $(".add-to-cart-button").click(function(){
             $.ajax({
                 url: `/carts`,

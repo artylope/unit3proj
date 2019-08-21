@@ -8,7 +8,7 @@
         <ul>
           <li><%= link_to 'Home', root_path %></li>
           <li><a href="#"><%= @furniture.category %></a></li>
-          <li class="is-active" aria-current="page"><a href="#"><%= @furniture.name %></li>
+          <li class="is-active" aria-current="page"><a href="#"><%= @furniture.name %></a></li>
         </ul>
       </nav>
 
@@ -22,7 +22,7 @@
                   <div class="product-images-all">
 
                     <div class="product-image-main">
-                      <img src="<%= @furniture.img_url %>"/>
+                      <img class="furniture_image"src="<%= @furniture.img_url %>"/>
                     </div>
 
                     <div class="product-image-selector">
@@ -41,18 +41,14 @@
                         <p><%= @furniture.category %></p>
                         <h1><%= @furniture.name %></h1>
                         <p>Lorem ipsum cupcake bbacon very nice</p>
-                        <h2 class="price">$$<%= '%.2f' % @furniture.price %></h2>
+                        <h2 class="price">$<%= '%.2f' % @furniture.price %></h2>
                         <button>Add to wishlist</button>
                       </div>
 
                       <div class="product-options">
                         <%= render "shared/show_selections", object: @furniture %>
-                        <%= content_tag :div, class: "temp_information", data: {temp: @furniture.id} do %>
-                        <% end %>
-                        <!-- <div class="each-product-option"><span class="option-label">Colour</span> <div class="swatch"></div><div class="swatch"></div><div class="swatch"></div></div>
-                        <div class="each-product-option"><span class="option-label">Material</span> <div class="swatch"></div><div class="swatch"></div><div class="swatch"></div></div>
-                        <div class="each-product-option"><span class="option-label">Type</span> <button class="button is-small">Type 1</button><button class="button is-small">Type 2</button></div> -->
                       </div>
+
 
                       <div class="product-qty">
                         <span class="qty-label">Quantity</span>
@@ -76,6 +72,8 @@
 
         </div>
       </div>
+      <%= content_tag :div, class: "temp_information", data: {temp: @furniture.id} do %>
+                        <% end %>
   </section>
 
 
