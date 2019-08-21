@@ -32,11 +32,13 @@ if ($navbarBurgers.length > 0) {
 
 
 $(document).ready(function(){
-  Paloma.start();
+
+    Paloma.start();
 });
 
 Paloma.controller('Furnitures', {
     show: function(){
+
         let furniture_id = $('.temp_information').data('temp')
     // Executes when Rails Users#new is executed.
         const ajaxCall = function(e){
@@ -53,6 +55,7 @@ Paloma.controller('Furnitures', {
                     $(".furniture_image").attr("src",data[0].image)
                     $(".price").text(data[0].price)
                     $(".furniture_option_id_input").val(data[0].id)
+                    console.log("done")
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     console.log('Error in Database');
@@ -66,6 +69,24 @@ Paloma.controller('Furnitures', {
         $(".capacity").change(ajaxCall)
         $(".material").change(ajaxCall)
         $(".kuan").change(ajaxCall)
+
+        $(".add-to-cart-button").click(function(){
+            $.ajax({
+                url: `/carts`,
+                type: 'POST',
+                data:{quantity:$("#quantity-input").val(),furniture_option_id :$(".furniture_option_id_input").val()},
+                dataType: 'json',
+
+                success: function(data, textStatus, xhr) {
+                    console.log("POST TO CART DONE")
+                    console.log($(".cart-count").text())
+                    $(".cart-count").text(parseInt($(".cart-count").text())+1)
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log('Error in Database');
+                }
+            })
+        })
 
     },
     index: function(){
