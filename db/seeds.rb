@@ -29,21 +29,23 @@ Furniture.create(
 
 
 
-FurnitureOption.create(:capacity => "2-seater", :color => "Beige", :color_code =>"d5c7b7", :furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m',:price => 1359.00, :width => 208.00, :height => 102, :length => 200)
-FurnitureOption.create(:capacity => "3-seater", :color => "Beige", :color_code =>"d5c7b7",:furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0620132_PE689443_S5.JPG?f=m',:price => 2059.00, :width => 208.00, :height => 102, :length => 300)
-FurnitureOption.create(:capacity => "2-seater", :color => "Blue", :color_code =>"74979d",:furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0619131_PE688941_S5.JPG?f=m',:price => 1359.00, :width => 208.00, :height => 102, :length => 200)
-FurnitureOption.create(:capacity => "3-seater", :color => "Blue", :color_code =>"74979d",:furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0620129_PE689440_S5.JPG?f=m',:price => 2059.00, :width => 208.00, :height => 102, :length => 300)
+FurnitureOption.create(:capacity => "2-seater", :color => "Beige", :color_code =>"d5c7b7", :furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0619145_PE688945_S5.JPG?f=m',:price => 1359.00, :width => 208.00, :height => 102, :length => 200)#1
+FurnitureOption.create(:capacity => "3-seater", :color => "Beige", :color_code =>"d5c7b7",:furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0620132_PE689443_S5.JPG?f=m',:price => 2059.00, :width => 208.00, :height => 102, :length => 300)#2
+FurnitureOption.create(:capacity => "2-seater", :color => "Blue", :color_code =>"74979d",:furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0619131_PE688941_S5.JPG?f=m',:price => 1359.00, :width => 208.00, :height => 102, :length => 200)#3
+FurnitureOption.create(:capacity => "3-seater", :color => "Blue", :color_code =>"74979d",:furniture_id => 1, :image =>'https://www.ikea.com/PIAimages/0620129_PE689440_S5.JPG?f=m',:price => 2059.00, :width => 208.00, :height => 102, :length => 300)#4
 
-FurnitureOption.create(:capacity => "3-seater", :color => "Dalstorp multicolor", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0725527_PE734920_S5.JPG?f=l',:price => 830.00, :width => 241.00, :height => 83, :length => 211)
-FurnitureOption.create(:capacity => "3-seater", :color => "Farsta dark brown", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0514392_PE639462_S5.JPG?f=l',:price => 880.00, :width => 241.00, :height => 83, :length => 300)
-FurnitureOption.create(:capacity => "3-seater", :color => "Gunnared medium grey", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0514368_PE639441_S5.JPG?f=l',:price => 850.00, :width => 241.00, :height => 83, :length => 200)
-FurnitureOption.create(:capacity => "4-seater", :color => "Dalstorp multicolor", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0766712_PE753877_S5.JPG?f=l',:price => 1750.00, :width => 235.00, :height => 83, :length => 300)
-FurnitureOption.create(:capacity => "4-seater", :color => "Farsta dark brown", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0579268_PE675219_S5.JPG?f=l',:price => 1750.00, :width => 235.00, :height => 83, :length => 300)
-FurnitureOption.create(:capacity => "4-seater", :color => "Gunnared medium grey", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0579267_PE675221_S5.JPG?f=l',:price => 1830.00, :width => 235.00, :height => 83, :length => 300)
-FurnitureOption.create(:kuan => "with doors", :color => "White", :furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0675394_PE718310_S5.JPG?f=l',:price => 490.00, :width => 47.00, :height => 212.00, :length => 81.00)
-FurnitureOption.create(:kuan => "with doors", :color => "Dark Brown", :furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0626912_PE693102_S5.JPG?f=l',:price => 490.00, :width => 47.00, :height => 212.00, :length => 81.00)
-FurnitureOption.create(:kuan => "w glass-doors", :color => "White", :furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0675391_PE718312_S5.JPG?f=l',:price => 510.00, :width => 47.00, :height => 212.00, :length => 81.00)
-FurnitureOption.create(:kuan => "w glass-doors", :color => "Dark Brown", :furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0626909_PE693101_S5.JPG?f=xxxl',:price => 510.00, :width => 47.00, :height => 212.00, :length => 81.00)
+FurnitureOption.create(:capacity => "3-seater", :color => "Dalstorp multicolor", :color_code => "b27571", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0725527_PE734920_S5.JPG?f=l',:price => 830.00, :width => 241.00, :height => 83, :length => 211)#5
+FurnitureOption.create(:capacity => "3-seater", :color => "Farsta dark brown", :color_code => "60514d",:furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0514392_PE639462_S5.JPG?f=l',:price => 880.00, :width => 241.00, :height => 83, :length => 300)#6
+FurnitureOption.create(:capacity => "3-seater", :color => "Gunnared medium grey",:color_code => "5b5a5f", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0514368_PE639441_S5.JPG?f=l',:price => 850.00, :width => 241.00, :height => 83, :length => 200)#7
+FurnitureOption.create(:capacity => "4-seater", :color => "Dalstorp multicolor", :color_code => "b27571",:furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0766712_PE753877_S5.JPG?f=l',:price => 1750.00, :width => 235.00, :height => 83, :length => 300)#8
+FurnitureOption.create(:capacity => "4-seater", :color => "Farsta dark brown", :color_code => "60514d",:furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0579268_PE675219_S5.JPG?f=l',:price => 1750.00, :width => 235.00, :height => 83, :length => 300)#9
+FurnitureOption.create(:capacity => "4-seater", :color => "Gunnared medium grey", :color_code => "5b5a5f", :furniture_id => 2, :image =>'https://www.ikea.com/PIAimages/0579267_PE675221_S5.JPG?f=l',:price => 1830.00, :width => 235.00, :height => 83, :length => 300)#10
+
+FurnitureOption.create(:kuan => "with doors", :color => "White", :color_code => "eae9e3",:furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0675394_PE718310_S5.JPG?f=l',:price => 490.00, :width => 47.00, :height => 212.00, :length => 81.00)#11
+FurnitureOption.create(:kuan => "with doors", :color => "Dark Brown", :color_code => "433f3c",:furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0626912_PE693102_S5.JPG?f=l',:price => 490.00, :width => 47.00, :height => 212.00, :length => 81.00)#12
+FurnitureOption.create(:kuan => "w glass-doors", :color => "White", :color_code => "eae9e3",:furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0675391_PE718312_S5.JPG?f=l',:price => 510.00, :width => 47.00, :height => 212.00, :length => 81.00)#13
+FurnitureOption.create(:kuan => "w glass-doors", :color => "Dark Brown", :color_code => "433f3c",:furniture_id => 3, :image =>'https://www.ikea.com/PIAimages/0626909_PE693101_S5.JPG?f=xxxl',:price => 510.00, :width => 47.00, :height => 212.00, :length => 81.00)#14
+
 FurnitureOption.create(:color => "White", :furniture_id => 4, :image =>'https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/5/7/a/5/57a5d2a7192cee997f6c2d9ce8b07f35f9349b99_CLPSEP011WHT_UK_Seppo_Ceiling_Bar_White_LB01_ctr.jpg',:price => 69.00, :width => 10.00, :height => 22.00, :length => 75.00)
 FurnitureOption.create(:color => "Black", :furniture_id => 4, :image =>'https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/5/f/6/9/5f69b97d8ce04ba6880f54280d931fe5d92d8fea_CLPSEP002BLK_UK_Seppo_Ceiling_Light_LB01.jpg',:price => 69.00, :width => 10.00, :height => 22.00, :length => 75.00)
 FurnitureOption.create(:color => "Grey", :furniture_id => 4, :image =>'https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/7/b/0/a/7b0ae58e765fd529dadefd3b29a4acf81a6d0d15_CLPSEP012GRY_UK_Seppo_Ceiling_Bar_Grey_LB01_ctr.jpg',:price => 69.00, :width => 10.00, :height => 22.00, :length => 75.00)
@@ -117,3 +119,61 @@ FurnituresMainCategory.create(:furniture_id => 9, :main_category_id => 7)
 FurnituresMainCategory.create(:furniture_id => 9, :main_category_id => 8)
 FurnituresMainCategory.create(:furniture_id => 10, :main_category_id => 2)
 FurnituresMainCategory.create(:furniture_id => 10, :main_category_id => 3)
+
+Description.new(:furniture_id => 1, :short => "2-seat sofa, Gassebol light beige", :long => "A well-deserved nap in the daytime and nice relaxing with family and friends in the evening. LIDHULT sofa is designed for maximum comfort with high back and neck support. Embracing, inviting and generous.")
+Description.new(:furniture_id => 2, :short => "3-seat sofa, Gassebol light beige", :long => "A well-deserved nap in the daytime and nice relaxing with family and friends in the evening. LIDHULT sofa is designed for maximum comfort with high back and neck support. Embracing, inviting and generous.")
+Description.new(:furniture_id => 3, :short => "2-seat sofa, Gassebol blue/grey", :long => "A well-deserved nap in the daytime and nice relaxing with family and friends in the evening. LIDHULT sofa is designed for maximum comfort with high back and neck support. Embracing, inviting and generous.")
+Description.new(:furniture_id => 4, :short => "3-seat sofa, Gassebol blue/grey", :long => "A well-deserved nap in the daytime and nice relaxing with family and friends in the evening. LIDHULT sofa is designed for maximum comfort with high back and neck support. Embracing, inviting and generous.")
+
+Description.new(:furniture_id => 5, :short => "3-seat sofa, Dalstorp multicolour", :long => "The VIMLE sofa series has sections that can be combined as you like into a customised solution for you and your home – and as the family or home grows, you can complete the sofa and let it grow with you.")
+Description.new(:furniture_id => 6, :short => "3-seat sofa, Farsta dark brown", :long => "This sofa can be formed any way you like for your space at home. Choose the number of seats, design and functions. As your family or home grows, add on to the sofa and let it grow with you.")
+Description.new(:furniture_id => 7, :short => "3-seat sofa, Gunnared medium grey", :long => "This sofa can be formed any way you like for your space at home. Choose the number of seats, design and functions. As your family or home grows, add on to the sofa and let it grow with you.")
+Description.new(:furniture_id => 8, :short => "Corner sofa, 4-seat, with open end with headrests, Dalstorp multicolour", :long => "The VIMLE sofa series has sections that can be combined as you like into a customised solution for you and your home – and as the family or home grows, you can complete the sofa and let it grow with you.")
+Description.new(:furniture_id => 9, :short => "Corner sofa, 4-seat, with open end with headrests, Farsta dark brown", :long => "The VIMLE sofa series has sections that can be combined as you like into a customised solution for you and your home – and as the family or home grows, you can complete the sofa and let it grow with you.")
+Description.new(:furniture_id => 10, :short => "Corner sofa, 4-seat, with open end with headrests, Gunnared medium grey", :long => "The VIMLE sofa series has sections that can be combined as you like into a customised solution for you and your home – and as the family or home grows, you can complete the sofa and let it grow with you.")
+
+Description.new(:furniture_id => 11, :short => "Storage combination with doors, white, 81x47x212 cm", :long => "Keep all your belongings organised and hidden. Carefully designed details in solid wood with a brushed surface give the furniture a timeless and genuine feel.")
+Description.new(:furniture_id => 12, :short => "Storage combination with doors, dark brown, 81x47x212 cm", :long => "Keep all your belongings organised and hidden. Carefully designed details in solid wood with a brushed surface give the furniture a timeless and genuine feel.")
+Description.new(:furniture_id => 13, :short => "Storage combination w glass-doors, white, 81x47x212 cm", :long => "Give your finest items a framing they deserve – and keep the others organised and hidden. Carefully designed details in solid wood with a brushed surface give the furniture a timeless and genuine feel.")
+Description.new(:furniture_id => 14, :short => "Storage combination w glass-doors, dark brown, 81x47x212 cm", :long => "Give your finest items a framing they deserve – and keep the others organised and hidden. Carefully designed details in solid wood with a brushed surface give the furniture a timeless and genuine feel.")
+
+
+FurnitureImage.new(:furniture_id => 1, :image => "https://www.ikea.com/PIAimages/0619142_PE688944_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 1, :image => "https://www.ikea.com/PIAimages/0619143_PE688947_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 1, :image => "https://www.ikea.com/PIAimages/0619102_PE688914_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 2, :image => "https://www.ikea.com/PIAimages/0619194_PE688976_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 2, :image => "https://www.ikea.com/PIAimages/0619143_PE688947_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 2, :image => "https://www.ikea.com/PIAimages/0619102_PE688914_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 3, :image => "https://www.ikea.com/PIAimages/0619128_PE688940_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 3, :image => "https://www.ikea.com/PIAimages/0619097_PE688911_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 3, :image => "https://www.ikea.com/PIAimages/0619130_PE688942_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 4, :image => "https://www.ikea.com/PIAimages/0619190_PE688973_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 4, :image => "https://www.ikea.com/PIAimages/0619097_PE688911_S5.JPG?f=l")
+FurnitureImage.new(:furniture_id => 4, :image => "https://www.ikea.com/PIAimages/0619130_PE688942_S5.JPG?f=l")
+
+FurnitureImage.new(:furniture_id => 5, :image => "https://www.ikea.com/PIAimages/0725581_PE734959_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 5, :image => "https://www.ikea.com/PIAimages/0724911_PE734677_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 8, :image => "https://www.ikea.com/PIAimages/0782157_PE761109_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 8, :image => "https://www.ikea.com/PIAimages/0724911_PE734677_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 6, :image => "https://www.ikea.com/PIAimages/0519606_PE641782_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 6, :image => "https://www.ikea.com/PIAimages/0519400_PE641633_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 9, :image => "https://www.ikea.com/PIAimages/0520872_PE642506_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 9, :image => "https://www.ikea.com/PIAimages/0519400_PE641633_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 7, :image => "https://www.ikea.com/PIAimages/0519611_PE641768_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 7, :image => "https://www.ikea.com/PIAimages/0519430_PE641643_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 10, :image => "https://www.ikea.com/PIAimages/0520877_PE642515_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 10, :image => "https://www.ikea.com/PIAimages/0519430_PE641643_S5.JPG?f=m")
+
+FurnitureImage.new(:furniture_id => 11, :image => "https://www.ikea.com/PIAimages/0675393_PE718309_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 11, :image => "https://www.ikea.com/PIAimages/0675392_PE718305_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 11, :image => "https://www.ikea.com/PIAimages/0765678_PE753623_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 12, :image => "https://www.ikea.com/PIAimages/0626911_PE693087_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 12, :image => "https://www.ikea.com/PIAimages/0626910_PE693103_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 12, :image => "https://www.ikea.com/PIAimages/0765678_PE753623_S5.JPG?f=xxxl")
+FurnitureImage.new(:furniture_id => 13, :image => "https://www.ikea.com/PIAimages/0675390_PE718307_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 13, :image => "https://www.ikea.com/PIAimages/0730888_PE737834_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 13, :image => "https://www.ikea.com/PIAimages/0675362_PE718286_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 14, :image => "https://www.ikea.com/PIAimages/0626908_PE693086_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 14, :image => "https://www.ikea.com/PIAimages/0630510_PE694803_S5.JPG?f=m")
+FurnitureImage.new(:furniture_id => 14, :image => "https://www.ikea.com/PIAimages/0626838_PE693021_S5.JPG?f=m")
+
