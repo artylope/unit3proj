@@ -1,33 +1,58 @@
 <p>
-    <%if @furniture.furniture_option.map(&:color)[0] == nil%>
-        <input name="color" class="color" value="" hidden/>
+    <%if @furniture.furniture_option.map(&:color_code)[0] == nil%>
+        <input name="color" class="color-initial" value="" hidden/>
     <%else%>
-        <p>Color:</p>
-        <%=select_tag("color", options_for_select(@furniture.furniture_option.map(&:color).uniq), { :class => 'color' })%>
+        <input name="color" class="color-initial" value="<%=@furniture.furniture_option.order(:id).map(&:color_code)[0]%>" hidden/>
+        <div class="each-product-option">
+            <span class="option-label">Colour</span>
+            <% @furniture.furniture_option.order(:id).map(&:color_code).uniq.each do |color|%>
+                <div class="swatch color" style="background-color: #<%=color%>;" name="color"value="<%=color%>"></div>
+            <%end%>
+        </div>
     <%end%>
 
     <%if @furniture.furniture_option.map(&:capacity)[0] == nil%>
-        <input name="capacity" class="capacity" value="" hidden/>
+        <input name="capacity" class="capacity-initial" value="" hidden/>
     <%else%>
-        <p>Capacity:</p>
-        <%=select_tag("capacity", options_for_select(@furniture.furniture_option.map(&:capacity).uniq), { :class => 'capacity' })%>
+        <input name="capacity" class="capacity-initial" value="<%=@furniture.furniture_option.order(:id).map(&:capacity)[0]%>" hidden/>
+        <div class="each-product-option">
+            <span class="option-label">Capacity</span>
+            <%@furniture.furniture_option.order(:id).map(&:capacity).uniq.each do |capacity|%>
+                <button class="button is-small capacity" name="capacity" value="<%=capacity%>"><%=capacity%></button>
+            <%end%>
+        </div>
     <%end%>
 
-    <%if @furniture.furniture_option.map(&:material)[0] == nil%>
-        <input name="material" class="material" value="" hidden/>
+    <%if @furniture.furniture_option.map(&:material_img)[0] == nil%>
+        <input name="material" class="material-initial" value="" hidden/>
     <%else%>
+        <input name="material" class="material-initial" value="<%=@furniture.furniture_option.order(:id).map(&:material_img)[0]%>" hidden/>
         <p>Material:</p>
-        <%=select_tag("material", options_for_select(@furniture.furniture_option.map(&:material).uniq), { :class => 'material' })%>
+        <div class="each-product-option">
+            <span class="option-label">Material</span>
+            <%@furniture.furniture_option.order(:id).map(&:material_img).uniq.each do |material|%>
+                <div class="swatch material" style="background:url('<%=material%>'); " name="material" value="<%=material%>"></div>
+            <%end%>
+        </div>
     <%end%>
 
     <%if @furniture.furniture_option.map(&:kuan)[0] == nil%>
-        <input name="kuan" class="kuan" value="" hidden/>
+        <input name="kuan" class="kuan-initial" value="" hidden/>
     <%else%>
+        <input name="kuan" class="kuan-initial" value="<%=@furniture.furniture_option.map(&:kuan)[0]%>" hidden/>
         <p>Type:</p>
-        <%=select_tag("kuan", options_for_select(@furniture.furniture_option.map(&:kuan).uniq), { :class => 'kuan' })%>
+        <div class="each-product-option">
+            <span class="option-label">Type</span>
+            <%@furniture.furniture_option.order(:id).map(&:kuan).uniq.each do |kuan|%>
+                <button class="button is-small kuan" name="kuan" value="<%=kuan%>"><%=kuan%></button>
+            <%end%>
+        </div>
     <%end%>
 
 
 
 
 </p>
+
+
+

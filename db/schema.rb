@@ -28,7 +28,9 @@ ActiveRecord::Schema.define(version: 2019_08_20_103552) do
   create_table "furniture_options", force: :cascade do |t|
     t.text "capacity"
     t.text "color"
+    t.text "color_code"
     t.text "material"
+    t.text "material_img"
     t.text "kuan"
     t.bigint "furniture_id"
     t.text "image"
