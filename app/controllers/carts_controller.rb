@@ -35,10 +35,12 @@ class CartsController < ApplicationController
     end
 
     def destroy
+        puts "////////////////////////////////////"
+        p params
+        puts "////////////////////////////////////"
         @cart = Cart.find(params[:id])
         @cart.destroy
 
-        redirect_to carts_path
     end
 
     private

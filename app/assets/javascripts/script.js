@@ -89,7 +89,59 @@ Paloma.controller('Furnitures', {
         })
 
         //FOR MODAL///////////////////////////////
+        const refreshModal = function(data){
+            $("table").html("")
+            $("table").append(`<tr>
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Image</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th></th>
+              </tr>`)
+            data.forEach(x=>{
+                $("table").append(`
+                    <tr>
+                        <td><input type="checkbox" name="selected_cart_ids[]" value="${x.cart_id}"/></td>
+                        <td>${x.furniture_name}</td>
+                        <td>${x.price.toFixed(2)}</td>
+                        <td>${x.category}</td>
+                        <td><img src="${x.image}" style="width:200px;"/</td>
+                        <td>${x.quantity}</td>
+                        <td>${(x.quantity*x.price).toFixed(2)}</td>
+                        <td><div class="button is-success cart-delete">Delete<input value="${x.cart_id}"hidden/></div></td>
+                    </tr>
+                    `)
 
+            })
+
+
+        }
+
+        const resetDestroyButton = function(){
+             $(".cart-delete").each(function(){
+                let eachDelete = this
+                eachDelete.addEventListener("click",function(){
+                    let deleteDiv = event.target
+                    $.ajax({
+
+                        url: `/carts/${deleteDiv.lastElementChild.value}`,
+                        type: 'DELETE',
+                        dataType: 'json',
+
+                        success: function(data, textStatus, xhr) {
+                            document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
+                            $(".cart-count").text(parseInt($(".cart-count").text())-1)
+                        },
+                        error: function(xhr, textStatus, errorThrown) {
+                            console.log('Error in Database');
+                        }
+                    })
+                })
+            })
+        }
         const togglingOn = function(){
             $(".modal").addClass("is-active")
 
@@ -99,34 +151,8 @@ Paloma.controller('Furnitures', {
                 dataType: 'json',
 
                 success: function(data, textStatus, xhr) {
-                    console.log(data)
-
-                    $("table").html("")
-                    $("table").append(`<tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th>Image</th>
-                        <th>Quantity</th>
-                        <th>Total Price</th>
-                        <th></th>
-                      </tr>`)
-                    data.forEach(x=>{
-                        $("tbody").append(`
-                            <tr>
-                                <td><input type="checkbox" name="selected_cart_ids[]" value="${x.cart_id}"/></td>
-                                <td>${x.furniture_name}</td>
-                                <td>${x.price.toFixed(2)}</td>
-                                <td>${x.category}</td>
-                                <td><img src="${x.image}" style="width:200px;"/</td>
-                                <td>${x.quantity}</td>
-                                <td>${(x.quantity*x.price).toFixed(2)}</td>
-                                <td><div class="cart-delete">Delete<input value="${x.cart_id}"hidden/></div></td>
-                            </tr>
-                            `)
-                    })
-
+                    refreshModal(data)
+                    resetDestroyButton();
 
                 },
                 error: function(xhr, textStatus, errorThrown) {
@@ -136,12 +162,15 @@ Paloma.controller('Furnitures', {
         }
 
         const togglingOff = function(){
-            $(".modal").removeClass("is-active")
+            $(".modal").hide()
         }
+
         $(".cart-modal").click(togglingOn)
         $("#modal-cancel-button").click(togglingOff)
         $("#modal-x-button").click(togglingOff)
+
         /////////////////////////////////////////
+
 
     },
     index: function(){
@@ -184,14 +213,14 @@ Paloma.controller('Furnitures', {
 
         //FOR MODAL///////////////////////////////
         const togglingOn = function(){
-            $(".modal").toggle()
+            $(".modal").addClass("is-active")
+
             $.ajax({
                 url: `/carts`,
                 type: 'GET',
                 dataType: 'json',
 
                 success: function(data, textStatus, xhr) {
-                    console.log(data)
 
                     $("table").html("")
                     $("table").append(`<tr>
@@ -205,18 +234,37 @@ Paloma.controller('Furnitures', {
                         <th></th>
                       </tr>`)
                     data.forEach(x=>{
-                        $("tbody").append(`
+                        $("table").append(`
                             <tr>
-                                <td><input type="checkbox" name="selected_cart_id" value="${x.cart_id}"/></td>
+                                <td><input type="checkbox" name="selected_cart_ids[]" value="${x.cart_id}"/></td>
                                 <td>${x.furniture_name}</td>
                                 <td>${x.price.toFixed(2)}</td>
                                 <td>${x.category}</td>
                                 <td><img src="${x.image}" style="width:200px;"/</td>
                                 <td>${x.quantity}</td>
                                 <td>${(x.quantity*x.price).toFixed(2)}</td>
-                                <td>Delete</td>
+                                <td><div class="cart-delete">Delete<input value="${x.cart_id}"hidden/></div></td>
                             </tr>
                             `)
+
+                    })
+
+                    $(".cart-delete").each(function(){
+                        let eachDelete = this
+                        eachDelete.addEventListener("click",function(){
+                            $.ajax({
+                                url: `/carts/${event.target.lastElementChild.value}`,
+                                type: 'DELETE',
+                                dataType: 'json',
+
+                                success: function(data, textStatus, xhr) {
+                                    console.log("TEST")
+                                },
+                                error: function(xhr, textStatus, errorThrown) {
+                                    console.log('Error in Database');
+                                }
+                            })
+                        })
                     })
 
 
@@ -228,8 +276,9 @@ Paloma.controller('Furnitures', {
         }
 
         const togglingOff = function(){
-            $(".modal").toggle()
+            $(".modal").hide()
         }
+
         $(".cart-modal").click(togglingOn)
         $("#modal-cancel-button").click(togglingOff)
         $("#modal-x-button").click(togglingOff)
