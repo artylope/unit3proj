@@ -62,7 +62,7 @@
                       </div>
 
                       <div class="product-add-to-cart">
-                        <button class="button is-large is-primary add-to-cart-button">Add to Cart</button>
+                        <button class="button is-large is-primary add-to-cart-button" id="add-to-cart-button">Add to Cart</button>
                       </div>
 
                     </div>
@@ -89,29 +89,33 @@
   console.log('prod quantity ' + prodQty);
   let addOne = document.getElementById('qty-add-1');
   let minusOne =document.getElementById('qty-minus-1');
+  let addToCart = document.querySelector('#add-to-cart-button');
 
   //clicking on add , adds 1 to qty
 
   addOne.addEventListener('click', function(){
       prodQty += 1;
       minusOne.removeAttribute("disabled", "");
+      addToCart.removeAttribute("disabled", "");
       console.log('prod quantity ' + prodQty);
       document.getElementById('quantity-input').value = prodQty;
   })
 
   //clicking on minus , minus 1 to qty, if is 0, disables button
-  
+
   minusOne.addEventListener('click', function(){
     if (prodQty >= 1){
       prodQty -= 1;
       console.log('prod quantity ' + prodQty);
       document.getElementById('quantity-input').value = prodQty;
       minusOne.removeAttribute("disabled", "");
+      addToCart.removeAttribute("disabled", "");
     }
 
     if (prodQty === 0){
       console.log('prod qty is 0');
       minusOne.setAttribute("disabled", "");
+      addToCart.setAttribute("disabled", "");
     }
   })
 
