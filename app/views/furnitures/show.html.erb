@@ -40,7 +40,7 @@
                         <p><%= @furniture.category %></p>
                         <h1><%= @furniture.name %></h1>
                         <p>Lorem ipsum cupcake bbacon very nice</p>
-                        <h2>$<%= @furniture.price %></h2>
+                        <h2>$<%= '%.2f' % @furniture.price %></h2>
                         <button>Add to wishlist</button>
                       </div>
 
