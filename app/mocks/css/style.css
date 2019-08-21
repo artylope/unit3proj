@@ -6986,7 +6986,8 @@ h6 {
 
 .navbar {
   font-family: 'Lexend Deca', sans-serif;
-  height: 60px; }
+  height: 60px;
+  background: #f5f5f5; }
   .navbar i {
     margin-right: 5px; }
 
@@ -7069,7 +7070,9 @@ h6 {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    height: 400px; } }
+    height: 400px; }
+    .hero .navbar {
+      background: none; } }
 
 #product-detail {
   background: #f5f5f5;
