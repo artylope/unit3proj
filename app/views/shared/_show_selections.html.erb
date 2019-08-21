@@ -5,8 +5,8 @@
         <input name="color" class="color-initial" value="<%=@furniture.furniture_option.order(:id).map(&:color_code)[0]%>" hidden/>
         <div class="each-product-option">
             <span class="option-label">Colour</span>
-            <% @furniture.furniture_option.order(:id).map(&:color_code).uniq.each do |color|%>
-                <div class="swatch color" style="background-color: #<%=color%>;" name="color"value="<%=color%>"></div>
+            <% @furniture.furniture_option.order(:id).map{|p| {:color_code=>p.color_code,:color=>p.color}}.uniq.each do |color|%>
+                <div class="swatch color" style="background-color: #<%=color[:color_code]%>;" name="color"value="<%=color[:color]%>" title="<%=color[:color]%>"></div>
             <%end%>
         </div>
     <%end%>
@@ -30,8 +30,8 @@
         <p>Material:</p>
         <div class="each-product-option">
             <span class="option-label">Material</span>
-            <%@furniture.furniture_option.order(:id).map(&:material_img).uniq.each do |material|%>
-                <div class="swatch material" style="background:url('<%=material%>'); " name="material" value="<%=material%>"></div>
+            <%@furniture.furniture_option.order(:id).map{|p| {:material=>p.material,:material_img=>p.material_img}}.uniq.each do |material|%>
+                <div class="swatch material" style="background:url('<%=material[:material_img]%>');" name="material" value="<%=material[:material]%>" title="<%=material[:material]%>"></div>
             <%end%>
         </div>
     <%end%>
