@@ -1,0 +1,33 @@
+<p>
+    <%if @furniture.furniture_option.map(&:color)[0] == nil%>
+        <input name="color" class="color" value="" hidden/>
+    <%else%>
+        <p>Color:</p>
+        <%=select_tag("color", options_for_select(@furniture.furniture_option.map(&:color).uniq), { :class => 'color' })%>
+    <%end%>
+
+    <%if @furniture.furniture_option.map(&:capacity)[0] == nil%>
+        <input name="capacity" class="capacity" value="" hidden/>
+    <%else%>
+        <p>Capacity:</p>
+        <%=select_tag("capacity", options_for_select(@furniture.furniture_option.map(&:capacity).uniq), { :class => 'capacity' })%>
+    <%end%>
+
+    <%if @furniture.furniture_option.map(&:material)[0] == nil%>
+        <input name="material" class="material" value="" hidden/>
+    <%else%>
+        <p>Material:</p>
+        <%=select_tag("material", options_for_select(@furniture.furniture_option.map(&:material).uniq), { :class => 'material' })%>
+    <%end%>
+
+    <%if @furniture.furniture_option.map(&:kuan)[0] == nil%>
+        <input name="kuan" class="kuan" value="" hidden/>
+    <%else%>
+        <p>Type:</p>
+        <%=select_tag("kuan", options_for_select(@furniture.furniture_option.map(&:kuan).uniq), { :class => 'kuan' })%>
+    <%end%>
+
+
+
+
+</p>
