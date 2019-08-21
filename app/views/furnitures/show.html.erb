@@ -1,3 +1,7 @@
+<section class="hero">
+        <%= render "shared/navbar", :locales => {:carts => @carts}  %>
+</section>
+
 <p>
   <strong>Name:</strong>
   <%= @furniture.name %>
@@ -23,13 +27,10 @@
 <%= content_tag :div, class: "temp_information", data: {temp: @furniture.id} do %>
 <% end %>
 
-
-<%= form_with scope: :cart, url: carts_path, local: true do |form| %>
-    <%= form.label :quantity%>
-    <%= form.number_field :quantity ,step: 1, min: 1%>
-    <%= form.hidden_field :furniture_option_id, :value => @furniture.furniture_option[0].id  ,class:"furniture_option_id_input"%><input type="submit" value="Add to cart"/>
-<%end%>
+    <label for="quantity-input">Quantity</label>
+    <input type="number" name="quantity" id="quantity-input"/>
+    <input class="furniture_option_id_input" name="furniture_option_id"value="" hidden/>
+    <button class="add-to-cart-button">Add to cart</button></br>
 
 
-<%= link_to 'Edit', edit_furniture_path(@furniture) %> |
 <%= link_to 'Back', root_path %>

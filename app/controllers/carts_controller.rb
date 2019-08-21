@@ -4,13 +4,16 @@ class CartsController < ApplicationController
     end
     def create
 
-        @cart = Cart.new(cart_params)
+        @cart = Cart.new()
         @cart.user_id = current_user.id
-        if @cart.save
-            redirect_to furnitures_path
+        @cart.furniture_option_id = params[:furniture_option_id]
+        if params[:quantity].empty?
+            @cart.quantity = 1
         else
-            render plain: "Unable to add to cart"
+            @cart.quantity = params[:quantity]
         end
+
+        @cart.save
 
     end
 
