@@ -1,36 +1,120 @@
-<section class="hero">
-        <%= render "shared/navbar", :locales => {:carts => @carts}  %>
-</section>
+  <%= render "shared/navbar", :locales => {:carts => @carts}  %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @furniture.name %>
-</p>
+  <section id="product-detail">
+    <div class="container is-fluid">
 
-<p><strong>Price:</strong></p><p class="price">
+      <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><a href="#"><%= @furniture.category %></a></li>
+          <li class="is-active" aria-current="page"><a href="#"><%= @furniture.name %></li>
+        </ul>
+      </nav>
 
-  <%= @furniture.price %>
-</p>
+      <div class="columns">
 
-<p>
-  <strong>Category:</strong>
-  <%= @furniture.category %>
-</p>
+        <div class="column is-full">
 
-<p>
-  <strong>Image:</strong><br/>
-  <img class="furniture_image"src="<%= @furniture.img_url %>" width="200px"/>
-</p>
+            <div class="card">
+              <div class="columns">
+                <div class="column is-half">
+                  <div class="product-images-all">
+
+                    <div class="product-image-main">
+                      <img src="<%= @furniture.img_url %>"/>
+                    </div>
+
+                    <div class="product-image-selector">
+                      <img src="https://images.crateandbarrel.com/is/image/Crate/Sherwood2SeatSofa84inPearlSOF18/?$web_zoom_furn_av$&190819100010&wid=1008&hei=567"/>
+                      <img src="https://images.crateandbarrel.com/is/image/Crate/Sherwood2SeatSofa84inPearlSOF18/?$web_zoom_furn_av$&190819100010&wid=1008&hei=567"/>
+                      <img src="https://images.crateandbarrel.com/is/image/Crate/Sherwood2SeatSofa84inPearlSOF18/?$web_zoom_furn_av$&190819100010&wid=1008&hei=567"/>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="column is-half">
+                    <div class="product-info-container">
+
+                      <div class="product-info-base">
+                        <p><%= @furniture.category %></p>
+                        <h1><%= @furniture.name %></h1>
+                        <p>Lorem ipsum cupcake bbacon very nice</p>
+                        <h2>$<%= @furniture.price %></h2>
+                        <button>Add to wishlist</button>
+                      </div>
+
+                      <div class="product-options">
+                        <%= render "shared/show_selections", object: @furniture %>
+                        <%= content_tag :div, class: "temp_information", data: {temp: @furniture.id} do %>
+                        <% end %>
+                        <!-- <div class="each-product-option"><span class="option-label">Colour</span> <div class="swatch"></div><div class="swatch"></div><div class="swatch"></div></div>
+                        <div class="each-product-option"><span class="option-label">Material</span> <div class="swatch"></div><div class="swatch"></div><div class="swatch"></div></div>
+                        <div class="each-product-option"><span class="option-label">Type</span> <button class="button is-small">Type 1</button><button class="button is-small">Type 2</button></div> -->
+                      </div>
+
+                      <div class="product-qty">
+                        <span class="qty-label">Quantity</span>
+                        <button class="button" id="qty-minus-1"><i class='bx bx-minus'></i></button>
+                        <input class="furniture_option_id_input" name="furniture_option_id"value="" hidden/>
+                        <input class="input" type="number" name="quantity" id="quantity-input" value="1"/>
+                        <button class="button" id="qty-add-1"><i class='bx bx-plus'></i></button>
+                      </div>
+
+                      <div class="product-add-to-cart">
+                        <button class="button is-large is-primary add-to-cart-button">Add to Cart</button>
+                      </div>
+
+                    </div>
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+
+        </div>
+      </div>
+  </section>
 
 
-<%= render "shared/show_selections", object: @furniture %>
-<%= content_tag :div, class: "temp_information", data: {temp: @furniture.id} do %>
-<% end %>
-
-    <label for="quantity-input">Quantity</label>
-    <input type="number" name="quantity" id="quantity-input"/>
-    <input class="furniture_option_id_input" name="furniture_option_id"value="" hidden/>
-    <button class="add-to-cart-button">Add to cart</button></br>
 
 
-<%= link_to 'Back', root_path %>
+<script>
+
+  //clicking on add and minus modifiers affects the quantity value
+
+  let prodQty = document.getElementById('quantity-input').value;
+  prodQty = parseInt(prodQty);
+  console.log('prod quantity ' + prodQty);
+  let addOne = document.getElementById('qty-add-1');
+  let minusOne =document.getElementById('qty-minus-1');
+
+  //clicking on add , adds 1 to qty
+
+  addOne.addEventListener('click', function(){
+      prodQty += 1;
+      minusOne.removeAttribute("disabled", "");
+      console.log('prod quantity ' + prodQty);
+      document.getElementById('quantity-input').value = prodQty;
+  })
+
+  //clicking on minus , minus 1 to qty, if is 0, disables button
+  
+  minusOne.addEventListener('click', function(){
+    if (prodQty >= 1){
+      prodQty -= 1;
+      console.log('prod quantity ' + prodQty);
+      document.getElementById('quantity-input').value = prodQty;
+      minusOne.removeAttribute("disabled", "");
+    }
+
+    if (prodQty === 0){
+      console.log('prod qty is 0');
+      minusOne.setAttribute("disabled", "");
+    }
+  })
+
+
+
+</script>
