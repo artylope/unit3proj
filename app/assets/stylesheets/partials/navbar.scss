@@ -3,6 +3,7 @@ $blue: #2A3C78;
 .navbar{
   font-family: 'Lexend Deca', sans-serif;
   height: 60px;
+  background: #f5f5f5;
   i{
     margin-right: 5px;
   }
@@ -26,29 +27,32 @@ $blue: #2A3C78;
   position: absolute;
   left: 75px;
   top: 10px;
+}
 
+.wish-count-container{
+  position: absolute;
+  left: 95px;
+  top: 10px;
+}
 
-  .cart-count{
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $blue;
-    border-radius: 50%;
-    color: white;
-    z-index: 99;
-    font-size: 10px;
-  }
+.count{
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $blue;
+  border-radius: 50%;
+  color: white;
+  z-index: 99;
+  font-size: 10px;
 }
 
 
 @media (min-width: 1024px) {
   .navbar-end{
     .navbar-item{
-      &:last-child{
-        margin-left: 10px;
-      }
+        margin-left: 20px;
     }
   }
 
@@ -57,4 +61,44 @@ $blue: #2A3C78;
     left: 62px;
     top: 8px;
   }
+
+  .wish-count-container{
+    position: absolute;
+    left: 90px;
+    top: 8px;
+  }
+}
+
+.cart-plus-one{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $blue;
+  color: white;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1em;
+  font-weight: 500;
+  position: relative;
+  -webkit-animation-name: to-cart; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: .5s; /* Safari 4.0 - 8.0 */
+  animation-name: to-cart;
+  animation-duration: .5s;
+  animation-timing-function:ease-in;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes to-cart {
+  0%   {left: 40px; top: -40px; opacity: 1; }
+  60%   {left: 150px; top: -500px; opacity: 1;}
+  100%  {left: 350px; top: -1000px; opacity: 0;}
+}
+
+@keyframes to-cart {
+  0%   {left: 40px; top: -40px; opacity: 1;}
+  60%   {left: 150px; top: -500px; opacity: 1;}
+  100%  {left: 350px; top: -1000px; opacity: 0;}
 }

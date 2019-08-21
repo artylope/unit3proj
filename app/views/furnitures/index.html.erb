@@ -9,19 +9,22 @@
 			<div class="columns is-variable is-0">
 				<div id="sidebar-filter" class="column is-one-fifth">
 					<div class="filter-container">
-						<h1>Filter Options</h1>
+						<h1>Sort By</h1>
+
+						<select class="sort-by">
+								<option>Sort by</option>
+								<option value="name-asc">Name A-Z</option>
+								<option value="name-dsc">Name Z-A</option>
+								<option value="price-asc">Price Low to High</option>
+								<option value="price-dsc">Price High to Low</option>
+						</select>
+
 					</div>
 				</div>
 				<div id="products-listing" class="column is-four-fifths">
 
 					<div class="container">
-                        <select class="sort-by">
-                            <option>Sort by</option>
-                            <option value="name-asc">Name A-Z</option>
-                            <option value="name-dsc">Name Z-A</option>
-                            <option value="price-asc">Price Low to High</option>
-                            <option value="price-dsc">Price High to Low</option>
-                        </select>
+
 						<div class="columns is-variable is-2 is-desktop is-mobile sort-mother">
 							<!-- is-1 defines the gap of the rows -->
 
