@@ -29,7 +29,6 @@
         <input name="material" class="material-initial" value="<%=@furniture.furniture_option.order(:id).map(&:material)[0]%>" hidden/>
         <p>Material:</p>
         <div class="each-product-option">
-            <span class="option-label">Material</span>
             <%@furniture.furniture_option.order(:id).map{|p| {:material=>p.material,:material_img=>p.material_img}}.uniq.each do |material|%>
                 <div class="swatch material" style="background:url('<%=material[:material_img]%>');" name="material" value="<%=material[:material]%>" title="<%=material[:material]%>"></div>
             <%end%>
@@ -43,7 +42,7 @@
         <div class="each-product-option">
             <span class="option-label">Type</span>
             <%@furniture.furniture_option.order(:id).map(&:kuan).uniq.each do |kuan|%>
-                <button class="button is-small kuan" name="kuan" value="<%=kuan%>"><%=kuan%></button>
+                <button class="button is-small kuan" name="kuan" value="<%=kuan%>" ><%=kuan%></button>
             <%end%>
         </div>
     <%end%>

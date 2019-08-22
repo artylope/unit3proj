@@ -1,4 +1,4 @@
-  <%= render "shared/navbar", :locales => {:carts => @carts}  %>
+  <%= render "shared/navbar", :locales => {:carts => @carts,:wishlists => @wishlists}  %>
   <%= render "shared/cart_modal" %>
 
   <section id="product-detail">
@@ -58,7 +58,16 @@
                       </div>
 
                       <div class="product-buttons" id="product-buttons">
-                        <button class="button is-small add-to-wishlist-button" id="add-to-wishlist-button"><i class='bx bx-heart' id="wishlist-heart"></i>Add to Wishlist</button> </br>
+                        <%if @wishlists.select{|x|x.furniture_option.furniture.id == @furniture.id}.length >0%>
+
+                            <button class="button is-small add-to-wishlist-button" id="add-to-wishlist-button"><i class='bx bxs-heart' id="wishlist-heart"></i>Add to Wishlist</button>
+                            <input class="wishlist_id_input"name="wishlist_id" value="<%=@wishlists.select{|x|x.furniture_option.furniture.id == @furniture.id}[0].id%>" hidden/>
+                        <%else%>
+                            <button class="button is-small add-to-wishlist-button" id="add-to-wishlist-button"><i class='bx bx-heart' id="wishlist-heart"></i>Add to Wishlist</button>
+                            <input class="wishlist_id_input"name="wishlist_id" value="" hidden/>
+                        <%end%>
+                         </br>
+
                         <button class="button is-large is-primary add-to-cart-button" id="add-to-cart-button">Add to Cart</button>
                         <p class="login-warning" hidden>You need to login first</p>
                       </div>
