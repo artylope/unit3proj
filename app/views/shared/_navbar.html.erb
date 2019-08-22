@@ -116,7 +116,7 @@
                 <%if user_signed_in?%>
     				<a class="navbar-item" href="/wishlists">
     					<div class="wish-count-container">
-    						<div class="count wish-count">0</div>
+    						<div class="count wish-count"><%=@wishlists.length%></div>
     					</div>
     					<i class='bx bxs-heart'></i>Wishlist
     				</a>

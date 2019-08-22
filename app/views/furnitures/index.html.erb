@@ -1,7 +1,6 @@
 <%# this renders the navbar %>
-
 	<section class="hero">
-        <%= render "shared/navbar", :locales => {:carts => @carts}  %>
+        <%= render "shared/navbar", :locales => {:carts => @carts,:wishlists => @wishlists}  %>
     </section>
     <%= render "shared/cart_modal" %>
 	<section id="products">
