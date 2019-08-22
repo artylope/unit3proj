@@ -1,0 +1,66 @@
+.orders{
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  h1{
+    font-size: 2.2em;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  h2{
+    font-size: 1.8em;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .card{
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .table{
+      tr{
+        vertical-align: bottom;
+
+        th{
+          &.numbers{
+            text-align: right;
+          }
+        }
+
+        td{
+          padding: 10px;
+
+          &.numbers{
+            text-align: right;
+          }
+
+          &.total-label{
+            font-size: 1.5em;
+            color: #aaa;
+            font-weight: bold;
+            vertical-align: baseline;
+          }
+
+          &.total{
+            font-size: 2.5em;
+            color: #333;
+            font-weight: bold;
+            vertical-align: baseline;
+            line-height: 2.5em;
+          }
+        }
+      }
+    }
+  }
+}

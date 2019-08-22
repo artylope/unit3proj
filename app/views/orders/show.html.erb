@@ -1,45 +1,68 @@
-<p>
-  <strong>Order ID:</strong>
-  <%= @order.id %>
-</p>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Image</th>
-        <th>Option</th>
-        <th>Quantity</th>
-        <th>Total Price</th>
+<section class="orders">
+  <div class="container is-fluid">
 
-    </tr>
-    <% total = 0%>
-    <% @order.furnitures_order.each do |order| %>
+		<div class="columns">
+			<div class="column">
+				<div class="card">
+          <h2>
+            Order ID: <%= @order.id %>
+          </h2>
 
-    <%  arr = [order.furniture_option.color,order.furniture_option.capacity,order.furniture_option.material,order.furniture_option.kuan]
-        arr = arr.compact.join(", ")
-    %>
-    <tr>
-        <td><%= order.furniture_option.furniture.name %></td>
-        <td><%= '%.2f' % order.furniture_option.price %></td>
-        <td><%= order.furniture_option.furniture.category %></td>
-        <td><img src="<%= order.furniture_option.image %>" width="300px"/></td>
-        <td><%= arr %></td>
-        <td><%= order.quantity %></td>
-        <td><%= '%.2f' % (order.quantity*order.furniture_option.price) %></td>
-        <%total = total + order.quantity*order.furniture_option.price%>
-    </tr>
+          <table class="table is-fullwidth">
+              <tr>
+                  <th>Name</th>
 
-    <% end %>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Total</td>
-    <td><%='%.2f' %total%></td>
-</table>
+                  <th>Category</th>
+                  <th>Image</th>
+                  <th>Option</th>
+                  <th class="numbers">Price</th>
+                  <th class="numbers">Quantity</th>
+                  <th class="numbers">Total Price</th>
+
+              </tr>
+              <% total = 0%>
+              <% @order.furnitures_order.each do |order| %>
+
+              <%  arr = [order.furniture_option.color,order.furniture_option.capacity,order.furniture_option.material,order.furniture_option.kuan]
+                  arr = arr.compact.join(", ")
+              %>
+              <tr>
+                  <td><%= order.furniture_option.furniture.name %></td>
+
+                  <td><%= order.furniture_option.furniture.category %></td>
+                  <td><img src="<%= order.furniture_option.image %>" width="300px"/></td>
+                  <td><%= arr %></td>
+                  <td class="numbers">$<%= '%.2f' % order.furniture_option.price %></td>
+                  <td class="numbers"><%= order.quantity %></td>
+                  <td class="numbers">$<%= '%.2f' % (order.quantity*order.furniture_option.price) %></td>
+                  <%total = total + order.quantity*order.furniture_option.price%>
+              </tr>
+
+              <% end %>
+              <tr></tr>
+              <tr></tr>
+              <tr></tr>
+              <tr></tr>
+              <tr></tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="total-label">Total</td>
+                <td class="total">$<%='%.2f' %total%></td>
+              </tr>
+
+
+          </table>
+
+        </div>
+      </div>
+    </div>
+    </div>
+</section>
+
 
 
 <%= link_to 'Back to Orders', orders_path %>
