@@ -1,18 +1,37 @@
-<h1>All Orders</h1>
-<table>
-  <tr>
-    <th>Order Id</th>
-    <th>Total price</th>
-    <th></th>
-  </tr>
+<section class="orders">
+	<div class="container is-fluid">
+		<h1>All Orders</h1>
+		<div class="columns">
+			<div class="column">
+				<div class="card">
 
-  <% @orders.each do |order| %>
-    <tr>
-        <td><%= order.id %></td>
-        <td><%= '%.2f' % (order.furnitures_order.map{|x|x.quantity*x.furniture_option.price}.sum) %></td>
-        <td><%= link_to 'Show', order_path(order) %></td>
-    </tr>
-  <% end %>
-</table>
 
-<%= link_to 'Back to main', root_path %>
+							<table class="table is-fullwidth">
+								<tr>
+									<th>Order Id</th>
+									<th class="numbers">Total price</th>
+                  <th>Date</th>
+									<th></th>
+								</tr>
+
+								<% @orders.each do |order| %>
+									<tr>
+										<td><%= order.id %></td>
+										<td>$<%= '%.2f' % (order.furnitures_order.map{|x|x.quantity*x.furniture_option.price}.sum) %></td>
+                    <td><%= order.created_at %></td>
+										<td><%= link_to 'Show', order_path(order), class:"button" %></td>
+									</tr>
+								<% end %>
+							</table>
+
+
+
+				</div>
+			</div>
+		</div>
+
+		<%= link_to 'Back to main', root_path %>
+
+	</div>
+
+</section>
