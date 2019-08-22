@@ -191,7 +191,7 @@ Paloma.controller('Furnitures', {
                         <td><img src="${x.image}" style="width:200px;"/</td>
                         <td>${x.quantity}</td>
                         <td>${(x.quantity*x.price).toFixed(2)}</td>
-                        <td><div class="button is-success cart-delete">Delete<input value="${x.cart_id}"hidden/></div></td>
+                        <td><a class="button is-success cart-delete" data-confirm="Are you sure?">Delete<input value="${x.cart_id}"hidden/></a></td>
                     </tr>
                     `)
 

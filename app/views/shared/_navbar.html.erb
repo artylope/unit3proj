@@ -126,9 +126,16 @@
 					<i class='bx bxs-cart'></i>
 					Cart
 				</a>
-				<a class="navbar-item" href="/users/sign_in">
-					<i class='bx bxs-user-circle'></i>Login
-				</a>
+                <%if user_signed_in?%>
+                    <a class="navbar-item" href="/users/sign_out" data-method="delete" data-confirm="Are you sure?">
+                        <i class='bx bxs-user-circle'></i>Logout
+                    </a>
+                <%else%>
+                    <a class="navbar-item" href="/users/sign_in">
+                        Login
+                    </a>
+                <%end%>
+
 			</div>
 		</div>
 	</div>
