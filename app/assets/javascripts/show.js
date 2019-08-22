@@ -288,7 +288,7 @@ Paloma.controller('Furnitures', {
             data.forEach(x=>{
                 $("table").append(`
                     <tr>
-                        <td><input type="checkbox" name="selected_cart_ids[]" value="${x.cart_id}"/></td>
+                        <td><input type="checkbox" class="cart-checkbox" name="selected_cart_ids[]" value="${x.cart_id}" checked/></td>
                         <td>${x.furniture_name}</td>
                         <td>${x.price.toFixed(2)}</td>
                         <td>${x.category}</td>
@@ -319,6 +319,7 @@ Paloma.controller('Furnitures', {
                             document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
                             checkModalEmpty();
                             $(".cart-count").text(parseInt($(".cart-count").text())-1)
+                            calculateModalTotal();
                         },
                         error: function(xhr, textStatus, errorThrown) {
                             console.log('Error in Database');
@@ -338,6 +339,17 @@ Paloma.controller('Furnitures', {
             }
 
         }
+
+        const calculateModalTotal = function(){
+            let total = 0
+            $(".cart-checkbox").each(function(){
+               if ($(this).prop("checked")){
+                total += parseFloat($(this).parent().next().next().text())
+               }
+            })
+            $(".cart-total").text("Total: $"+total.toFixed(2))
+        }
+
         const togglingOn = function(){
             if($('.temp_information').data('user')){
                 $(".modal").show()
@@ -351,6 +363,7 @@ Paloma.controller('Furnitures', {
                         refreshModal(data)
                         resetDestroyButton();
                         checkModalEmpty();
+                        calculateModalTotal();
 
 
                     },
