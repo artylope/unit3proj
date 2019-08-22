@@ -134,6 +134,24 @@ Paloma.controller('Furnitures', {
             })
         })
 
+        $(".add-to-wishlist-button").click(function(){
+            $.ajax({
+                url: `/wishlists`,
+                type: 'POST',
+                data:{furniture_option_id :$(".furniture_option_id_input").val()},
+                dataType: 'json',
+
+                success: function(data, textStatus, xhr) {
+                    console.log("POST TO WISHLIST DONE")
+                    console.log($(".wish-count").text())
+                    $(".wish-count").text(parseInt($(".wish-count").text())+1)
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log('Error in Database');
+                }
+            })
+        })
+
         //FOR MODAL///////////////////////////////
         const refreshModal = function(data){
             $("table").html("")
