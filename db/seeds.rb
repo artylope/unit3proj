@@ -25,6 +25,10 @@ Furniture.create(
     :name => 'Jago', :price => 199.00, :category => 'Rug', :img_url => 'https://res-3.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/2/2/c/a/22caf895a7a02d7ecc463d24f9ce3200d8222bb8_RUGJAG018BLU_UK_Jago_Rug_200cm_diam_Teal_LB01.jpg')#9
 Furniture.create(
     :name => 'Lilo', :price => 18.00, :category => 'Decor', :img_url => 'https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/d/9/8/4/d98428cfb9c594e33a7fcecfa9c52c173b2c05e1_BTALIL005ZBR_UK_Lilo_Soap_Dispenser_Tumbler_Set_Brushed_Brass_LB01.jpg')#10
+Furniture.create(
+    :name => 'Esme', :price => 399.00, :category => 'Sideboard', :img_url => 'https://res-1.cloudinary.com/made-com/image/upload/b_auto,c_pad,h_550,w_2100/c_crop,g_auto,h_550,w_1050,d_made.svg,dpr_1.0,q_auto:best,f_auto/v4/catalog/product/asset/f/7/3/6/f736b72933b56f63027a2a6508ca725ba8053fa7_SDBESM033DSA_UK_Esme_Sideboard_Dark_Stain_LB01.jpg')#11
+Furniture.create(
+    :name => 'Moore', :price => 99.00, :category => 'Lighting', :img_url => 'https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_rgb:fff,c_pad,d_made.svg,dpr_1.0,f_auto,h_150,q_auto:best,w_200/v4/catalog/product/catalog/1/7/5/2/1752bf16ab1b49d23c278fb7c8918a42edd16224_FLPMOR002GRY_UK_Moore_Floor_Light_Dark_Stain_Ash_and_Grey_SALE_BUY_PL.jpg')#12
 
 
 
@@ -80,6 +84,14 @@ FurnitureOption.create(:color => "Antique Gold",:color_code => "bb9c43",:furnitu
 FurnitureOption.create(:material => "Brass",:material_img=>"https://us.123rf.com/450wm/andreykuzmin/andreykuzmin1505/andreykuzmin150500025/39941105-gold-metal-texture.jpg?ver=6",:furniture_id => 10, :image =>'https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/d/9/8/4/d98428cfb9c594e33a7fcecfa9c52c173b2c05e1_BTALIL005ZBR_UK_Lilo_Soap_Dispenser_Tumbler_Set_Brushed_Brass_LB01.jpg',:price => 18, :width => 0, :height => 0, :length => 0)#39
 FurnitureOption.create(:material => "Copper",:material_img=>"https://image.shutterstock.com/image-illustration/copper-metal-brushed-background-texture-260nw-400701769.jpg",:furniture_id => 10, :image =>'https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/4/3/b/8/43b89352c4c2848eb9661c41d566685b21ce34d9_BTALIL004ZCO_UK_Lilo_Soap_Dispenser_Tumbler_Set_Copper_LB01.jpg',:price => 18, :width => 0, :height => 0, :length => 0)#40
 
+FurnitureOption.create(:color => "Ash",:color_code=>"cdab8e",:furniture_id => 11, :image =>'https://res-1.cloudinary.com/made-com/image/upload/b_auto,c_pad,h_550,w_2100/c_crop,g_auto,h_550,w_1050,d_made.svg,dpr_1.0,q_auto:best,f_auto/v4/catalog/product/asset/f/7/6/1/f76141ae0879e4e8c46376418b052361db204763_e_s_esme_sideboard_ash_lb1_1.jpg',:price => 399, :width => 45, :height => 75, :length => 120)#41
+FurnitureOption.create(:color => "Dark Stain Ash",:color_code=>"633f30",:furniture_id => 11, :image =>'https://res-1.cloudinary.com/made-com/image/upload/b_auto,c_pad,h_550,w_2100/c_crop,g_auto,h_550,w_1050,d_made.svg,dpr_1.0,q_auto:best,f_auto/v4/catalog/product/asset/f/7/3/6/f736b72933b56f63027a2a6508ca725ba8053fa7_SDBESM033DSA_UK_Esme_Sideboard_Dark_Stain_LB01.jpg',:price => 399, :width => 45, :height => 75, :length => 120)#42
+FurnitureOption.create(:color => "Ash and Grey",:color_code=>"545356",:furniture_id => 11, :image =>'https://res-5.cloudinary.com/made-com/image/upload/b_auto,c_pad,h_550,w_2100/c_crop,g_auto,h_550,w_1050,d_made.svg,dpr_1.0,q_auto:best,f_auto/v4/catalog/product/asset/2/6/1/2/2612ce5908c5ec865b2fb1e21419d024feabd981_SDBESM037GRY_UK_Esme_Sideboard_Dark_Stain_Ash_and_Grey_LB01.jpg',:price => 399, :width => 45, :height => 75, :length => 120)#43
+FurnitureOption.create(:color => "Black and Ash",:color_code=>"ac8762",:furniture_id => 11, :image =>'https://res-1.cloudinary.com/made-com/image/upload/b_auto,c_pad,h_550,w_2100/c_crop,g_auto,h_550,w_1050,d_made.svg,dpr_1.0,q_auto:best,f_auto/v4/catalog/product/asset/3/d/3/c/3d3cdf39ec293473359d3060f4fa178966cafb8c_SDBESM035BLA_UK_Esme_Sideboard_Black_and_Ash_LB01.jpg',:price => 399, :width => 45, :height => 75, :length => 120)#44
+
+FurnitureOption.create(:color => "Natural Ash and Grey",:color_code=>"4a4b46",:furniture_id => 12, :image =>'https://res-2.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/2/a/9/3/2a93ba59846933f86198ea165077022cc9f075bd_FLPMOR002GRY_UK_Moore_Floor_Light_Dark_Stain_Ash_and_Grey_SALE_BUY_LB01.jpg',:price => 99, :width => 35, :height => 160, :length => 35)#45
+FurnitureOption.create(:color => "Dark Wood and White",:color_code=>"dcdcdc",:furniture_id => 12, :image =>'https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/7/1/f/c/71fc0e4c08953b6496d96fd96eec25b5c902f29b_FLPMOR001WHT_UK_Moore_Floor_Light_Natural_Ash_and_White_SALE_BUY_LB01.jpg',:price => 99, :width => 35, :height => 160, :length => 35)#46
+
 
 
 MainCategory.create(:title =>"Furnitures")#1
@@ -126,6 +138,13 @@ FurnituresMainCategory.create(:furniture_id => 9, :main_category_id => 7)
 FurnituresMainCategory.create(:furniture_id => 9, :main_category_id => 8)
 FurnituresMainCategory.create(:furniture_id => 10, :main_category_id => 2)
 FurnituresMainCategory.create(:furniture_id => 10, :main_category_id => 3)
+FurnituresMainCategory.create(:furniture_id => 11, :main_category_id => 1)
+FurnituresMainCategory.create(:furniture_id => 11, :main_category_id => 7)
+FurnituresMainCategory.create(:furniture_id => 11, :main_category_id => 8)
+FurnituresMainCategory.create(:furniture_id => 12, :main_category_id => 1)
+FurnituresMainCategory.create(:furniture_id => 12, :main_category_id => 4)
+FurnituresMainCategory.create(:furniture_id => 12, :main_category_id => 7)
+FurnituresMainCategory.create(:furniture_id => 12, :main_category_id => 8)
 
 Description.create(:furniture_option_id => 1, :short => "2-seat sofa, Gassebol light beige", :long => "A well-deserved nap in the daytime and nice relaxing with family and friends in the evening. LIDHULT sofa is designed for maximum comfort with high back and neck support. Embracing, inviting and generous.")
 Description.create(:furniture_option_id => 2, :short => "3-seat sofa, Gassebol light beige", :long => "A well-deserved nap in the daytime and nice relaxing with family and friends in the evening. LIDHULT sofa is designed for maximum comfort with high back and neck support. Embracing, inviting and generous.")
@@ -176,6 +195,14 @@ Description.create(:furniture_option_id => 38, :short => "Jago Rug 200cm diam, A
 
 Description.create(:furniture_option_id => 39, :short => "Lilo Soap Dispenser and Tumbler Set, Brass", :long =>"You’re all grown up. And now your space can be too. Trust the metallic trend and let Lilo work its transformation magic.")
 Description.create(:furniture_option_id => 40, :short => "Lilo Soap Dispenser and Tumbler Set, Copper", :long =>"You’re all grown up. And now your space can be too. Trust the metallic trend and let Lilo work its transformation magic.")
+
+Description.create(:furniture_option_id => 41, :short => "Esme Sideboard, Ash", :long =>"You can try not to be charmed by the Esme collection, but with those rounded edges and splayed solid-ash legs, resistance is futile. Its 1960s television design delights every time.")
+Description.create(:furniture_option_id => 42, :short => "Esme Sideboard, Dark Stain Ash", :long =>"You can try not to be charmed by the Esme collection, but with those rounded edges and splayed solid-ash legs, resistance is futile. Its 1960s television design delights every time.")
+Description.create(:furniture_option_id => 43, :short => "Esme Sideboard, Dark Stain Ash and Grey", :long =>"You can try not to be charmed by the Esme collection, but with those rounded edges and splayed solid-ash legs, resistance is futile. Its 1960s television design delights every time.")
+Description.create(:furniture_option_id => 44, :short => "Esme Sideboard, Black and Ash", :long =>"You can try not to be charmed by the Esme collection, but with those rounded edges and splayed solid-ash legs, resistance is futile. Its 1960s television design delights every time.")
+
+Description.create(:furniture_option_id => 45, :short => "Moore Floor Light, Natural Ash and Grey", :long =>"The simple natural stained ash base of the Moore floor light stands out against a grey shade. It's tall with a petite footprint, making it good for smaller spaces.")
+Description.create(:furniture_option_id => 46, :short => "Moore Floor Light, Dark Wood and White", :long =>"The simple natural stained ash base of the Moore floor light stands out against a grey shade. It's tall with a petite footprint, making it good for smaller spaces.")
 
 
 FurnitureImage.create(:furniture_option_id => 1, :image => "https://www.ikea.com/PIAimages/0619142_PE688944_S5.JPG?f=l")
@@ -283,5 +310,19 @@ FurnitureImage.create(:furniture_option_id => 39, :image => "https://res-3.cloud
 FurnitureImage.create(:furniture_option_id => 39, :image => "https://res-2.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/9/2/6/6/9266328ffae3129133b5e4941ff4127fdf94c158_BTALIL005ZBR_UK_Lilo_Soap_Dispenser_Tumbler_Set_Brushed_Brass_LB03.jpg")
 FurnitureImage.create(:furniture_option_id => 40, :image => "https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/2/9/b/d/29bd012a3b25bbf48911a4c2407751cbb80c8a22_BTALIL004ZCO_UK_Lilo_Soap_Dispenser_Tumbler_Set_Copper_LB02.jpg")
 FurnitureImage.create(:furniture_option_id => 40, :image => "https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/7/0/a/3/70a36b0dc50f815ad3f2c50a23cebf877cd3c99d_BTALIL004ZCO_UK_Lilo_Soap_Dispenser_Tumbler_Set_Copper_LB03.jpg")
+
+FurnitureImage.create(:furniture_option_id => 41, :image => "https://res-4.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/0/a/c/5/0ac544a2c2099dd3987122255de1ae299f2dbd2c_e_s_esme_sideboard_ash_lb2.jpg")
+FurnitureImage.create(:furniture_option_id => 41, :image => "https://res-2.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/f/8/b/a/f8baa8ac385b81e1361cb49cb5a78e225e29d81b_e_s_esme_sideboard_ash_lb8.jpg")
+FurnitureImage.create(:furniture_option_id => 42, :image => "https://res-4.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/0/0/5/7/00573d2deb51af1c500e98c4a05d33019ff2293d_SDBESM033DSA_UK_Esme_Sideboard_Dark_Stain_LB02.jpg")
+FurnitureImage.create(:furniture_option_id => 42, :image => "https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/2/b/9/9/2b99c8bab84c5399ddb2750d12cd59843097fb78_SDBESM033DSA_UK_Esme_Sideboard_Dark_Stain_LB07.jpg")
+FurnitureImage.create(:furniture_option_id => 43, :image => "https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/1/e/f/7/1ef775f7f34fe930be6f43cfac6a7c5aa7c354b6_SDBESM037GRY_UK_Esme_Sideboard_Dark_Stain_Ash_and_Grey_LB02.jpg")
+FurnitureImage.create(:furniture_option_id => 43, :image => "https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/2/a/b/1/2ab1095b61ee5a9359c8bdbfc1f8f8212de441d2_SDBESM037GRY_UK_Esme_Sideboard_Dark_Stain_Ash_and_Grey_LB08.jpg")
+FurnitureImage.create(:furniture_option_id => 44, :image => "https://res-1.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/c/f/7/f/cf7f919fee2703c456f95f5b4336e614318dac29_SDBESM035BLA_UK_Esme_Sideboard_Black_and_Ash_LB02.jpg")
+FurnitureImage.create(:furniture_option_id => 44, :image => "https://res-2.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/a/3/c/6/a3c6358e2da94bdb4bd30bb820fe6878644c909e_SDBESM035BLA_UK_Esme_Sideboard_Black_and_Ash_LB08.jpg")
+FurnitureImage.create(:furniture_option_id => 45, :image => "https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/c/3/a/0/c3a02bc56288de1ff39924afda7829df9b8ad58f_FLPMOR002GRY_UK_Moore_Floor_Light_Dark_Stain_Ash_and_Grey_SALE_BUY_LB02.jpg")
+FurnitureImage.create(:furniture_option_id => 45, :image => "https://res-2.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/1/f/7/e/1f7ef0fe14c7a4a3b05d6bcf3b7049d82553e8fc_FLPMOR002GRY_UK_Moore_Floor_Light_Dark_Stain_Ash_and_Grey_SALE_BUY_LB06.jpg")
+FurnitureImage.create(:furniture_option_id => 46, :image => "https://res-5.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/1/2/7/f/127fd2aaa9099dd1e2c9070ba08f2dd08a7e3298_FLPMOR001WHT_UK_Moore_Floor_Light_Natural_Ash_and_White_SALE_BUY_LB02.jpg")
+FurnitureImage.create(:furniture_option_id => 46, :image => "https://res-3.cloudinary.com/made-com/image/upload/a_auto,b_transparent,c_pad,d_made.svg,dpr_1.0,f_auto,h_550,q_auto:best,w_1050/v4/catalog/product/asset/e/b/7/e/eb7e1aff3daa9df5a3878d409c77746477ca226c_FLPMOR001WHT_UK_Moore_Floor_Light_Natural_Ash_and_White_SALE_BUY_LB06.jpg")
+
 
 
