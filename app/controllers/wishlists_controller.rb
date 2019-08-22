@@ -31,6 +31,13 @@ class WishlistsController < ApplicationController
 
     end
 
+
+    def floorplan
+        @carts = Cart.all;
+    end
+
+
+
     def destroy
         puts "////////////////////////////////////"
         p params
