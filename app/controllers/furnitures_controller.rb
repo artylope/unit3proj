@@ -60,9 +60,10 @@ class FurnituresController < ApplicationController
         furniture_id = JSON.parse(params[:id])
         @furniture = Furniture.find(furniture_id).furniture_option.where(color: color, capacity: capacity,material: material,kuan: kuan)
         @furniture_images = FurnitureImage.where(furniture_option_id: @furniture.ids[0])
+        @furniture_description = Description.where(furniture_option_id: @furniture.ids[0])
 
         respond_to do |format|
-            format.json { render json: {furniture:@furniture.to_json,furniture_images:@furniture_images.to_json} }
+            format.json { render json: {furniture:@furniture.to_json,furniture_images:@furniture_images.to_json,furniture_description:@furniture_description} }
         end
     end
 

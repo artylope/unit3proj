@@ -55,6 +55,21 @@ Paloma.controller('Furnitures', {
             )
         }
 
+        const normalCall = function(data){
+            $(".furniture_image").attr("src",JSON.parse(data.furniture)[0].image)
+            $(".price").text("$"+JSON.parse(data.furniture)[0].price.toFixed(2))
+            $(".furniture_option_id_input").val(JSON.parse(data.furniture)[0].id)
+            $("#short-description").text(data.furniture_description[0].short)
+            $("#long-description").text(data.furniture_description[0].long)
+            let images_arr = JSON.parse(data.furniture_images)
+            $(".furniture-image-list").append(`<img class="individual-images" src="${JSON.parse(data.furniture)[0].image}"  />`)
+            images_arr.forEach(x=>{
+                $(".furniture-image-list").append(`<img class="individual-images" src="${x.image}" />`)
+            })
+            addEventListenerToImages();
+            console.log("done")
+        }
+
         const ajaxCallInitial = function(e){
             //START FROM HERE
             color = $(".color-initial").val()
@@ -67,18 +82,7 @@ Paloma.controller('Furnitures', {
                 dataType: 'json',
 
                 success: function(data, textStatus, xhr) {
-                    $(".furniture_image").attr("src",JSON.parse(data.furniture)[0].image)
-                    $(".price").text("$"+JSON.parse(data.furniture)[0].price.toFixed(2))
-                    $(".furniture_option_id_input").val(JSON.parse(data.furniture)[0].id)
-                    let images_arr = JSON.parse(data.furniture_images)
-                    $(".furniture-image-list").append(`<img class="individual-images"src="${JSON.parse(data.furniture)[0].image}"  />`)
-                    images_arr.forEach(x=>{
-                        $(".furniture-image-list").append(`<img class="individual-images" src="${x.image}" />`)
-                    })
-                    addEventListenerToImages();
-                    console.log("done")
-
-
+                    normalCall(data)
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     console.log('Error in Database');
@@ -100,18 +104,7 @@ Paloma.controller('Furnitures', {
                 dataType: 'json',
 
                 success: function(data, textStatus, xhr) {
-                    $(".furniture_image").attr("src",JSON.parse(data.furniture)[0].image)
-                    $(".price").text("$"+JSON.parse(data.furniture)[0].price.toFixed(2))
-                    $(".furniture_option_id_input").val(JSON.parse(data.furniture)[0].id)
-                    let images_arr = JSON.parse(data.furniture_images)
-                    $(".furniture-image-list").append(`<img class="individual-images" src="${JSON.parse(data.furniture)[0].image}"  />`)
-                    images_arr.forEach(x=>{
-                        $(".furniture-image-list").append(`<img class="individual-images" src="${x.image}" />`)
-                    })
-                    addEventListenerToImages();
-                    console.log("done")
-
-
+                    normalCall(data)
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     console.log('Error in Database');
