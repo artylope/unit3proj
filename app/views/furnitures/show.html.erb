@@ -60,6 +60,7 @@
                       <div class="product-buttons" id="product-buttons">
                         <button class="button is-small add-to-wishlist-button" id="add-to-wishlist-button"><i class='bx bx-heart' id="wishlist-heart"></i>Add to Wishlist</button> </br>
                         <button class="button is-large is-primary add-to-cart-button" id="add-to-cart-button">Add to Cart</button>
+                        <p class="login-warning" hidden>You need to login first</p>
                       </div>
 
                     </div>
@@ -72,114 +73,6 @@
 
         </div>
       </div>
-      <%= content_tag :div, class: "temp_information", data: {temp: @furniture.id} do %>
+      <%= content_tag :div, class: "temp_information", data: {temp: @furniture.id,user:user_signed_in?} do %>
                         <% end %>
   </section>
-
-
-
-
-<script>
-
-  //clicking on add and minus modifiers affects the quantity value
-
-  let prodQty = document.querySelector('#quantity-input').value;
-  prodQty = parseInt(prodQty);
-  console.log('prod quantity ' + prodQty);
-  let addOne = document.querySelector('#qty-add-1');
-  let minusOne = document.querySelector('#qty-minus-1');
-  let addToCart = document.querySelector('#add-to-cart-button');
-  let addToCartSection = document.querySelector('#product-buttons')
-
-  //clicking on add , adds 1 to qty
-
-  addOne.addEventListener('click', function(){
-      prodQty += 1;
-      minusOne.removeAttribute("disabled", "");
-      addToCart.removeAttribute("disabled", "");
-      console.log('prod quantity ' + prodQty);
-      document.getElementById('quantity-input').value = prodQty;
-  })
-
-  //clicking on minus , minus 1 to qty, if is 0, disables button
-
-  minusOne.addEventListener('click', function(){
-    if (prodQty >= 1){
-      prodQty -= 1;
-      console.log('prod quantity ' + prodQty);
-      document.getElementById('quantity-input').value = prodQty;
-      minusOne.removeAttribute("disabled", "");
-      addToCart.removeAttribute("disabled", "");
-    }
-
-    if (prodQty === 0){
-      console.log('prod qty is 0');
-      minusOne.setAttribute("disabled", "");
-      addToCart.setAttribute("disabled", "");
-    }
-  })
-
-
-  //clicking on add to cart, do a plus 1 animation
-  addToCart.addEventListener('click', function(){
-    console.log('click');
-    addToCart.classList.add("is-loading");
-
-    let cartAddedStatus = false;
-
-    setTimeout(function(){
-      cartAddedStatus = true;
-
-
-      //if true, do this animation
-      if(cartAddedStatus ===true ){
-
-        addToCart.classList.remove("is-loading");
-        var plusOne = document.createElement("div");
-        plusOne.innerText = "+1";
-        plusOne.classList.add("cart-plus-one");
-        addToCartSection.appendChild(plusOne);
-        console.log('added');
-        setTimeout(function(){
-          plusOne.remove();
-        }, 500);
-
-      } else {
-
-        addToCart.classList.remove("is-loading");
-        console.log('not added');
-      }
-
-    }, 1000);
-
-
-  })
-
-  //wishlist heart
-
-  let wishlistHeartButton = document.querySelector('#add-to-wishlist-button');
-  let wishlistHeart = document.querySelector('#wishlist-heart');
-  wishlistHeartClasses = wishlistHeart.classList;
-  console.log(wishlistHeartClasses);
-  console.log(typeof wishlistHeartClasses);
-
-
-  wishlistHeartButton.addEventListener('click', function(){
-    var found = false;
-    for(var i = 0; i < wishlistHeartClasses.length; i++) {
-        if (wishlistHeartClasses[i] === "bx-heart") {
-          wishlistHeart.classList.remove('bx-heart');
-          wishlistHeart.classList.add('bxs-heart');
-            break;
-        } else if (wishlistHeartClasses[i] === "bxs-heart") {
-          wishlistHeart.classList.remove('bxs-heart');
-          wishlistHeart.classList.add('bx-heart');
-        }
-    }
-    console.log('clicked');
-    console.log(found);
-
-  })
-
-
-</script>
