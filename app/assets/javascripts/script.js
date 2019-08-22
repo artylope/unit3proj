@@ -187,7 +187,7 @@ Paloma.controller('Furnitures', {
           let addOne = document.querySelector('#qty-add-1');
           let minusOne = document.querySelector('#qty-minus-1');
           let addToCart = document.querySelector('#add-to-cart-button');
-          let addToCartSection = document.querySelector('#product-add-to-cart')
+          let addToCartSection = document.querySelector('#product-buttons')
 
           //clicking on add , adds 1 to qty
 
@@ -255,6 +255,34 @@ Paloma.controller('Furnitures', {
             }else{
                 console.log("not logged in")
             }
+
+
+              //wishlist heart
+
+            let wishlistHeartButton = document.querySelector('#add-to-wishlist-button');
+            let wishlistHeart = document.querySelector('#wishlist-heart');
+            wishlistHeartClasses = wishlistHeart.classList;
+            console.log(wishlistHeartClasses);
+            console.log(typeof wishlistHeartClasses);
+
+
+            wishlistHeartButton.addEventListener('click', function(){
+              var found = false;
+              for(var i = 0; i < wishlistHeartClasses.length; i++) {
+                  if (wishlistHeartClasses[i] === "bx-heart") {
+                    wishlistHeart.classList.remove('bx-heart');
+                    wishlistHeart.classList.add('bxs-heart');
+                      break;
+                  } else if (wishlistHeartClasses[i] === "bxs-heart") {
+                    wishlistHeart.classList.remove('bxs-heart');
+                    wishlistHeart.classList.add('bx-heart');
+                  }
+              }
+              console.log('clicked');
+              console.log(found);
+
+            })
+
 
           })
 
