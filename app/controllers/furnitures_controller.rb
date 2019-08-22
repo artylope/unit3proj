@@ -1,6 +1,7 @@
 class FurnituresController < ApplicationController
     def index
         @carts = Cart.all
+        @wishlists = Wishlist.where(user_id: current_user.id)
         if params.key? ("category")
             @furnitures = Furniture.where(category:params[:category].titleize)
         elsif params.key? ("main_category")
@@ -27,6 +28,8 @@ class FurnituresController < ApplicationController
     def show
         @carts = Cart.all
         @furniture = Furniture.find(params[:id])
+        @wishlists = Wishlist.where(user_id: current_user.id)
+
     end
 
     def edit
