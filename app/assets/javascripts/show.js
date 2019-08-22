@@ -295,7 +295,7 @@ Paloma.controller('Furnitures', {
                         <td><img src="${x.image}" style="width:200px;"/</td>
                         <td>${x.quantity}</td>
                         <td>${(x.quantity*x.price).toFixed(2)}</td>
-                        <td><a class="button is-success cart-delete" data-confirm="Are you sure?">Delete<input value="${x.cart_id}"hidden/></a></td>
+                        <td><a class="button is-success cart-delete">Delete<input value="${x.cart_id}"hidden/></a></td>
                     </tr>
                     `)
 
@@ -312,25 +312,33 @@ Paloma.controller('Furnitures', {
         }
         const resetDestroyButton = function(){
              $(".cart-delete").each(function(){
+
                 let eachDelete = this
                 eachDelete.addEventListener("click",function(){
                     let deleteDiv = event.target
-                    $.ajax({
+                    var check = confirm("Are you sure you want to delete this?");
+                    if (check == true) {
+                        $.ajax({
 
-                        url: `/carts/${deleteDiv.lastElementChild.value}`,
-                        type: 'DELETE',
-                        dataType: 'json',
+                            url: `/carts/${deleteDiv.lastElementChild.value}`,
+                            type: 'DELETE',
+                            dataType: 'json',
 
-                        success: function(data, textStatus, xhr) {
-                            document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
-                            checkModalEmpty();
-                            $(".cart-count").text(parseInt($(".cart-count").text())-1)
-                            calculateModalTotal();
-                        },
-                        error: function(xhr, textStatus, errorThrown) {
-                            console.log('Error in Database');
-                        }
-                    })
+                            success: function(data, textStatus, xhr) {
+                                document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
+                                checkModalEmpty();
+                                $(".cart-count").text(parseInt($(".cart-count").text())-1)
+                                calculateModalTotal();
+                            },
+                            error: function(xhr, textStatus, errorThrown) {
+                                console.log('Error in Database');
+                            }
+                        })
+                    }
+                    else {
+                        return false;
+                    }
+
                 })
             })
         }

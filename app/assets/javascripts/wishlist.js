@@ -9,19 +9,24 @@ Paloma.controller('Wishlists', {
                 let eachDelete = this
                 eachDelete.addEventListener("click",function(){
                     let deleteDiv = event.target
-                    $.ajax({
+                    var check = confirm("Are you sure you want to delete?");
+                    if (check == true) {
+                        $.ajax({
 
-                        url: `/wishlists/${deleteDiv.lastElementChild.value}`,
-                        type: 'DELETE',
-                        dataType: 'json',
+                            url: `/wishlists/${deleteDiv.lastElementChild.value}`,
+                            type: 'DELETE',
+                            dataType: 'json',
 
-                        success: function(data, textStatus, xhr) {
-                            document.querySelector("tbody").removeChild(deleteDiv.parentNode.parentNode)
-                        },
-                        error: function(xhr, textStatus, errorThrown) {
-                            console.log('Error in Database');
-                        }
-                    })
+                            success: function(data, textStatus, xhr) {
+                                document.querySelector("tbody").removeChild(deleteDiv.parentNode.parentNode)
+                            },
+                            error: function(xhr, textStatus, errorThrown) {
+                                console.log('Error in Database');
+                            }
+                        })
+                    }else{
+                        return false
+                    }
                 })
         })
 
