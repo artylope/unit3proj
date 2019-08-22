@@ -317,6 +317,8 @@ Paloma.controller('Furnitures', {
 
                         success: function(data, textStatus, xhr) {
                             document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
+                            checkModalEmpty();
+                            $(".cart-count").text(parseInt($(".cart-count").text())-1)
                         },
                         error: function(xhr, textStatus, errorThrown) {
                             console.log('Error in Database');
@@ -324,6 +326,17 @@ Paloma.controller('Furnitures', {
                     })
                 })
             })
+        }
+
+        const checkModalEmpty = function(){
+            let table = document.querySelector(".modal-table")
+            if(table.children.length<2){
+                $(".checkout-button").prop("disabled", true)
+            }else{
+                console.log("can checkout")
+                $(".checkout-button").prop("disabled", false)
+            }
+
         }
         const togglingOn = function(){
             if($('.temp_information').data('user')){
@@ -337,6 +350,8 @@ Paloma.controller('Furnitures', {
                     success: function(data, textStatus, xhr) {
                         refreshModal(data)
                         resetDestroyButton();
+                        checkModalEmpty();
+
 
                     },
                     error: function(xhr, textStatus, errorThrown) {
