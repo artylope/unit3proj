@@ -25,10 +25,8 @@
                       <img class="furniture_image"src="<%= @furniture.img_url %>"/>
                     </div>
 
-                    <div class="product-image-selector">
-                      <img src="https://images.crateandbarrel.com/is/image/Crate/Sherwood2SeatSofa84inPearlSOF18/?$web_zoom_furn_av$&190819100010&wid=1008&hei=567"/>
-                      <img src="https://images.crateandbarrel.com/is/image/Crate/Sherwood2SeatSofa84inPearlSOF18/?$web_zoom_furn_av$&190819100010&wid=1008&hei=567"/>
-                      <img src="https://images.crateandbarrel.com/is/image/Crate/Sherwood2SeatSofa84inPearlSOF18/?$web_zoom_furn_av$&190819100010&wid=1008&hei=567"/>
+                    <div class="product-image-selector furniture-image-list">
+
                     </div>
 
                   </div>
@@ -40,13 +38,14 @@
                       <div class="product-info-base">
                         <p><%= @furniture.category %></p>
                         <h1><%= @furniture.name %></h1>
-                        <p>Lorem ipsum cupcake bbacon very nice</p>
+                        <p id="short-description"></p>
                         <h2 class="price">$<%= '%.2f' % @furniture.price %></h2>
-                        <button>Add to wishlist</button>
+                        <p id="long-description"></p>
                       </div>
 
                       <div class="product-options">
                         <%= render "shared/show_selections", object: @furniture %>
+
                       </div>
 
 
@@ -59,6 +58,7 @@
                       </div>
 
                       <div class="product-add-to-cart" id="product-add-to-cart">
+                        <button class="button is-small add-to-wishlist-button" id="add-to-wishlist-button"><i class='bx bx-heart'></i>Add to Wishlist</button> </br>
                         <button class="button is-large is-primary add-to-cart-button" id="add-to-cart-button">Add to Cart</button>
                       </div>
 
