@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get '/furnitures/:id/optionajax' => 'furnitures#optionajax'
     resources :carts
     resources :orders
+    get '/wishlists/floorplan' => 'wishlists#floorplan'
     resources :wishlists
+
 
 end

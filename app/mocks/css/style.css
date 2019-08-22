@@ -7159,14 +7159,14 @@ h6 {
     padding: 50px; }
     #product-detail .product-info-container .product-info-base {
       margin-top: 10px;
-      margin-bottom: 20px; }
+      margin-bottom: 30px; }
       #product-detail .product-info-container .product-info-base h1 {
         font-size: 2.4em; }
       #product-detail .product-info-container .product-info-base h2 {
         font-size: 1.8em; }
     #product-detail .product-info-container .product-options {
       margin-top: 10px;
-      margin-bottom: 20px; }
+      margin-bottom: 30px; }
       #product-detail .product-info-container .product-options .each-product-option {
         margin-top: 20px;
         margin-bottom: 20px;
@@ -7207,5 +7207,5 @@ h6 {
       #product-detail .product-info-container .product-qty .input {
         display: inline-block;
         width: 50px; }
-    #product-detail .product-info-container .product-button {
+    #product-detail .product-info-container .product-buttons {
       margin-top: 10px; }
