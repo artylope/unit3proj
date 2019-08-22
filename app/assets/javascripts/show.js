@@ -303,7 +303,13 @@ Paloma.controller('Furnitures', {
 
 
         }
-
+        const setCheckBoxOnchange = function(){
+            $(".cart-checkbox").each(function(){
+                $(this).change(function(){
+                    calculateModalTotal();
+                })
+            })
+        }
         const resetDestroyButton = function(){
              $(".cart-delete").each(function(){
                 let eachDelete = this
@@ -360,7 +366,8 @@ Paloma.controller('Furnitures', {
                     dataType: 'json',
 
                     success: function(data, textStatus, xhr) {
-                        refreshModal(data)
+                        refreshModal(data);
+                        setCheckBoxOnchange();
                         resetDestroyButton();
                         checkModalEmpty();
                         calculateModalTotal();
