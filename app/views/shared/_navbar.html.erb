@@ -131,9 +131,21 @@
 
                 <%end%>
                 <%if user_signed_in?%>
-                    <a class="navbar-item" href="/users/sign_out" data-method="delete" data-confirm="Are you sure?">
-                        <i class='bx bxs-user-circle'></i>Logout
-                    </a>
+
+												<div class="navbar-item has-dropdown is-hoverable">
+													<a class="navbar-link is-arrowless" href="/furnitures">
+														<i class='bx bxs-user-circle'></i> <%=current_user.email%>
+		                    </a>
+
+													<div class="navbar-dropdown">
+														<a class="navbar-item" href="/orders">
+															Orders
+														</a>
+														<a class="navbar-item" href="/users/sign_out" data-method="delete" data-confirm="Are you sure?">
+				                      Logout
+				                    </a>
+													</div>
+												</div>
                 <%else%>
                     <a class="navbar-item" href="/users/sign_in">
                         Login
