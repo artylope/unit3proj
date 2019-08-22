@@ -8,14 +8,15 @@
                   <div class="delete" id="modal-x-button"aria-label="close"></div>
                 </header>
                 <section class="modal-card-body">
-                    <table>
+                    <table class="modal-table">
 
 
                     </table>
                 </section>
                 <footer class="modal-card-foot">
-                    <%= form.submit "Checkout", class:"button is-success",data: { confirm: 'Are you sure?' }%>
+                    <%= form.submit "Checkout", class:"button is-success checkout-button",data: { confirm: 'Are you sure?' }%>
                     <div class="button" id="modal-cancel-button">Cancel</div>
+                    <div class="cart-total">Total: $</div>
                 </footer>
             </div>
         <% end %>

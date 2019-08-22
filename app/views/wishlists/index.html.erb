@@ -17,7 +17,7 @@
             <td><%= wishlist.furniture_option.furniture.category %></td>
             <td><img src="<%= wishlist.furniture_option.image %>" width="300px"/></td>
             <td><%= '%.2f' % wishlist.furniture_option.price %></td>
-            <td><a class="button is-success wishlist-delete" data-confirm="Are you sure?">Delete<input value="<%=wishlist.id%>"hidden/></a></td>
+            <td><a class="button is-success wishlist-delete">Delete<input value="<%=wishlist.id%>"hidden/></a></td>
         </tr>
       <% end %>
 

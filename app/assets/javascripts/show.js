@@ -288,14 +288,14 @@ Paloma.controller('Furnitures', {
             data.forEach(x=>{
                 $("table").append(`
                     <tr>
-                        <td><input type="checkbox" name="selected_cart_ids[]" value="${x.cart_id}"/></td>
+                        <td><input type="checkbox" class="cart-checkbox" name="selected_cart_ids[]" value="${x.cart_id}" checked/></td>
                         <td>${x.furniture_name}</td>
                         <td>${x.price.toFixed(2)}</td>
                         <td>${x.category}</td>
                         <td><img src="${x.image}" style="width:200px;"/</td>
                         <td>${x.quantity}</td>
                         <td>${(x.quantity*x.price).toFixed(2)}</td>
-                        <td><a class="button is-success cart-delete" data-confirm="Are you sure?">Delete<input value="${x.cart_id}"hidden/></a></td>
+                        <td><a class="button is-success cart-delete">Delete<input value="${x.cart_id}"hidden/></a></td>
                     </tr>
                     `)
 
@@ -303,28 +303,67 @@ Paloma.controller('Furnitures', {
 
 
         }
-
-        const resetDestroyButton = function(){
-             $(".cart-delete").each(function(){
-                let eachDelete = this
-                eachDelete.addEventListener("click",function(){
-                    let deleteDiv = event.target
-                    $.ajax({
-
-                        url: `/carts/${deleteDiv.lastElementChild.value}`,
-                        type: 'DELETE',
-                        dataType: 'json',
-
-                        success: function(data, textStatus, xhr) {
-                            document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
-                        },
-                        error: function(xhr, textStatus, errorThrown) {
-                            console.log('Error in Database');
-                        }
-                    })
+        const setCheckBoxOnchange = function(){
+            $(".cart-checkbox").each(function(){
+                $(this).change(function(){
+                    calculateModalTotal();
                 })
             })
         }
+        const resetDestroyButton = function(){
+             $(".cart-delete").each(function(){
+
+                let eachDelete = this
+                eachDelete.addEventListener("click",function(){
+                    let deleteDiv = event.target
+                    var check = confirm("Are you sure you want to delete this?");
+                    if (check == true) {
+                        $.ajax({
+
+                            url: `/carts/${deleteDiv.lastElementChild.value}`,
+                            type: 'DELETE',
+                            dataType: 'json',
+
+                            success: function(data, textStatus, xhr) {
+                                document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
+                                checkModalEmpty();
+                                $(".cart-count").text(parseInt($(".cart-count").text())-1)
+                                calculateModalTotal();
+                            },
+                            error: function(xhr, textStatus, errorThrown) {
+                                console.log('Error in Database');
+                            }
+                        })
+                    }
+                    else {
+                        return false;
+                    }
+
+                })
+            })
+        }
+
+        const checkModalEmpty = function(){
+            let table = document.querySelector(".modal-table")
+            if(table.children.length<2){
+                $(".checkout-button").prop("disabled", true)
+            }else{
+                console.log("can checkout")
+                $(".checkout-button").prop("disabled", false)
+            }
+
+        }
+
+        const calculateModalTotal = function(){
+            let total = 0
+            $(".cart-checkbox").each(function(){
+               if ($(this).prop("checked")){
+                total += parseFloat($(this).parent().next().next().text())
+               }
+            })
+            $(".cart-total").text("Total: $"+total.toFixed(2))
+        }
+
         const togglingOn = function(){
             if($('.temp_information').data('user')){
                 $(".modal").show()
@@ -335,8 +374,12 @@ Paloma.controller('Furnitures', {
                     dataType: 'json',
 
                     success: function(data, textStatus, xhr) {
-                        refreshModal(data)
+                        refreshModal(data);
+                        setCheckBoxOnchange();
                         resetDestroyButton();
+                        checkModalEmpty();
+                        calculateModalTotal();
+
 
                     },
                     error: function(xhr, textStatus, errorThrown) {
