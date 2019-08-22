@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_103552) do
+ActiveRecord::Schema.define(version: 2019_08_21_161753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(version: 2019_08_20_103552) do
     t.datetime "updated_at", null: false
     t.index ["furniture_option_id"], name: "index_carts_on_furniture_option_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "descriptions", force: :cascade do |t|
+    t.bigint "furniture_option_id"
+    t.text "short"
+    t.text "long"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["furniture_option_id"], name: "index_descriptions_on_furniture_option_id"
+  end
+
+  create_table "furniture_images", force: :cascade do |t|
+    t.bigint "furniture_option_id"
+    t.text "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["furniture_option_id"], name: "index_furniture_images_on_furniture_option_id"
   end
 
   create_table "furniture_options", force: :cascade do |t|

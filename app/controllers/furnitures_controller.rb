@@ -52,17 +52,17 @@ class FurnituresController < ApplicationController
     end
 
     def optionajax
-        puts "/////////////////////"
-        p params
-        puts "/////////////////////"
+
         color = if JSON.parse(params[:color]) == "" then nil else JSON.parse(params[:color]) end
         capacity = if JSON.parse(params[:capacity]) == "" then nil else JSON.parse(params[:capacity]) end
         material = if JSON.parse(params[:material]) == "" then nil else JSON.parse(params[:material]) end
         kuan = if JSON.parse(params[:kuan]) == "" then nil else JSON.parse(params[:kuan]) end
         furniture_id = JSON.parse(params[:id])
         @furniture = Furniture.find(furniture_id).furniture_option.where(color: color, capacity: capacity,material: material,kuan: kuan)
+        @furniture_images = FurnitureImage.where(furniture_option_id: @furniture.ids[0])
+
         respond_to do |format|
-            format.json { render json: @furniture.to_json }
+            format.json { render json: {furniture:@furniture.to_json,furniture_images:@furniture_images.to_json} }
         end
     end
 

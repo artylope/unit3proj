@@ -2,7 +2,7 @@
     <%if @furniture.furniture_option.map(&:color_code)[0] == nil%>
         <input name="color" class="color-initial" value="" hidden/>
     <%else%>
-        <input name="color" class="color-initial" value="<%=@furniture.furniture_option.order(:id).map(&:color_code)[0]%>" hidden/>
+        <input name="color" class="color-initial" value="<%=@furniture.furniture_option.order(:id).map(&:color)[0]%>" hidden/>
         <div class="each-product-option">
             <span class="option-label">Colour</span>
             <% @furniture.furniture_option.order(:id).map{|p| {:color_code=>p.color_code,:color=>p.color}}.uniq.each do |color|%>
@@ -26,7 +26,7 @@
     <%if @furniture.furniture_option.map(&:material_img)[0] == nil%>
         <input name="material" class="material-initial" value="" hidden/>
     <%else%>
-        <input name="material" class="material-initial" value="<%=@furniture.furniture_option.order(:id).map(&:material_img)[0]%>" hidden/>
+        <input name="material" class="material-initial" value="<%=@furniture.furniture_option.order(:id).map(&:material)[0]%>" hidden/>
         <p>Material:</p>
         <div class="each-product-option">
             <span class="option-label">Material</span>
@@ -39,7 +39,7 @@
     <%if @furniture.furniture_option.map(&:kuan)[0] == nil%>
         <input name="kuan" class="kuan-initial" value="" hidden/>
     <%else%>
-        <input name="kuan" class="kuan-initial" value="<%=@furniture.furniture_option.map(&:kuan)[0]%>" hidden/>
+        <input name="kuan" class="kuan-initial" value="<%=@furniture.furniture_option.order(:id).map(&:kuan)[0]%>" hidden/>
         <p>Type:</p>
         <div class="each-product-option">
             <span class="option-label">Type</span>
