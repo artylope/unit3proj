@@ -1,0 +1,52 @@
+<%= render "shared/navbar", :locales => {:carts => @carts}  %>
+
+
+    <div class="main_container">
+        <div class="control_panel">
+            <p>
+                <input type="file" id="importFile" />
+                <button id="clearAllFurnitureButton">Clear All Furniture</button>
+                <button id="calibrate">Calibrate Scale</button>
+            </p>
+        </div>
+
+        <div class="floor_plan_container">
+            <%= image_tag('loadimage.svg', id:"floor_plan_image", width:"200px") %>
+            <div id="floor_plan_overlay" class="floor_plan_overlay" style="left:0; top:0;">
+            </div>
+        </div>
+
+        <div id="furnitureDiv" class="sofa grid-snap" style="width:0; height:0;">
+        </div>
+
+        <div id="calibrate_menu" class="draggable" style="display:none">
+            <h3>Calibrate Menu</h3>
+            <p>Click 1st point on floorplan</p>
+            <p>Click 2nd point on floorplan</p>
+            <p>Enter the corresponding distance (in metres)<input type='text' id='lengthParam' /></p>
+            <button id="submit_calibrate">Submit</button>
+        </div>
+
+        <div id="floating_menu" class="draggable" style="display:none;">
+            <h3>Floating Menu</h3>
+
+            <!-- insert furniture models here!!! -->
+            <!-- insert furniture models here!!! -->
+            <!-- insert furniture models here!!! -->
+            <!-- insert furniture models here!!! -->
+            <!-- insert furniture models here!!! -->
+            <%= image_tag('sofalayout-300-240.svg', width:"200px", class: "floatmenu", data: { width: '3000', length:'2400' }) %>
+            <%= image_tag('dining-layout-190-276.svg', width:"126px", class: "floatmenu", data: { width: '1900', length:'2760' }) %>
+            <!-- insert furniture models here!!! -->
+            <!-- insert furniture models here!!! -->
+            <!-- insert furniture models here!!! -->
+            <!-- insert furniture models here!!! -->
+            <!-- insert furniture models here!!! -->
+
+        </div>
+
+    </div>
+
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
