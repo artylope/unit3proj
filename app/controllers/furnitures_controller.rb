@@ -52,7 +52,9 @@ class FurnituresController < ApplicationController
     end
 
     def optionajax
-
+        puts "//////////////////////////////////"
+        p params
+        puts "//////////////////////////////////"
         color = if JSON.parse(params[:color]) == "" then nil else JSON.parse(params[:color]) end
         capacity = if JSON.parse(params[:capacity]) == "" then nil else JSON.parse(params[:capacity]) end
         material = if JSON.parse(params[:material]) == "" then nil else JSON.parse(params[:material]) end
