@@ -10,7 +10,8 @@ class CartsController < ApplicationController
                 :price => cart.furniture_option.price,
                 :category => cart.furniture_option.furniture.category,
                 :image => cart.furniture_option.image,
-                :quantity => cart.quantity
+                :quantity => cart.quantity,
+                :stripe_id => cart.furniture_option.stripe_id
             })
         end
         respond_to do |format|

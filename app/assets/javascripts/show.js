@@ -288,7 +288,7 @@ Paloma.controller('Furnitures', {
             data.forEach(x=>{
                 $("table").append(`
                     <tr>
-                        <td><input type="checkbox" class="cart-checkbox" name="selected_cart_ids[]" value="${x.cart_id}" checked/></td>
+                        <td><input type="checkbox" class="cart-checkbox" name="selected_cart_ids[]" value="${x.cart_id}" data-stripe-id="${x.stripe_id}" data-quantity="${x.quantity}" checked/></td>
                         <td>${x.furniture_name}</td>
                         <td>${x.price.toFixed(2)}</td>
                         <td>${x.category}</td>
@@ -400,6 +400,33 @@ Paloma.controller('Furnitures', {
         $("#modal-x-button").click(togglingOff)
 
         /////////////////////////////////////////
+        //          FOR STRIPE                 //
+        /////////////////////////////////////////
+
+        var stripe = Stripe('pk_test_WQKH5BikkpGNAq5vFXGih3Fi00FZd6z4fh');
+        let checkoutButton = document.querySelector(".checkout-button")
+        checkoutButton.addEventListener('click', function () {
+            var check = confirm("Are you sure you want to delete?");
+                    if (check == true) {
+                        let item_arr = []
+                        $(".cart-checkbox").each(function(){
+                            if ($(this).prop("checked")){
+
+                                item_arr.push({sku:$(this).attr("data-stripe-id"),quantity:parseInt($(this).attr("data-quantity"))})
+                            }
+                        })
+                        console.log(item_arr)
+                        stripe.redirectToCheckout({
+                            items: item_arr,
+                            successUrl: "http://127.0.0.1:3000/",
+                            cancelUrl: 'http://127.0.0.1:3000/'
+                          });
+                    }else{
+                        console.log("nothing")
+                    }
+
+        });
+
 
 
     }
