@@ -1,10 +1,9 @@
 class OrdersController < ApplicationController
     before_action :authenticate_user!
     def index
-        puts "//////////////////////////////////"
-        p params
-        puts "//////////////////////////////////"
-        @orders = Order.all
+        @orders = Order.where(user_id: current_user.id)
+        @carts = Cart.where(user_id: current_user.id)
+        @wishlists = Wishlist.where(user_id: current_user.id)
     end
 
 
@@ -58,6 +57,8 @@ class OrdersController < ApplicationController
 
     def show
         @order = Order.find(params[:id])
+        @carts = Cart.where(user_id: current_user.id)
+        @wishlists = Wishlist.where(user_id: current_user.id)
     end
 
     private

@@ -2,6 +2,7 @@ class CartsController < ApplicationController
     before_action :authenticate_user!
     def index
         @carts = Cart.where(user_id: current_user.id)
+        @wishlists = Wishlist.where(user_id: current_user.id)
         @arr = []
         @carts.each do |cart|
             @arr.push({
@@ -32,7 +33,9 @@ class CartsController < ApplicationController
             @cart.quantity = params[:quantity]
         end
 
-        @cart.save
+        if @cart.save
+          redirect_to orders_path
+        end
 
     end
 
