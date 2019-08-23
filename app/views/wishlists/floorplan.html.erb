@@ -1,4 +1,17 @@
 <%= render "shared/navbar", :locales => {:carts => @carts} %>
+<div class="container">
+	<div class="columns">
+		<div class="column">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li><%= link_to 'Home', root_path %></li>
+					<li><a href="#">Wishlist</a></li>
+					<li class="is-active" aria-current="page"><a href="#">Floorplan</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
 
 <div class="main_container container">
 
@@ -24,23 +37,25 @@
 	</div>
 </div>
 
-<div class="main_container">
+<div class="main_container container">
 	<div class="columns">
 
-		<div class="floor_plan_container column is-three-quarters">
+		<div class="floor_plan_container column is-four-fifth">
 			<%= image_tag('loadimage.svg', id:"floor_plan_image", width:"100px") %>
 			<div id="floor_plan_overlay" class="floor_plan_overlay" style="left:0; top:0;"></div>
 		</div>
 
-		<div id="calibrate_menu" class="column is-one-quarter draggable has-background-white" style="display:none">
+		<div id="calibrate_menu" class="column is-one-fifth draggable has-background-white" style="display:none">
 			<h3>Calibrate Scale</h3>
-			<p>Click 1st point on floorplan</p>
-			<p>Click 2nd point on floorplan</p>
-			<p>Enter the corresponding distance (in metres)<input type='text' id='lengthParam'/></p>
+
+				<p>Click 1st point on floorplan</p>
+				<p>Click 2nd point on floorplan</p>
+				<p>Enter the corresponding distance (in metres)<input type='text' id='lengthParam'/></p>
+
 			<button id="submit_calibrate">Submit</button>
 		</div>
 
-		<div id="floating_menu" class="column is-one-quarter draggable has-background-white" style="display:none;">
+		<div id="floating_menu" class="column is-one-fifth draggable has-background-white" style="display:none;">
 			<h3>Floating Menu</h3>
 
 			<!-- insert furniture models here!!! -->

@@ -1,6 +1,4 @@
-body{
-    background-color: white;
-}
+
 #floor_plan_image {
     position: absolute;
     z-index: 2;
@@ -10,6 +8,10 @@ body{
     margin-top: 1.2em;
     position: relative;
     z-index: 1;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .floor_plan_overlay {
@@ -42,25 +44,42 @@ body{
 
 #floating_menu{
     z-index: 10;
-    padding: 10px;
+    padding: 30px;
     text-align: center;
 
-    border-radius: 25px;
+    border-radius: 5px;
     box-shadow: 2px 2px 2px 3px Gainsboro;
     background-color: white;
 }
 
 #calibrate_menu{
-    padding: 10px;
+    padding: 30px;
     z-index: 10;
-
-    border-radius: 25px;
+    border-radius: 5px;
     box-shadow: 2px 2px 2px 3px Gainsboro;
     background-color: white;
+
+    h3{
+      margin-bottom: 20px;
+    }
+
+    p{
+      margin-bottom: 10px;
+    }
 }
 
 .main_container{
     position: relative;
     height: auto;
-    padding-top: 10px;
+    padding-top: 30px;
+
+    .file-name{
+      width: 300px;
+      margin-right: 10px;
+      background: white;
+    }
+
+    button{
+      margin-right: 10px;
+    }
 }
