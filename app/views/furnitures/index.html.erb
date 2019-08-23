@@ -54,6 +54,8 @@
 				</div>
 			</div>
 		</div>
-        <%= content_tag :div, class: "temp_information", data: {user:user_signed_in?} do %>
+        <%email = if user_signed_in? then current_user.email else "" end%>
+      <%= content_tag :div, class: "temp_information", data: {user:user_signed_in?,email:email} do %>
                         <% end %>
+        <script src="https://js.stripe.com/v3"></script>
 	</section>
