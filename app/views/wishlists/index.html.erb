@@ -2,21 +2,31 @@
 
 <section id="wishlist">
 	<div class="container is-fluid">
+    <div class="columns">
+      <div class="column">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li><%= link_to 'Home', root_path %></li>
+            <li class="is-active" aria-current="page"><a href="/wishlists">Wishlist</li>
+          </ul>
+        </nav>
+      </div>
+    </div>
 
-    <nav class="breadcrumb" aria-label="breadcrumbs">
-      <ul>
-        <li><%= link_to 'Home', root_path %></li>
-        <li class="is-active" aria-current="page"><a href="/wishlists">Wishlist</li>
-      </ul>
-    </nav>
+    <div class="columns">
+      <div class="column title">
+        <h1>Wishlist</h1>
+        <button class="button is-primary is-large">View in Floorplanner</button>
+      </div>
+    </div>
 
 		<div class="columns">
 			<div class="column">
 				<div class="card">
-					<h1>Wishlist</h1>
+
 					<table class="table is-fullwidth">
 						<tr>
-							<th>Image</th>
+							<th>Product</th>
 
 							<th>Name</th>
 							<th>Category</th>

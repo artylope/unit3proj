@@ -6988,6 +6988,10 @@ h6 {
 h1 {
   font-size: 2.8em; }
 
+.breadcrumb {
+  margin-top: 20px;
+  width: 90%; }
+
 .navbar {
   font-family: 'Lexend Deca', sans-serif;
   height: 60px;
@@ -7093,7 +7097,7 @@ h1 {
 /* import pages specific css */
 #products {
   background: #f5f5f5;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 100px;
   height: 100%;
   width: 100%; }
@@ -7141,7 +7145,7 @@ h1 {
 
 #product-detail {
   background: #f5f5f5;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 100px; }
   #product-detail .product-images-all {
     display: flex;
