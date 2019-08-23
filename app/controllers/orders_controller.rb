@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
         end
 
         @carts.destroy_all
-        redirect_to furnitures_path
+        redirect_to orders_path
     end
 
     def show
