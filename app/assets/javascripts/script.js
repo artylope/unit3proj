@@ -246,12 +246,18 @@ const modalfunc = function(){
                             }
                         })
                         let string = JSON.stringify(cart_ids)
-                        stripe.redirectToCheckout({
-                            items: item_arr,
-                            customerEmail: $('.temp_information').data('email'),
-                            successUrl: `http://127.0.0.1:3000/orders/stripepost?data=${string}`,
-                            cancelUrl: 'http://127.0.0.1:3000/'
-                          });
+
+
+
+
+
+
+                        // stripe.redirectToCheckout({
+                        //     items: item_arr,
+                        //     customerEmail: $('.temp_information').data('email'),
+                        //     successUrl: `http://127.0.0.1:3000/orders/stripepost?data=${string}`,
+                        //     cancelUrl: 'http://127.0.0.1:3000/'
+                        //   });
                     }else{
                         console.log("nothing")
                     }

@@ -98,6 +98,12 @@ ActiveRecord::Schema.define(version: 2019_08_22_022741) do
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
     t.float "total_price"
+    t.text "recipient_name"
+    t.text "recipient_contact"
+    t.text "recipient_address"
+    t.text "delivery_day"
+    t.text "delivery_time"
+    t.text "recipient_note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
