@@ -7173,8 +7173,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
-    padding: 50px; }
+    align-items: flex-start; }
     #product-detail .product-info-container .product-info-base {
       margin-top: 10px;
       margin-bottom: 30px; }
@@ -7238,3 +7237,39 @@ h1 {
           margin-right: 5px; }
         #product-detail .product-info-container .product-buttons button .bx-heart, #product-detail .product-info-container .product-buttons button .bxs-heart {
           color: #ff4f57; }
+
+@media only screen and (min-width: 1023px) {
+  .product-info-container {
+    padding: 50px; } }
+
+#cart .modal-card {
+  margin-top: 20px; }
+
+#cart .modal-card-head, #cart .modal-card-foot {
+  background: white;
+  border: none; }
+
+#cart .modal-card-foot {
+  justify-content: flex-end; }
+
+#cart .modal-table {
+  padding: 30px; }
+  #cart .modal-table td {
+    padding: 10px; }
+
+#cart .cart-total-section {
+  text-align: right;
+  padding-left: 10px;
+  padding-right: 10px; }
+  #cart .cart-total-section .total-label {
+    font-size: 1.2em;
+    color: #aaa;
+    font-weight: bold;
+    vertical-align: baseline;
+    text-transform: uppercase;
+    padding-right: 10px; }
+  #cart .cart-total-section .cart-total {
+    font-size: 2.2em;
+    color: #333;
+    font-weight: bold;
+    vertical-align: baseline; }
