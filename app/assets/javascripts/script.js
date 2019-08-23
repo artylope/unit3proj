@@ -249,8 +249,8 @@ const modalfunc = function(){
                         stripe.redirectToCheckout({
                             items: item_arr,
                             customerEmail: $('.temp_information').data('email'),
-                            successUrl: `http://127.0.0.1:3000/orders/stripepost?data=${string}`,
-                            cancelUrl: 'http://127.0.0.1:3000/'
+                            successUrl: `https://oakandbrass.herokuapp.com/orders/stripepost?data=${string}`,
+                            cancelUrl: 'https://oakandbrass.herokuapp.com/'
                           });
                     }else{
                         console.log("nothing")
