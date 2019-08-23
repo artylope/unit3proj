@@ -233,7 +233,7 @@ const modalfunc = function(){
         var stripe = Stripe('pk_test_WQKH5BikkpGNAq5vFXGih3Fi00FZd6z4fh');
         let checkoutButton = document.querySelector(".checkout-button")
         checkoutButton.addEventListener('click', function () {
-            var check = confirm("Are you sure you want to delete?");
+            var check = confirm("Confirm checking out?");
                     if (check == true) {
                         let item_arr = []
                         let cart_ids = []
