@@ -148,7 +148,13 @@ const modalfunc = function(){
                             success: function(data, textStatus, xhr) {
                                 document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
                                 checkModalEmpty();
-                                $(".cart-count").text(parseInt($(".cart-count").text())-1)
+                                if($(".cart-count").text(parseInt($(".cart-count").text())<0)){
+                                    $(".cart-count").text(0)
+                                    console.log("cart ard zero")
+                                }else{
+                                    $(".cart-count").text(parseInt($(".cart-count").text())-1)
+                                }
+
                                 calculateModalTotal();
                             },
                             error: function(xhr, textStatus, errorThrown) {
