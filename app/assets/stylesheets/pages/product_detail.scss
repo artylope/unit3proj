@@ -12,6 +12,7 @@
     padding: 10px;
 
     .product-image-main{
+
       img{
 
       }
@@ -150,11 +151,15 @@
     .product-buttons{
       margin-top: 10px;
 
-      .add-to-wishlist-button{
+      button{
         margin-bottom: 10px;
+        margin-right: 20px;
+
         .bx{
+          margin-right: 5px;
+        }
+        .bx-heart, .bxs-heart{
           color: #ff4f57;
-          margin-right: 10px;
         }
       }
 

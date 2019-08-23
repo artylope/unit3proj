@@ -7231,8 +7231,10 @@ h1 {
         width: 50px; }
     #product-detail .product-info-container .product-buttons {
       margin-top: 10px; }
-      #product-detail .product-info-container .product-buttons .add-to-wishlist-button {
-        margin-bottom: 10px; }
-        #product-detail .product-info-container .product-buttons .add-to-wishlist-button .bx {
-          color: #ff4f57;
-          margin-right: 10px; }
+      #product-detail .product-info-container .product-buttons button {
+        margin-bottom: 10px;
+        margin-right: 20px; }
+        #product-detail .product-info-container .product-buttons button .bx {
+          margin-right: 5px; }
+        #product-detail .product-info-container .product-buttons button .bx-heart, #product-detail .product-info-container .product-buttons button .bxs-heart {
+          color: #ff4f57; }
