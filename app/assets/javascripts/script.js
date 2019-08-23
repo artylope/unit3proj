@@ -116,7 +116,7 @@ const modalfunc = function(){
                         <td><img src="${x.image}" style="width:200px;"/</td>
                         <td>${x.quantity}</td>
                         <td>${(x.quantity*x.price).toFixed(2)}</td>
-                        <td><a class="button is-danger cart-delete">Delete<input value="${x.cart_id}"hidden/></a></td>
+                        <td><a class="cart-delete bx bxs-x-circle"><input value="${x.cart_id}"hidden/></a></td>
                     </tr>
                     `)
 
@@ -188,7 +188,7 @@ const modalfunc = function(){
                 total += parseFloat($(this).parent().next().next().text())
                }
             })
-            $(".cart-total").text("Total: $"+total.toFixed(2))
+            $(".cart-total").text('$'+ total.toFixed(2))
         }
 
         const togglingOn = function(){
