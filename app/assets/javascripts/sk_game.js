@@ -11,6 +11,7 @@ Paloma.controller('Wishlists', {
                 let coordinatesArr = [];
                 let lengthRatio = 50;
                 let calibrateStep = 0;
+                var calibrateState = false;
 
                 function readURL(input) {
                     if (input.files && input.files[0]) {
@@ -21,17 +22,24 @@ Paloma.controller('Wishlists', {
                         };
                         reader.readAsDataURL(input.files[0]);
                     }
-                    setTimeout(loadFloorPlanDiv, 800);
+                    document.querySelector('.file-name').innerText=input.files[0].name;
+                    setTimeout(loadFloorPlanDiv, 500);
                 }
 
                 function loadFloorPlanDiv() {
                     var floorPlanImg = document.getElementById("floor_plan_image");
                     var floorPlanContainer = document.querySelector(".floor_plan_container");
+                    var floorPlanOverlay = document.querySelector(".floor_plan_overlay");
                     var imgWidth = floorPlanImg.naturalWidth;
                     var imgHeight = floorPlanImg.naturalHeight;
                     floorPlanImg.style.width = imgWidth + "px";
+                    console.log("file loaded!");
                     floorPlanContainer.style.width = imgWidth + "px";
                     floorPlanContainer.style.height = imgHeight + "px";
+                }
+
+                function getImageWidth() {
+                    return parseInt(document.getElementById("floor_plan_image").style.width);
                 }
 
                 function clearAllFurniture() {
@@ -41,7 +49,18 @@ Paloma.controller('Wishlists', {
                     document.querySelectorAll('.markers').forEach((elem) => {
                         elem.parentNode.removeChild(elem);
                     })
-                    calibratePlan(calibrateStep = 0, null);
+                    resetCalibrateMenu();
+                    document.getElementById('floating_menu').style.display = "none";
+                    document.getElementById('calibrate_menu').style.display = "none";
+                }
+
+                function resetCalibrateMenu() {
+                    document.getElementById("calibrate_menu").children[1].style.textDecoration = "none";
+                    document.getElementById("calibrate_menu").children[2].style.textDecoration = "none";
+                    document.getElementById('lengthParam').value="";
+                    calibrateState = false;
+                    calibrateStep = 0;
+                    coordinatesArr = [];
                 }
 
                 function placeDiv(x_pos, y_pos) {
@@ -90,7 +109,6 @@ Paloma.controller('Wishlists', {
 
                 function loadEventListeners() {
                     console.log("loading event listeners");
-                    var calibrateState = false;
 
                     var calibrateSubmit = document.querySelector('#submit_calibrate');
                     calibrateSubmit.addEventListener('click', function(event) {
@@ -103,8 +121,12 @@ Paloma.controller('Wishlists', {
                         readURL(this);
                     }, false);
 
-                    document.addEventListener('click', function(event) {
-                        // console.log("loc:"+event.pageX + ' - ' + event.pageY);
+                    var closeModalButton = document.querySelector('.delete_modal');
+                    closeModalButton.addEventListener('click', function(event){
+                        document.querySelector('.modal').className = "modal";
+                    }, false);
+
+                    document.addEventListener('dblclick', function(event) {
                         if (event.target.matches('.floatmenu')) {
 
                             let furnitureImg = event.target.getAttribute('src');
@@ -138,9 +160,16 @@ Paloma.controller('Wishlists', {
                             element.appendChild(x);
                             element.style.width = x_width + "px";
                             element.style.height = x_height + "px";
+                            getImageWidth()
+                            element.style.left = getImageWidth()/2 - x_width/2 + "px";
+                            element.style.top = getImageWidth()/2 - x_height/2 + "px";
                             snapGrid(element);
                             doubleTap(element);
                         }
+                    });
+
+                    document.addEventListener('click', function(event) {
+                        // console.log("loc:"+event.pageX + ' - ' + event.pageY);
 
                         if (event.target.matches('#clearAllFurnitureButton')) {
                             clearAllFurniture();

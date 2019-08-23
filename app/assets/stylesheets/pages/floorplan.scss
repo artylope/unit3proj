@@ -1,9 +1,13 @@
+body{
+    background-color: white;
+}
 #floor_plan_image {
     position: absolute;
     z-index: 2;
 }
 
 .floor_plan_container {
+    margin-top: 1.2em;
     position: relative;
     z-index: 1;
 }
@@ -38,28 +42,25 @@
 
 #floating_menu{
     z-index: 10;
+    padding: 10px;
     text-align: center;
-    display: absolute;
-    width: 250px;
-    height: 450px;
-    bottom: 0;
-    right: 0;
+
     border-radius: 25px;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 2px 2px 2px 3px Gainsboro;
+    background-color: white;
 }
 
 #calibrate_menu{
+    padding: 10px;
     z-index: 10;
-    display: absolute;
-    width: 280px;
-    height: 350px;
-    bottom: 0;
-    right: 0;
+
     border-radius: 25px;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 2px 2px 2px 3px Gainsboro;
+    background-color: white;
 }
 
 .main_container{
     position: relative;
     height: auto;
+    padding-top: 10px;
 }
