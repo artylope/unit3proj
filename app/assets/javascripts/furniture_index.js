@@ -1,3 +1,4 @@
+
 Paloma.controller('Furnitures', {
     index: function(){
         const doSort = function(){

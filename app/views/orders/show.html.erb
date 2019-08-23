@@ -1,4 +1,5 @@
-<%= render "shared/navbar", :locales => {:carts => @carts}  %>
+<%= render "shared/navbar", :locales => {:carts => @carts,:wishlists => @wishlists}  %>
+<%= render "shared/cart_modal" %>
 <section class="orders">
   <div class="container is-fluid">
     <div class="columns">
@@ -51,17 +52,27 @@
               </tr>
 
               <% end %>
-              <tr></tr>
-              <tr></tr>
-              <tr></tr>
-              <tr></tr>
-              <tr></tr>
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+
+                <td colspan="2">
+                    <div class="content is-small">
+                    Recipient Name<br/>
+                    Recipient Contact<br/>
+                    Delivery Address<br/>
+                    Delibery Timing<br/>
+                    Note to deliverer
+                    </div>
+                </td>
+                <td colspan="3">
+                    <div class="content is-small">
+                    : <%=@order.recipient_name%><br/>
+                    : <%=@order.recipient_contact%><br/>
+                    : <%=@order.recipient_address%><br/>
+                    : <%=@order.delivery_day%>, <%=@order.delivery_time%><br/>
+                    : <%=@order.recipient_note%>
+                    </div>
+                </td>
+
                 <td class="total-label">Total</td>
                 <td class="total">$<%='%.2f' %total%></td>
               </tr>
@@ -73,6 +84,10 @@
       </div>
     </div>
     </div>
+<%email = if user_signed_in? then current_user.email else "" end%>
+      <%= content_tag :div, class: "temp_information", data: {user:user_signed_in?,email:email} do %>
+                        <% end %>
+        <script src="https://js.stripe.com/v3"></script>
 </section>
 
 

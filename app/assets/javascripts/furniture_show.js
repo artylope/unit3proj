@@ -1,5 +1,4 @@
 
-
 Paloma.controller('Furnitures', {
     show: function(){
         let color = null
