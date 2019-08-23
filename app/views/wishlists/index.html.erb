@@ -1,4 +1,5 @@
-<%= render "shared/navbar", :locales => {:carts => @carts}  %>
+<%= render "shared/navbar", :locales => {:carts => @carts,:wishlists => @wishlists}  %>
+<%= render "shared/cart_modal" %>
 <h1>Wishlist</h1>
 
     <table>
@@ -21,6 +22,9 @@
             <td><a class="button is-success wishlist-delete">Delete<input value="<%=wishlist.id%>"hidden/></a></td>
         </tr>
       <% end %>
-
+        <%email = if user_signed_in? then current_user.email else "" end%>
+        <%= content_tag :div, class: "temp_information", data: {user:user_signed_in?,email:email} do %>
+        <% end %>
+        <script src="https://js.stripe.com/v3"></script>
 
     </table>
