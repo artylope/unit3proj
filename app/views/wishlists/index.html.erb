@@ -1,4 +1,6 @@
+<<<<<<< HEAD
 <%= render "shared/navbar", :locales => {:carts => @carts} %>
+<%= render "shared/cart_modal" %>
 
 <section id="wishlist">
 	<div class="container is-fluid">
@@ -47,7 +49,12 @@
   								</td>
                 </a>
 							</tr>
-						<% end %>
+              <% end %>
+                <%email = if user_signed_in? then current_user.email else "" end%>
+                <%= content_tag :div, class: "temp_information", data: {user:user_signed_in?,email:email} do %>
+                <% end %>
+                <script src="https://js.stripe.com/v3"></script>
+
 
 					</table>
 
