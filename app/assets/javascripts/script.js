@@ -148,9 +148,8 @@ const modalfunc = function(){
                             success: function(data, textStatus, xhr) {
                                 document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
                                 checkModalEmpty();
-                                if($(".cart-count").text(parseInt($(".cart-count").text())<0)){
+                                if(parseInt($(".cart-count").text())<0){
                                     $(".cart-count").text(0)
-                                    console.log("cart ard zero")
                                 }else{
                                     $(".cart-count").text(parseInt($(".cart-count").text())-1)
                                 }
@@ -233,7 +232,7 @@ const modalfunc = function(){
         var stripe = Stripe('pk_test_WQKH5BikkpGNAq5vFXGih3Fi00FZd6z4fh');
         let checkoutButton = document.querySelector(".checkout-button")
         checkoutButton.addEventListener('click', function () {
-            var check = confirm("Are you sure you want to delete?");
+            var check = confirm("Confirm checking out?");
                     if (check == true) {
                         let item_arr = []
                         let cart_ids = []
