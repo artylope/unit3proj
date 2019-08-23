@@ -26,9 +26,9 @@ Paloma.controller('Furnitures', {
             $("#short-description").text(data.furniture_description[0].short)
             $("#long-description").text(data.furniture_description[0].long)
             let images_arr = JSON.parse(data.furniture_images)
-            $(".furniture-image-list").append(`<img class="individual-images" src="${JSON.parse(data.furniture)[0].image}"  />`)
+            $(".furniture-image-list").append(`<div class="thumbnail"><img class="individual-images" src="${JSON.parse(data.furniture)[0].image}"  /></div>`)
             images_arr.forEach(x=>{
-                $(".furniture-image-list").append(`<img class="individual-images" src="${x.image}" />`)
+                $(".furniture-image-list").append(`<div class="thumbnail"><img class="individual-images" src="${x.image}" /></div>`)
             })
             addEventListenerToImages();
             console.log("done")
