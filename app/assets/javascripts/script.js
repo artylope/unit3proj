@@ -148,9 +148,8 @@ const modalfunc = function(){
                             success: function(data, textStatus, xhr) {
                                 document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
                                 checkModalEmpty();
-                                if($(".cart-count").text(parseInt($(".cart-count").text())<0)){
+                                if(parseInt($(".cart-count").text())<0){
                                     $(".cart-count").text(0)
-                                    console.log("cart ard zero")
                                 }else{
                                     $(".cart-count").text(parseInt($(".cart-count").text())-1)
                                 }
