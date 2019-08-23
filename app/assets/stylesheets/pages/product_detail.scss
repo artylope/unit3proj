@@ -47,7 +47,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 50px;
 
     .product-info-base{
       margin-top: 10px;
@@ -167,7 +166,12 @@
 
   }
 
+}
 
+@media only screen and (min-width: 1023px){
 
+    .product-info-container{
+      padding: 50px;
+    }
 
 }
