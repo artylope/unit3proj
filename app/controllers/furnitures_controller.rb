@@ -33,12 +33,14 @@ class FurnituresController < ApplicationController
     end
 
     def show
-        @carts = Cart.all
+
         @furniture = Furniture.find(params[:id])
         if user_signed_in?
+            @carts = Cart.where(user_id: current_user.id)
             @wishlists = Wishlist.where(user_id: current_user.id)
         else
             @wishlists = []
+            @carts = []
         end
 
     end
