@@ -33,9 +33,7 @@ class CartsController < ApplicationController
             @cart.quantity = params[:quantity]
         end
 
-        if @cart.save
-          redirect_to orders_path
-        end
+        @cart.save
 
     end
 
