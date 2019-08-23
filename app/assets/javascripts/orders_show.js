@@ -1,6 +1,6 @@
 
 Paloma.controller('Orders', {
-    index: function(){
+    show: function(){
         modalfunc()
     }
 })

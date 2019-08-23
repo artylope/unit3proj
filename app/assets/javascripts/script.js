@@ -157,7 +157,7 @@ const modalfunc = function(){
                             dataType: 'json',
 
                             success: function(data, textStatus, xhr) {
-                                document.querySelector("table").removeChild(deleteDiv.parentNode.parentNode)
+                                document.querySelector(".modal-table-body").removeChild(deleteDiv.parentNode.parentNode)
                                 checkModalEmpty();
                                 if(parseInt($(".cart-count").text())<0){
                                     $(".cart-count").text(0)
@@ -258,17 +258,25 @@ const modalfunc = function(){
                 let deliveryDetails = {name:$("#recipient-name").val(),contact:$("#recipient-contact").val(),address:$("#delivery-address").val(),day:day_timing,time:time_timing,note:$("#recipient-note").val()}
                 let delivery = JSON.stringify(deliveryDetails)
                 if (check == true) {
+                    var configForStripeUrl;
+                    let URL = window.location.href;
+                    if( URL.includes("http://127.0.0.1") ){
+                        configForStripeUrl = "http://127.0.0.1:3000";
+                    }else if( URL.includes("http://localhost") ){
+                        configForStripeUrl = "http://127.0.0.1:3000";
+                    }else{
+                        configForStripeUrl = "https://oakandbrass.herokuapp.com";
+                    }
+
                     stripe.redirectToCheckout({
-                    items: item_arr,
-                    customerEmail: $('.temp_information').data('email'),
-                    successUrl: `http://127.0.0.1:3000/orders/stripepost?data=${cart_ids_string}&delivery=${delivery}`,
-                    cancelUrl: 'http://127.0.0.1:3000/'
-                  });
+                      items: item_arr,
+                      customerEmail: $('.temp_information').data('email'),
+                      successUrl: `${configForStripeUrl}/orders/stripepost?data=${cart_ids_string}&delivery=${delivery}`,
+                      cancelUrl: `${configForStripeUrl}`
+                    });
                 }else{
                     console.log("nothing")
                 }
-
-
 
             }
         }
@@ -299,6 +307,8 @@ const modalfunc = function(){
 
                         item_arr.push({sku:$(this).attr("data-stripe-id"),quantity:parseInt($(this).attr("data-quantity"))})
                         cart_ids.push($(this).val())
+                    }else{
+                        console.log("nothing")
                     }
                 })
                 //store checkout details
