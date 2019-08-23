@@ -409,15 +409,18 @@ Paloma.controller('Furnitures', {
             var check = confirm("Are you sure you want to delete?");
                     if (check == true) {
                         let item_arr = []
+                        let cart_ids = []
                         $(".cart-checkbox").each(function(){
                             if ($(this).prop("checked")){
 
                                 item_arr.push({sku:$(this).attr("data-stripe-id"),quantity:parseInt($(this).attr("data-quantity"))})
+                                cart_ids.push($(this).val())
                             }
                         })
-                        let string = JSON.stringify(item_arr)
+                        let string = JSON.stringify(cart_ids)
                         stripe.redirectToCheckout({
                             items: item_arr,
+                            customerEmail: $('.temp_information').data('email'),
                             successUrl: `http://127.0.0.1:3000/orders/stripepost?data=${string}`,
                             cancelUrl: 'http://127.0.0.1:3000/'
                           });
