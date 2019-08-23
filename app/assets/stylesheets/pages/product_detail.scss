@@ -25,6 +25,14 @@
         margin: 10px;
         overflow: hidden;
         border: 1px solid #eee;
+
+        &:hover{
+          border: 1px solid #aaa;
+        }
+
+        &.selected{
+          border: 1px solid #2A3C78;
+        }
       }
     }
 
@@ -107,6 +115,14 @@
           &:last-child{
             margin-right: 0px;
           }
+
+          &:hover{
+            border: 1px solid #aaa;
+          }
+
+          &.selected{
+            border: 1px solid #2A3C78;
+          }
         }
 
       }
@@ -133,6 +149,14 @@
 
     .product-buttons{
       margin-top: 10px;
+
+      .add-to-wishlist-button{
+        margin-bottom: 10px;
+        .bx{
+          color: #ff4f57;
+          margin-right: 10px;
+        }
+      }
 
     }
 

@@ -1,6 +1,17 @@
 <%= render "shared/navbar", :locales => {:carts => @carts}  %>
 <section class="orders">
 	<div class="container is-fluid">
+		<div class="columns">
+			<div class="column">
+				<nav class="breadcrumb" aria-label="breadcrumbs">
+					<ul>
+						<li><%= link_to 'Home', root_path %></li>
+						<li class="is-active" aria-current="page"><a href="/orders">Orders</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
 
 		<div class="columns">
 			<div class="column">
@@ -32,7 +43,6 @@
 			</div>
 		</div>
 
-		<%= link_to 'Back to main', root_path %>
 
 	</div>
 

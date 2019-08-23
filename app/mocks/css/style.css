@@ -6963,11 +6963,14 @@ label.panel-block {
   padding: 3rem 1.5rem 6rem; }
 
 /* import common partials specific css */
+html {
+  height: 100%; }
+
 body {
   font-family: 'Rubik', sans-serif;
   font-weight: 300;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   color: #333;
   background: #f5f5f5; }
 
@@ -6979,11 +6982,14 @@ h5,
 h6 {
   font-family: 'Lexend Deca', sans-serif; }
 
-.card {
-  border-radius: 5px;
-  box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03), 0 1px 2px rgba(102, 119, 136, 0.3);
-  box-sizing: border-box;
-  border: 1px transparent; }
+.columns .column {
+  padding-left: 30px;
+  padding-right: 30px; }
+  .columns .column .card {
+    border-radius: 5px;
+    box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03), 0 1px 2px rgba(102, 119, 136, 0.3);
+    box-sizing: border-box;
+    border: 1px transparent; }
 
 h1 {
   font-size: 2.8em; }
@@ -7159,6 +7165,10 @@ h1 {
       margin: 10px;
       overflow: hidden;
       border: 1px solid #eee; }
+      #product-detail .product-images-all .product-image-selector img:hover {
+        border: 1px solid #aaa; }
+      #product-detail .product-images-all .product-image-selector img.selected {
+        border: 1px solid #2A3C78; }
   #product-detail .product-info-container {
     display: flex;
     flex-direction: column;
@@ -7206,6 +7216,10 @@ h1 {
             margin-left: 0px; }
           #product-detail .product-info-container .product-options .each-product-option .swatch:last-child {
             margin-right: 0px; }
+          #product-detail .product-info-container .product-options .each-product-option .swatch:hover {
+            border: 1px solid #aaa; }
+          #product-detail .product-info-container .product-options .each-product-option .swatch.selected {
+            border: 1px solid #2A3C78; }
     #product-detail .product-info-container .product-qty {
       margin-top: 10px;
       margin-bottom: 20px; }
@@ -7217,3 +7231,8 @@ h1 {
         width: 50px; }
     #product-detail .product-info-container .product-buttons {
       margin-top: 10px; }
+      #product-detail .product-info-container .product-buttons .add-to-wishlist-button {
+        margin-bottom: 10px; }
+        #product-detail .product-info-container .product-buttons .add-to-wishlist-button .bx {
+          color: #ff4f57;
+          margin-right: 10px; }
