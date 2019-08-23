@@ -101,6 +101,7 @@ const modalfunc = function(){
                 <th>Name</th>
                 <th>Price</th>
                 <th>Category</th>
+                <th>Options</th>
                 <th>Image</th>
                 <th>Quantity</th>
                 <th>Total Price</th>
@@ -113,6 +114,7 @@ const modalfunc = function(){
                         <td>${x.furniture_name}</td>
                         <td>${x.price.toFixed(2)}</td>
                         <td>${x.category}</td>
+                        <td>${x.options}</td>
                         <td><img src="${x.image}" style="width:200px;"/</td>
                         <td>${x.quantity}</td>
                         <td>${(x.quantity*x.price).toFixed(2)}</td>
