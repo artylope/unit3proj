@@ -1,30 +1,65 @@
-<%= render "shared/navbar", :locales => {:carts => @carts,:wishlists => @wishlists}  %>
+<<<<<<< HEAD
+<%= render "shared/navbar", :locales => {:carts => @carts} %>
 <%= render "shared/cart_modal" %>
-<h1>Wishlist</h1>
 
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Image</th>
-        <th>Total Price</th>
-        <th></th>
-      </tr>
-      <% @wishlists.each do |wishlist| %>
+<section id="wishlist">
+	<div class="container is-fluid">
+    <div class="columns">
+      <div class="column">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li><%= link_to 'Home', root_path %></li>
+            <li class="is-active" aria-current="page"><a href="/wishlists">Wishlist</li>
+          </ul>
+        </nav>
+      </div>
+    </div>
 
-        <tr>
-            <td><%= wishlist.furniture_option.furniture.name %></td>
-            <td><%= '%.2f' % wishlist.furniture_option.price %></td>
-            <td><%= wishlist.furniture_option.furniture.category %></td>
-            <td><img src="<%= wishlist.furniture_option.image %>" width="300px"/></td>
-            <td><%= '%.2f' % wishlist.furniture_option.price %></td>
-            <td><a class="button is-success wishlist-delete">Delete<input value="<%=wishlist.id%>"hidden/></a></td>
-        </tr>
-      <% end %>
-        <%email = if user_signed_in? then current_user.email else "" end%>
-        <%= content_tag :div, class: "temp_information", data: {user:user_signed_in?,email:email} do %>
-        <% end %>
-        <script src="https://js.stripe.com/v3"></script>
+    <div class="columns">
+      <div class="column title">
+        <h1>Wishlist</h1>
+        <button class="button is-primary is-large">View in Floorplanner</button>
+      </div>
+    </div>
 
-    </table>
+		<div class="columns">
+			<div class="column">
+				<div class="card">
+
+					<table class="table is-fullwidth">
+						<tr>
+							<th>Product</th>
+
+							<th>Name</th>
+							<th>Category</th>
+							<th class="numbers">Total Price</th>
+							<th></th>
+						</tr>
+						<% @wishlists.each do |wishlist| %>
+
+							<tr>
+                <a href="#">
+  								<td><img src="<%= wishlist.furniture_option.image %>" width="300px"/></td>
+  								<td><%= wishlist.furniture_option.furniture.name %></td>
+  								<td><%= wishlist.furniture_option.furniture.category %></td>
+  								<td class="numbers"><%= '%.2f' % wishlist.furniture_option.price %></td>
+  								<td>
+                    <a class="button is-success" href="<%="./furnitures/" + wishlist.furniture_option.furniture.id.to_s%>">View</a>
+  									<a class="button is-danger wishlist-delete">Delete<input value="<%=wishlist.id%>" hidden="hidden"/></a>
+  								</td>
+                </a>
+							</tr>
+              <% end %>
+                <%email = if user_signed_in? then current_user.email else "" end%>
+                <%= content_tag :div, class: "temp_information", data: {user:user_signed_in?,email:email} do %>
+                <% end %>
+                <script src="https://js.stripe.com/v3"></script>
+
+
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
