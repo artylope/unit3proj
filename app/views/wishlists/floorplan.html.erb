@@ -1,52 +1,117 @@
-<%= render "shared/navbar", :locales => {:carts => @carts}  %>
+<%= render "shared/navbar", :locales => {:carts => @carts} %>
 
+<div class="main_container container">
 
-    <div class="main_container">
-        <div class="control_panel">
-            <p>
-                <input type="file" id="importFile" />
-                <button id="clearAllFurnitureButton">Clear All Furniture</button>
-                <button id="calibrate">Calibrate Scale</button>
-            </p>
+	<div class="file has-name columns is-centered">
+        <div class="column">
+		<label class="file-label " style="margin:"0 auto";>
+			<input class="file-input has-background-white is-centered" type="file" id="importFile" accept="image/png, image/jpeg/">
+			<span class=" file-cta has-background-white">
+				<span class="file-icon">
+					<i class='bx bxs-cloud-upload'></i>
+				</span>
+				<span class="file-label has-background-white">
+					Choose a file…
+				</span>
+			</span>
+			<span class="file-name ">
+				File Name
+			</span>
+			<button id="calibrate" class="button">Calibrate Scale</button>
+			<button id="clearAllFurnitureButton" class="button">Clear All Furniture</button>
+		</label>
         </div>
+	</div>
+</div>
 
-        <div class="floor_plan_container">
-            <%= image_tag('loadimage.svg', id:"floor_plan_image", width:"200px") %>
-            <div id="floor_plan_overlay" class="floor_plan_overlay" style="left:0; top:0;">
-            </div>
-        </div>
+<div class="main_container">
+	<div class="columns">
 
-        <div id="furnitureDiv" class="sofa grid-snap" style="width:0; height:0;">
-        </div>
+		<div class="floor_plan_container column is-three-quarters">
+			<%= image_tag('loadimage.svg', id:"floor_plan_image", width:"100px") %>
+			<div id="floor_plan_overlay" class="floor_plan_overlay" style="left:0; top:0;"></div>
+		</div>
 
-        <div id="calibrate_menu" class="draggable" style="display:none">
-            <h3>Calibrate Menu</h3>
-            <p>Click 1st point on floorplan</p>
-            <p>Click 2nd point on floorplan</p>
-            <p>Enter the corresponding distance (in metres)<input type='text' id='lengthParam' /></p>
-            <button id="submit_calibrate">Submit</button>
-        </div>
+		<div id="calibrate_menu" class="column is-one-quarter draggable has-background-white" style="display:none">
+			<h3>Calibrate Scale</h3>
+			<p>Click 1st point on floorplan</p>
+			<p>Click 2nd point on floorplan</p>
+			<p>Enter the corresponding distance (in metres)<input type='text' id='lengthParam'/></p>
+			<button id="submit_calibrate">Submit</button>
+		</div>
 
-        <div id="floating_menu" class="draggable" style="display:none;">
-            <h3>Floating Menu</h3>
+		<div id="floating_menu" class="column is-one-quarter draggable has-background-white" style="display:none;">
+			<h3>Floating Menu</h3>
 
-            <!-- insert furniture models here!!! -->
-            <!-- insert furniture models here!!! -->
-            <!-- insert furniture models here!!! -->
-            <!-- insert furniture models here!!! -->
-            <!-- insert furniture models here!!! -->
-            <%= image_tag('sofalayout-300-240.svg', width:"200px", class: "floatmenu", data: { width: '3000', length:'2400' }) %>
-            <%= image_tag('dining-layout-190-276.svg', width:"126px", class: "floatmenu", data: { width: '1900', length:'2760' }) %>
-            <!-- insert furniture models here!!! -->
-            <!-- insert furniture models here!!! -->
-            <!-- insert furniture models here!!! -->
-            <!-- insert furniture models here!!! -->
-            <!-- insert furniture models here!!! -->
+			<!-- insert furniture models here!!! -->
+			<!-- insert furniture models here!!! -->
+			<!-- insert furniture models here!!! -->
+			<!-- insert furniture models here!!! -->
+			<!-- insert furniture models here!!! -->
+			<%= image_tag('sofalayout-300-240.svg', width:"200px", class: "floatmenu", data: { width: '3000', length:'2400' }) %>
+			<%= image_tag('dining-layout-190-276.svg', width:"126px", class: "floatmenu", data: { width: '1900', length:'2760' }) %>
+			<!-- insert furniture models here!!! -->
+			<!-- insert furniture models here!!! -->
+			<!-- insert furniture models here!!! -->
+			<!-- insert furniture models here!!! -->
+			<!-- insert furniture models here!!! -->
 
-        </div>
+		</div>
 
+		<div id="furnitureDiv" class="sofa grid-snap" style="width:0; height:0;"></div>
+
+	</div>
+
+	<!-- <article class="message is-primary draggable">
+		<div class="message-header">
+			<p>Primary</p>
+			<button class="delete delete_message" aria-label="delete"></button>
+		</div>
+		<div class="message-body">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			<strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+			<a>felis venenatis</a>
+			efficitur. Aenean ac
+			<em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+		</div>
+	</article> -->
+
+	<div class="modal is-active">
+		<div class="modal-background"></div>
+		<div class="modal-card">
+			<header class="modal-card-head">
+				<p class="modal-card-title">How to Use</p>
+				<button class="delete delete_modal" aria-label="close"></button>
+			</header>
+			<section class="modal-card-body">
+				<div class="content">
+					<ol>
+						<li>Load your floor plan (supported format, *.png, *.jpg)</li>
+						<li>Calibration</li>
+						<ul>
+							<li>Click on "Calibrate" button</li>
+							<li>Identify two points on the plan with real-life dimension *hint* use a longer length for better accuracy</li>
+							<li>click on the first and second points</li>
+							<li>Enter the dimension in metres</li>
+						</ul>
+						<li>Furniture Placement</li>
+						<ul>
+							<li>Double-Click on the furniture images to position the scaled image on the floorplan</li>
+							<li>Drag the image to the desired position on the floorplan</li>
+							<li>Double click on the image to rotate the image by 90°</li>
+							<li>Click "Clear All Furniture" to restart</li>
+							<li>Click "Calibrate" to recalibrate</li>
+						</ul>
+				    </ol>
+			    </div>
+		    </section>
+		    <footer class="modal-card-foot">
+            </footer>
+	    </div>
     </div>
 
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+</div>
+
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
