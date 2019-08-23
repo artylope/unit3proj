@@ -415,10 +415,10 @@ Paloma.controller('Furnitures', {
                                 item_arr.push({sku:$(this).attr("data-stripe-id"),quantity:parseInt($(this).attr("data-quantity"))})
                             }
                         })
-                        console.log(item_arr)
+                        let string = JSON.stringify(item_arr)
                         stripe.redirectToCheckout({
                             items: item_arr,
-                            successUrl: "http://127.0.0.1:3000/",
+                            successUrl: `http://127.0.0.1:3000/orders/stripepost?data=${string}`,
                             cancelUrl: 'http://127.0.0.1:3000/'
                           });
                     }else{

@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
     before_action :authenticate_user!
     def index
+        puts "//////////////////////////////////"
+        p params
+        puts "//////////////////////////////////"
         @orders = Order.all
     end
 
