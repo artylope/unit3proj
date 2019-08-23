@@ -2,6 +2,7 @@ class WishlistsController < ApplicationController
     before_action :authenticate_user!
     def index
         @wishlists = Wishlist.where(user_id: current_user.id)
+        @carts = Cart.where(user_id: current_user.id)
     end
     def create
 
@@ -17,7 +18,8 @@ class WishlistsController < ApplicationController
 
 
     def floorplan
-        @carts = Cart.all;
+        @wishlists = Wishlist.where(user_id: current_user.id)
+        @carts = Cart.where(user_id: current_user.id)
     end
 
 

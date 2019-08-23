@@ -1,10 +1,12 @@
 class FurnituresController < ApplicationController
     def index
-        @carts = Cart.all
+
         if user_signed_in?
             @wishlists = Wishlist.where(user_id: current_user.id)
+            @carts = Cart.where(user_id: current_user.id)
         else
             @wishlists = []
+            @carts = []
         end
 
         if params.key? ("category")
