@@ -95,20 +95,26 @@ const wishlistfunc = function(){
 }
 const modalfunc = function(){
     const refreshModal = function(data){
-            $(".modal-table").html("")
-            $(".modal-table").append(`<tr>
-                <th></th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Options</th>
-                <th>Image</th>
-                <th>Quantity</th>
-                <th>Total Price</th>
-                <th></th>
-              </tr>`)
+            $(".cart-body").html("")
+            $(".cart-body").append(`
+                <table class="modal-table">
+                    <tbody class="modal-table-body">
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Options</th>
+                            <th>Image</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th></th>
+                        </tr>
+                    </tbody>
+                </table>`)
+
             data.forEach(x=>{
-                $(".modal-table").append(`
+                $(".modal-table-body").append(`
                     <tr>
                         <td><input type="checkbox" class="cart-checkbox" name="selected_cart_ids[]" value="${x.cart_id}" data-stripe-id="${x.stripe_id}" data-quantity="${x.quantity}" checked/></td>
                         <td>${x.furniture_name}</td>
@@ -123,9 +129,12 @@ const modalfunc = function(){
                     `)
 
             })
+            $(".cart-body").append(`
+                <div class="cart-total-section"><span class="total-label">Total</span><span class="cart-total"></span></div>
+                `)
+        createCheckOutButton();
 
-
-        }
+    }
         const setCheckBoxOnchange = function(){
             $(".cart-checkbox").each(function(){
                 $(this).change(function(){
@@ -172,7 +181,7 @@ const modalfunc = function(){
         }
 
         const checkModalEmpty = function(){
-            let table = document.querySelector(".modal-table")
+            let table = document.querySelector(".modal-table-body")
             if(table.children.length<2){
                 $(".checkout-button").prop("disabled", true)
             }else{
@@ -224,45 +233,155 @@ const modalfunc = function(){
         }
 
         $(".cart-modal").click(togglingOn)
-        $("#modal-cancel-button").click(togglingOff)
+
         $("#modal-x-button").click(togglingOff)
 
         /////////////////////////////////////////
         //          FOR STRIPE                 //
         /////////////////////////////////////////
-
-        var stripe = Stripe('pk_test_WQKH5BikkpGNAq5vFXGih3Fi00FZd6z4fh');
-        let checkoutButton = document.querySelector(".checkout-button")
-        checkoutButton.addEventListener('click', function () {
-            var check = confirm("Confirm checking out?");
-                    if (check == true) {
-                        let item_arr = []
-                        let cart_ids = []
-                        $(".cart-checkbox").each(function(){
-                            if ($(this).prop("checked")){
-
-                                item_arr.push({sku:$(this).attr("data-stripe-id"),quantity:parseInt($(this).attr("data-quantity"))})
-                                cart_ids.push($(this).val())
-                            }
-                        })
-                        let string = JSON.stringify(cart_ids)
-
-
-
-
-
-
-                        // stripe.redirectToCheckout({
-                        //     items: item_arr,
-                        //     customerEmail: $('.temp_information').data('email'),
-                        //     successUrl: `http://127.0.0.1:3000/orders/stripepost?data=${string}`,
-                        //     cancelUrl: 'http://127.0.0.1:3000/'
-                        //   });
-                    }else{
-                        console.log("nothing")
+        const stripeActivation = function(cart_ids_string,item_arr){
+            return function(){
+                var stripe = Stripe('pk_test_WQKH5BikkpGNAq5vFXGih3Fi00FZd6z4fh');
+                var check = confirm("Confirm checking out?");
+                let day_timing = null
+                $(".day-timing").each(function(){
+                    if($(this).prop("checked")){
+                        day_timing = $(this).val()
                     }
+                })
+                let time_timing = null
+                $(".time-timing").each(function(){
+                    if($(this).prop("checked")){
+                        time_timing = $(this).val()
+                    }
+                })
+                let deliveryDetails = {name:$("#recipient-name").val(),contact:$("#recipient-contact").val(),address:$("#delivery-address").val(),day:day_timing,time:time_timing,note:$("#recipient-note").val()}
+                let delivery = JSON.stringify(deliveryDetails)
+                if (check == true) {
+                    stripe.redirectToCheckout({
+                    items: item_arr,
+                    customerEmail: $('.temp_information').data('email'),
+                    successUrl: `http://127.0.0.1:3000/orders/stripepost?data=${cart_ids_string}&delivery=${delivery}`,
+                    cancelUrl: 'http://127.0.0.1:3000/'
+                  });
+                }else{
+                    console.log("nothing")
+                }
 
-        });
+
+
+            }
+        }
+
+        const checkValid = function(){
+            if ($("#recipient-name").val() && $("#recipient-contact").val() && $("#delivery-address").val()){
+                $(".payment-button").attr("disabled", false)
+            }else{
+                $(".payment-button").attr("disabled", true)
+            }
+        }
+        const createCheckOutButton = function(){
+
+
+            $(".checkout-button").remove()
+            $(".payment-button").remove()
+            $("#modal-cancel-button").remove()
+            $(".modal-card-foot").prepend(`<button  class="button is-success checkout-button" role="link">Checkout</button><div class="button" id="modal-cancel-button">Cancel</div>`)
+            $("#modal-cancel-button").click(togglingOff)
+            let checkoutButton = document.querySelector(".checkout-button")
+            checkoutButton.addEventListener('click', function () {
+                console.log("tat")
+
+                let item_arr = []
+                let cart_ids = []
+                $(".cart-checkbox").each(function(){
+                    if ($(this).prop("checked")){
+
+                        item_arr.push({sku:$(this).attr("data-stripe-id"),quantity:parseInt($(this).attr("data-quantity"))})
+                        cart_ids.push($(this).val())
+                    }
+                })
+                //store checkout details
+                let string = JSON.stringify(cart_ids)
+
+                //change modal into recipient details page
+                $(".cart-title").text("Recipient Details")
+                $(".cart-body").html("")
+                $(".checkout-button").remove()
+                $(".cart-body").append(`
+
+                    <div class="field">
+                        <label class="label">Recipient Name</label>
+                        <div class="control">
+                            <input class="input" name="recipient-name" id="recipient-name" type="text">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Recipient Contact</label>
+                        <div class="control">
+                            <input class="input" name="recipient-contact"  id="recipient-contact" type="text">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Delivery Address</label>
+                        <div class="control">
+                            <input class="input" name="delivery-address"  id="delivery-address" type="text">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Delivery day</label>
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio" class="day-timing"name="day-timing" value="Any day" checked>
+                                Any day
+                            </label>
+                            <label class="radio">
+                                <input type="radio" class="day-timing"name="day-timing" value="Weekdays only">
+                                Weekdays only
+                            </label>
+                            <label class="radio">
+                                <input type="radio" class="day-timing"name="day-timing" value="Weekends only">
+                                Weekends only
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Delivery Timing</label>
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio" class="time-timing"name="time-timing" value="8am-12pm" checked>
+                                8am-12pm
+                            </label>
+                            <label class="radio">
+                                <input type="radio" class="time-timing"name="time-timing" value="1pm-6pm">
+                                1pm-6pm
+                            </label>
+                            <label class="radio">
+                                <input type="radio" class="time-timing"name="time-timing" value="7pm-10pm">
+                                7pm-10pm
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Note to deliverer</label>
+                        <div class="control">
+                            <textarea class="textarea" name="recipient-note" id="recipient-note"></textarea>
+                        </div>
+                    </div>
+
+                    `)
+                $(".modal-card-foot").prepend(`<button  class="button is-success payment-button" role="link" disabled>Go to Payment</button>`)
+                $("#recipient-name").change(checkValid)
+                $("#recipient-contact").change(checkValid)
+                $("#delivery-address").change(checkValid)
+                $(".payment-button").click(stripeActivation(string,item_arr))
+
+
+            });
+
+
+        }
+
 }
 
 

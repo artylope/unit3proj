@@ -33,17 +33,19 @@ class OrdersController < ApplicationController
 
     def stripepost
         puts "//////////////////////////////"
-        p params[:data]
         p JSON.parse(params[:data])
         @carts = Cart.where(user_id: current_user.id).where(id: JSON.parse(params[:data]))
-        p @carts
         puts "//////////////////////////////"
-
-
+        delivery_details = JSON.parse(params[:delivery])
         @order = Order.new
         @order.user_id = current_user.id
         @order.total_price = @carts.map{|x|x.quantity*x.furniture_option.price}.sum
-
+        @order.recipient_name = delivery_details["name"]
+        @order.recipient_contact = delivery_details["contact"]
+        @order.recipient_address = delivery_details["address"]
+        @order.delivery_day = delivery_details["day"]
+        @order.delivery_time = delivery_details["time"]
+        @order.recipient_note = delivery_details["note"]
         @order.save
 
         @carts.each do |cart|
