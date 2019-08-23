@@ -29,6 +29,7 @@ Paloma.controller('Wishlists', {
                 function loadFloorPlanDiv() {
                     var floorPlanImg = document.getElementById("floor_plan_image");
                     var floorPlanContainer = document.querySelector(".floor_plan_container");
+                    var floorPlanOverlay = document.querySelector(".floor_plan_overlay");
                     var imgWidth = floorPlanImg.naturalWidth;
                     var imgHeight = floorPlanImg.naturalHeight;
                     floorPlanImg.style.width = imgWidth + "px";
@@ -118,6 +119,11 @@ Paloma.controller('Wishlists', {
                     var importFileButton = document.querySelector('#importFile');
                     importFileButton.addEventListener('change', function(event) {
                         readURL(this);
+                    }, false);
+
+                    var closeModalButton = document.querySelector('.delete_modal');
+                    closeModalButton.addEventListener('click', function(event){
+                        document.querySelector('.modal').className = "modal";
                     }, false);
 
                     document.addEventListener('dblclick', function(event) {
