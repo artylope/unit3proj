@@ -13,6 +13,7 @@ class CreateFurnitureOptionsTable < ActiveRecord::Migration[5.2]
         t.float :width
         t.float :height
         t.float :length
+        t.text :stripe_id
         t.timestamps
     end
   end

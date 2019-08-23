@@ -3,15 +3,17 @@
 
   <section id="product-detail">
     <div class="container is-fluid">
-
-      <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-          <li><%= link_to 'Home', root_path %></li>
-          <li><a href="#"><%= @furniture.category %></a></li>
-          <li class="is-active" aria-current="page"><a href="#"><%= @furniture.name %></a></li>
-        </ul>
-      </nav>
-
+      <div class="columns">
+  			<div class="column">
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li><%= link_to 'Home', root_path %></li>
+              <li><a href="#"><%= @furniture.category %></a></li>
+              <li class="is-active" aria-current="page"><a href="#"><%= @furniture.name %></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
       <div class="columns">
 
         <div class="column is-full">
@@ -68,7 +70,9 @@
                         <%end%>
                          </br>
 
-                        <button class="button is-large is-primary add-to-cart-button" id="add-to-cart-button">Add to Cart</button>
+                        <button class="button is-medium is-primary add-to-cart-button" id="add-to-cart-button">Add to Cart</button>
+
+                        <button class="button is-medium" id="go-ar-button"><i class='bx bx-street-view'></i>View In My Room (AR)</button>
                         <p class="login-warning" hidden>You need to login first</p>
                       </div>
 
@@ -82,6 +86,8 @@
 
         </div>
       </div>
-      <%= content_tag :div, class: "temp_information", data: {temp: @furniture.id,user:user_signed_in?} do %>
+      <%email = if user_signed_in? then current_user.email else "" end%>
+      <%= content_tag :div, class: "temp_information", data: {temp: @furniture.id,user:user_signed_in?,email:email} do %>
                         <% end %>
+        <script src="https://js.stripe.com/v3"></script>
   </section>

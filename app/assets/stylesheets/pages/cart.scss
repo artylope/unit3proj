@@ -1,5 +1,47 @@
 
 
 #cart{
+  .modal-card{
+    margin-top: 20px;
+  }
+
+  .modal-card-head, .modal-card-foot{
+    background: white;
+    border: none;
+  }
+
+  .modal-card-foot{
+    justify-content: flex-end;
+  }
+
+  .modal-table{
+    padding: 30px;
+    td{
+      padding: 10px;
+    }
+
+  }
+
+  .cart-total-section{
+    text-align: right;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .total-label{
+      font-size: 1.2em;
+      color: #aaa;
+      font-weight: bold;
+      vertical-align: baseline;
+      text-transform: uppercase;
+      padding-right: 10px;
+    }
+
+    .cart-total{
+      font-size: 2.2em;
+      color: #333;
+      font-weight: bold;
+      vertical-align: baseline;
+    }
+  }
 
 }
