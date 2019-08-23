@@ -53,3 +53,12 @@ h1{
     padding: 30px;
   }
 }
+
+button{
+  &.is-primary{
+    a{
+      color: white;
+    }
+  }
+
+}

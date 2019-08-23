@@ -7006,6 +7006,9 @@ h1 {
   .user .card {
     padding: 30px; }
 
+button.is-primary a {
+  color: white; }
+
 .navbar {
   font-family: 'Lexend Deca', sans-serif;
   height: 60px;
