@@ -1,0 +1,17 @@
+/* import bulma-scss */
+/* @import "bulma-scss/bulma.scss"; */
+@import "partials/bulma.css";
+
+/* import common partials specific css */
+@import "partials/base.scss";
+@import "partials/navbar.scss";
+@import "partials/button.scss";
+
+/* import pages specific css */
+@import "pages/products.scss";
+@import "pages/product_detail.scss";
+@import "pages/cart.scss";
+@import "pages/users.scss";
+@import "pages/orders.scss";
+@import "pages/wishlist.scss";
+@import "pages/floorplan.scss";
