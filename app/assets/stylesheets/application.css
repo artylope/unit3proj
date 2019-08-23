@@ -11,3 +11,6 @@
 @import "pages/product_detail.scss";
 @import "pages/cart.scss";
 @import "pages/users.scss";
+@import "pages/orders.scss";
+@import "pages/wishlist.scss";
+@import "pages/floorplan.scss";

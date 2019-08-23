@@ -1,7 +1,6 @@
 <%# this renders the navbar %>
-
 	<section class="hero">
-        <%= render "shared/navbar", :locales => {:carts => @carts}  %>
+        <%= render "shared/navbar", :locales => {:carts => @carts,:wishlists => @wishlists}  %>
     </section>
     <%= render "shared/cart_modal" %>
 	<section id="products">
@@ -9,7 +8,7 @@
 			<div class="columns is-variable is-0">
 				<div id="sidebar-filter" class="column is-one-fifth">
 					<div class="filter-container">
-						<h1>Sort By</h1>
+						<h3>Sort By</h3>
 
 						<select class="sort-by">
 								<option>Sort by</option>
@@ -22,13 +21,9 @@
 					</div>
 				</div>
 				<div id="products-listing" class="column is-four-fifths">
-
 					<div class="container">
-
 						<div class="columns is-variable is-2 is-desktop is-mobile sort-mother">
 							<!-- is-1 defines the gap of the rows -->
-
-
     							<% @furnitures.each do |furniture| %>
 
     								<div class="column is-one-third-desktop is-one-third-tablet is-half-mobile for-sort">
@@ -36,7 +31,7 @@
     									<div class="card">
     										<a href="<%="./furnitures/" + furniture.id.to_s%>">
     											<div class="card-image">
-    												<figure class="image is-4by3">
+    												<figure class="image is-4by3 product-img-container">
     													<img src="<%= furniture.img_url %>" alt="">
     												</figure>
     											</div>
@@ -59,4 +54,8 @@
 				</div>
 			</div>
 		</div>
+        <%email = if user_signed_in? then current_user.email else "" end%>
+      <%= content_tag :div, class: "temp_information", data: {user:user_signed_in?,email:email} do %>
+                        <% end %>
+        <script src="https://js.stripe.com/v3"></script>
 	</section>

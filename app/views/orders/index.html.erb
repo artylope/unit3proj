@@ -1,18 +1,49 @@
-<h1>All Orders</h1>
-<table>
-  <tr>
-    <th>Order Id</th>
-    <th>Total price</th>
-    <th></th>
-  </tr>
+<%= render "shared/navbar", :locales => {:carts => @carts}  %>
+<section class="orders">
+	<div class="container is-fluid">
+		<div class="columns">
+			<div class="column">
+				<nav class="breadcrumb" aria-label="breadcrumbs">
+					<ul>
+						<li><%= link_to 'Home', root_path %></li>
+						<li class="is-active" aria-current="page"><a href="/orders">Orders</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 
-  <% @orders.each do |order| %>
-    <tr>
-        <td><%= order.id %></td>
-        <td><%= '%.2f' % (order.furnitures_order.map{|x|x.quantity*x.furniture_option.price}.sum) %></td>
-        <td><%= link_to 'Show', order_path(order) %></td>
-    </tr>
-  <% end %>
-</table>
 
-<%= link_to 'Back to main', root_path %>
+		<div class="columns">
+			<div class="column">
+				<div class="card">
+
+          		<h1>All Orders</h1>
+
+							<table class="table is-fullwidth">
+								<tr>
+									<th>Order Id</th>
+									<th class="numbers">Total price</th>
+                  <th>Date</th>
+									<th></th>
+								</tr>
+
+								<% @orders.each do |order| %>
+									<tr>
+										<td><%= order.id %></td>
+										<td class="numbers">$<%= '%.2f' % (order.furnitures_order.map{|x|x.quantity*x.furniture_option.price}.sum) %></td>
+                    <td><%= order.created_at %></td>
+										<td><%= link_to 'Show', order_path(order), class:"button" %></td>
+									</tr>
+								<% end %>
+							</table>
+
+
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+</section>

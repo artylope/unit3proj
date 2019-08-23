@@ -1,23 +1,23 @@
-<div class="modal">
+<div class="modal" id="cart">
 
-        <%= form_with scope: :order, url: orders_path ,local: true do |form| %>
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
-                  <p class="modal-card-title">Modal title</p>
+                  <p class="modal-card-title">Cart</p>
                   <div class="delete" id="modal-x-button"aria-label="close"></div>
                 </header>
                 <section class="modal-card-body">
-                    <table>
+                    <table class="modal-table">
 
 
                     </table>
+                    <div class="cart-total-section"><span class="total-label">Total</span><span class="cart-total"></span></div>
                 </section>
                 <footer class="modal-card-foot">
-                    <%= form.submit "Checkout", class:"button is-success",data: { confirm: 'Are you sure?' }%>
+                    <button  class="button is-success checkout-button" role="link">Checkout</button>
                     <div class="button" id="modal-cancel-button">Cancel</div>
+
                 </footer>
             </div>
-        <% end %>
 
 </div>

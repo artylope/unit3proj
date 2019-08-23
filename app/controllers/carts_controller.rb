@@ -2,15 +2,19 @@ class CartsController < ApplicationController
     before_action :authenticate_user!
     def index
         @carts = Cart.where(user_id: current_user.id)
+        @wishlists = Wishlist.where(user_id: current_user.id)
         @arr = []
         @carts.each do |cart|
+            options = [cart.furniture_option.color,cart.furniture_option.capacity,cart.furniture_option.material,cart.furniture_option.kuan]
             @arr.push({
                 :cart_id => cart.id,
                 :furniture_name => cart.furniture_option.furniture.name,
                 :price => cart.furniture_option.price,
                 :category => cart.furniture_option.furniture.category,
                 :image => cart.furniture_option.image,
-                :quantity => cart.quantity
+                :quantity => cart.quantity,
+                :stripe_id => cart.furniture_option.stripe_id,
+                :options => options.reject{|x|x.to_s.empty?}.join(", ")
             })
         end
         respond_to do |format|

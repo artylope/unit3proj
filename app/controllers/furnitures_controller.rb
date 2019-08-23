@@ -1,6 +1,14 @@
 class FurnituresController < ApplicationController
     def index
-        @carts = Cart.all
+
+        if user_signed_in?
+            @wishlists = Wishlist.where(user_id: current_user.id)
+            @carts = Cart.where(user_id: current_user.id)
+        else
+            @wishlists = []
+            @carts = []
+        end
+
         if params.key? ("category")
             @furnitures = Furniture.where(category:params[:category].titleize)
         elsif params.key? ("main_category")
@@ -25,8 +33,16 @@ class FurnituresController < ApplicationController
     end
 
     def show
-        @carts = Cart.all
+
         @furniture = Furniture.find(params[:id])
+        if user_signed_in?
+            @carts = Cart.where(user_id: current_user.id)
+            @wishlists = Wishlist.where(user_id: current_user.id)
+        else
+            @wishlists = []
+            @carts = []
+        end
+
     end
 
     def edit

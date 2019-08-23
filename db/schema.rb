@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_08_22_022741) do
     t.float "width"
     t.float "height"
     t.float "length"
+    t.text "stripe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["furniture_id"], name: "index_furniture_options_on_furniture_id"

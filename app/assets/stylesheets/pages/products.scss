@@ -1,7 +1,7 @@
 
 #products{
   background: #f5f5f5;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 100px;
   height: 100%;
   width: 100%;
@@ -35,11 +35,21 @@
           box-shadow: 0 6px 8px rgba(42, 60, 120, 0.1), 0 1px 2px rgba(42, 60, 120, 0.1);
         }
 
-        img{
-          overflow: hidden;
+        .product-img-container{
           border-top-left-radius: 5px;
           border-top-right-radius: 5px;
+          overflow: hidden;
+          img{
+            object-fit: contain;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+          }
         }
+
 
       }
 
