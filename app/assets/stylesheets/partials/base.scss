@@ -40,5 +40,18 @@ h1{
 
 .breadcrumb{
   margin-top: 20px;
-  width: 90%; 
+  width: 90%;
+}
+
+
+.modal-card-head, .modal-card-foot{
+  background: white;
+  border: none;
+}
+
+.modal-table{
+  padding: 30px;
+  td{
+    padding: 10px;
+  }
 }

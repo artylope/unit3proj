@@ -6998,6 +6998,16 @@ h1 {
   margin-top: 20px;
   width: 90%; }
 
+.modal-card-head,
+.modal-card-foot {
+  background: white;
+  border: none; }
+
+.modal-table {
+  padding: 30px; }
+  .modal-table td {
+    padding: 10px; }
+
 .navbar {
   font-family: 'Lexend Deca', sans-serif;
   height: 60px;
@@ -7173,8 +7183,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
-    padding: 50px; }
+    align-items: flex-start; }
     #product-detail .product-info-container .product-info-base {
       margin-top: 10px;
       margin-bottom: 30px; }
@@ -7238,3 +7247,7 @@ h1 {
           margin-right: 5px; }
         #product-detail .product-info-container .product-buttons button .bx-heart, #product-detail .product-info-container .product-buttons button .bxs-heart {
           color: #ff4f57; }
+
+@media only screen and (min-width: 1023px) {
+  .product-info-container {
+    padding: 50px; } }
