@@ -246,12 +246,24 @@ const modalfunc = function(){
                             }
                         })
                         let string = JSON.stringify(cart_ids)
+                        let URL = window.location.href;
+
+                        var configForStripeUrl;
+                          if( URL.includes("http://127.0.0.1") ){
+                            configForStripeUrl = "http://127.0.0.1:3000";
+                          } else if( URL.includes("http://localhost") ){
+                            configForStripeUrl = "http://127.0.0.1:3000";
+                          }else{
+                            configForStripeUrl = "https://oakandbrass.herokuapp.com";
+                          }
+
                         stripe.redirectToCheckout({
-                            items: item_arr,
-                            customerEmail: $('.temp_information').data('email'),
-                            successUrl: `https://oakandbrass.herokuapp.com/orders/stripepost?data=${string}`,
-                            cancelUrl: 'https://oakandbrass.herokuapp.com/'
-                          });
+                          items: item_arr,
+                          customerEmail: $('.temp_information').data('email'),
+                          successUrl: `${configForStripeUrl}/orders/stripepost?data=${string}`,
+                          cancelUrl: `${configForStripeUrl}`
+                        });
+
                     }else{
                         console.log("nothing")
                     }
