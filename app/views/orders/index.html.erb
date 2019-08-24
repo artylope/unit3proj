@@ -19,7 +19,9 @@
 				<div class="card">
 
           		<h1>All Orders</h1>
-
+                <%if @payment %>
+                    <article class="message is-success success-message"><div class="message-header"><p>Payment Successful!</p></div></article>
+                <%end%>
 							<table class="table is-fullwidth">
 								<tr>
 									<th>Order Id</th>
