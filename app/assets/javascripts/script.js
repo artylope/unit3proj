@@ -97,6 +97,34 @@ const modalfunc = function(){
     const refreshModal = function(data){
             $(".cart-body").html("")
             $(".cart-body").append(`
+                <div class="progress-steps-outer">
+                    <div class="progress-steps-inner">
+                      <div class="all-steps">
+                        <div class="each-step">
+                          <div class="step-number active">1</div>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="each-step">
+                          <div class="step-number">2</div>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="each-step">
+                          <div class="step-number">3</div>
+                        </div>
+                      </div>
+                      <div class="all-steps-label">
+                        <div class="each-step">
+                          <div class="step-label">Review Cart</div>
+                        </div>
+                        <div class="each-step">
+                          <div class="step-label">Enter Delivery Details</div>
+                        </div>
+                        <div class="each-step">
+                          <div class="step-label">Make Payment</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               <div class="cart-items">
               </div>
                 `)
@@ -169,7 +197,8 @@ const modalfunc = function(){
                         dataType: 'json',
 
                         success: function(data, textStatus, xhr) {
-                            document.querySelector(".modal-table-body").removeChild(deleteDiv.parentNode.parentNode)
+                            document.querySelector(".cart-items").removeChild(deleteDiv.parentNode)
+                            calculateModalTotal();
                             checkModalEmpty();
                             if(parseInt($(".cart-count").text())<0){
                                 $(".cart-count").text(0)
@@ -177,7 +206,7 @@ const modalfunc = function(){
                                 $(".cart-count").text(parseInt($(".cart-count").text())-1)
                             }
 
-                            calculateModalTotal();
+
                         },
                         error: function(xhr, textStatus, errorThrown) {
                             console.log('Error in Database');
@@ -193,8 +222,8 @@ const modalfunc = function(){
     }
 
     const checkModalEmpty = function(){
-        let table = document.querySelector(".modal-table-body")
-        if(table.children.length<2){
+        let table = document.querySelector(".cart-items ")
+        if(table.children.length<1){
             $(".checkout-button").prop("disabled", true)
         }else{
             console.log("can checkout")
@@ -208,6 +237,7 @@ const modalfunc = function(){
         $(".cart-checkbox").each(function(){
            if ($(this).prop("checked")){
             total += parseFloat($(this).parent().next().next().next().next().text())
+            console.log(total)
            }
         })
         $(".cart-total").text('$'+ total.toFixed(2))
