@@ -11,11 +11,11 @@ Paloma.controller('Wishlists', {
                 let coordinatesArr = [];
                 let lengthRatio = 50;
                 let calibrateStep = 0;
-                var calibrateState = false;
+                let calibrateState = false;
 
                 function readURL(input) {
                     if (input.files && input.files[0]) {
-                        var reader = new FileReader();
+                        let reader = new FileReader();
                         reader.onload = function(e) {
                             $('#floor_plan_image')
                                 .attr('src', e.target.result)
@@ -27,13 +27,12 @@ Paloma.controller('Wishlists', {
                 }
 
                 function loadFloorPlanDiv() {
-                    var floorPlanImg = document.getElementById("floor_plan_image");
-                    var floorPlanContainer = document.querySelector(".floor_plan_container");
-                    var floorPlanOverlay = document.querySelector(".floor_plan_overlay");
-                    var imgWidth = floorPlanImg.naturalWidth;
-                    var imgHeight = floorPlanImg.naturalHeight;
+                    let floorPlanImg = document.getElementById("floor_plan_image");
+                    let floorPlanContainer = document.querySelector(".floor_plan_container");
+                    let floorPlanOverlay = document.querySelector(".floor_plan_overlay");
+                    let imgWidth = floorPlanImg.naturalWidth;
+                    let imgHeight = floorPlanImg.naturalHeight;
                     floorPlanImg.style.width = imgWidth + "px";
-                    console.log("file loaded!");
                     floorPlanContainer.style.width = imgWidth + "px";
                     floorPlanContainer.style.height = imgHeight + "px";
                 }
@@ -43,7 +42,7 @@ Paloma.controller('Wishlists', {
                 }
 
                 function clearAllFurniture() {
-                    document.querySelectorAll('.snap-grid').forEach((elem) => {
+                    document.querySelectorAll('.grid-snap').forEach((elem) => {
                         elem.parentNode.removeChild(elem);
                     })
                     document.querySelectorAll('.markers').forEach((elem) => {
@@ -64,21 +63,18 @@ Paloma.controller('Wishlists', {
                 }
 
                 function placeDiv(x_pos, y_pos) {
-                    var d = document.createElement('div');
+                    let d = document.createElement('div');
                     d.setAttribute("id", "marker-" + x_pos + "-" + y_pos)
                     d.setAttribute("class", "markers");
                     d.style.position = "absolute";
                     d.style.left = x_pos - 6 + 'px';
                     d.style.top = y_pos - 6 + 'px';
                     document.body.appendChild(d);
-                    console.log("append div");
                 }
 
                 function putMarker(event) {
                     coordinatesArr.push([event.pageX, event.pageY]);
-                    console.log(event.pageX + ' - ' + event.pageY);
                     placeDiv(event.pageX, event.pageY);
-                    console.dir(coordinatesArr);
                 }
 
                 function calibratePlan(step, event) {
@@ -99,7 +95,6 @@ Paloma.controller('Wishlists', {
                             let length = Math.max(Math.abs(coordinatesArr[0][1] - coordinatesArr[1][1]), Math.abs(coordinatesArr[0][0] - coordinatesArr[1][0]));
                             let lengthParam = parseFloat(document.getElementById('lengthParam').value);
                             lengthRatio = length / lengthParam;
-                            console.log(lengthRatio);
                             document.getElementById('floating_menu').style.display = "block";
                             break;
                         default:
@@ -108,20 +103,18 @@ Paloma.controller('Wishlists', {
                 }
 
                 function loadEventListeners() {
-                    console.log("loading event listeners");
-
-                    var calibrateSubmit = document.querySelector('#submit_calibrate');
+                    let calibrateSubmit = document.querySelector('#submit_calibrate');
                     calibrateSubmit.addEventListener('click', function(event) {
                         calibratePlan(3, event);
                         document.getElementById('calibrate_menu').style.display = "none";
                     }, false);
 
-                    var importFileButton = document.querySelector('#importFile');
+                    let importFileButton = document.querySelector('#importFile');
                     importFileButton.addEventListener('change', function(event) {
                         readURL(this);
                     }, false);
 
-                    var closeModalButton = document.querySelector('.delete_modal');
+                    let closeModalButton = document.querySelector('.delete_modal');
                     closeModalButton.addEventListener('click', function(event){
                         document.querySelector('.modal').className = "modal";
                     }, false);
@@ -144,12 +137,10 @@ Paloma.controller('Wishlists', {
                             referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 
                             let gridWidth = lengthRatio;
-                            // console.log("inside show sofa, gridWidth= " + gridWidth);
 
                             let x = document.createElement("IMG");
                             x_width = parseInt(event.target.dataset.width) / 1000 * gridWidth;
                             x_height = parseInt(event.target.dataset.length) / 1000 * gridWidth;
-                            console.log(x_width + " x " + x_height)
                             x.setAttribute("src", furnitureImg);
                             x.setAttribute("id", "img" + idName);
                             x.setAttribute("class", "furnitureIcon");
@@ -169,15 +160,12 @@ Paloma.controller('Wishlists', {
                     });
 
                     document.addEventListener('click', function(event) {
-                        // console.log("loc:"+event.pageX + ' - ' + event.pageY);
-
                         if (event.target.matches('#clearAllFurnitureButton')) {
                             clearAllFurniture();
                         }
 
                         if (event.target.matches('#calibrate')) {
                             calibrateState = !calibrateState;
-                            console.log('calibrate calls : ' + calibrateState);
                             if (calibrateState) {
                                 calibratePlan(calibrateStep, event);
                                 calibrateStep++;
@@ -187,7 +175,6 @@ Paloma.controller('Wishlists', {
                         }
 
                         if (event.target.matches('#floor_plan_overlay') && calibrateState) {
-                            console.log('logging clicks: ' + coordinatesArr.length);
                             calibratePlan(calibrateStep, event);
                             calibrateStep++;
                         }
@@ -209,8 +196,8 @@ Paloma.controller('Wishlists', {
                 /////////////////////////////////////
 
                 function snapGrid(element) {
-                    var x = 0;
-                    var y = 0
+                    let x = 0;
+                    let y = 0
                     interact(element)
                         .draggable({
                             modifiers: [
@@ -257,7 +244,6 @@ Paloma.controller('Wishlists', {
                 function doubleTap(element) {
                     interact(element)
                         .on('doubletap', function(event) {
-                            console.log("doubletap evt target" + event.target.className);
                             if (event.target.className === 'furnitureIcon') {
                                 rotateFurniture(event.target);
                             }
@@ -290,10 +276,10 @@ Paloma.controller('Wishlists', {
                     })
 
                 function dragMoveListener(event) {
-                    var target = event.target
+                    let target = event.target
                     // keep the dragged position in the data-x/data-y attributes
-                    var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-                    var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+                    let x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+                    let y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
 
                     // translate the element
                     target.style.webkitTransform =
@@ -314,7 +300,7 @@ Paloma.controller('Wishlists', {
                 dragElement(document.getElementById("floor_plan_overlay"));
 
                 function dragElement(elmnt) {
-                    var pos1 = 0,
+                    let pos1 = 0,
                         pos2 = 0,
                         pos3 = 0,
                         pos4 = 0;
