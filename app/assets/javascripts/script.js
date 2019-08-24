@@ -193,8 +193,7 @@ const modalfunc = function(){
         const calculateModalTotal = function(){
             let total = 0
             $(".cart-checkbox").each(function(){
-               if ($(this).prop("checked")){
-                 console.log($(this));
+               if ($(this).prop("checked")){      
                 total += parseFloat($(this).parent().next().next().next().next().text())
                }
             })
