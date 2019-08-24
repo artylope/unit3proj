@@ -18,6 +18,28 @@ Paloma.controller('Furnitures', {
             )
         }
 
+        const checkHeart = function(data){
+            let result = data.filter(x=>x.furniture_option_id == $(".furniture_option_id_input").val())
+            if (result.length>0){
+                if($("#wishlist-heart").hasClass("bx-heart")){
+                    $("#wishlist-heart").removeClass("bx-heart").addClass("bxs-heart")
+                    $(".wishlist_id_input").val(result[0].id)
+                }else{
+                    $(".wishlist_id_input").val(result[0].id)
+                }
+
+            }else{
+                if($("#wishlist-heart").hasClass("bx-heart")){
+                    $(".wishlist_id_input").val("#")
+                }else{
+                    $("#wishlist-heart").removeClass("bxs-heart").addClass("bx-heart")
+                    $(".wishlist_id_input").val("#")
+                }
+
+            }
+
+        }
+
         const normalCall = function(data){
             $(".furniture_image").attr("src",JSON.parse(data.furniture)[0].image)
             $(".price").text("$"+JSON.parse(data.furniture)[0].price.toFixed(2))
@@ -30,6 +52,7 @@ Paloma.controller('Furnitures', {
                 $(".furniture-image-list").append(`<div class="thumbnail"><img class="individual-images" src="${x.image}" /></div>`)
             })
             addEventListenerToImages();
+            checkHeart(data.wishlists)
             console.log("done")
         }
 

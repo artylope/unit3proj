@@ -25,9 +25,6 @@ class WishlistsController < ApplicationController
 
 
     def destroy
-        puts "////////////////////////////////////"
-        p params
-        puts "////////////////////////////////////"
         @wishlist = Wishlist.find(params[:id])
         @wishlist.destroy
 
