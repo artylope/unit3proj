@@ -319,6 +319,39 @@ const modalfunc = function(){
                 $(".cart-body").html("")
                 $(".checkout-button").remove()
                 $(".cart-body").append(`
+                  <div class="progress-steps-outer">
+                    <div class="progress-steps-inner">
+                      <div class="all-steps">
+                        <div class="each-step">
+                          <div class="step-number active">1</div>
+                        </div>
+                        <div class="step-line active"></div>
+                        <div class="each-step">
+                          <div class="step-number active">2</div>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="each-step">
+                          <div class="step-number">3</div>
+                        </div>
+                      </div>
+                      <div class="all-steps-label">
+                        <div class="each-step">
+                          <div class="step-label">Review Cart</div>
+                        </div>
+                        <div class="each-step">
+                          <div class="step-label">Enter Delivery Details</div>
+                        </div>
+                        <div class="each-step">
+                          <div class="step-label">Make Payment</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
 
                     <div class="field">
                         <label class="label">Recipient Name</label>

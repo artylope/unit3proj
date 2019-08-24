@@ -1,0 +1,80 @@
+.progress-steps-outer{
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-left:50px;
+  padding-right: 50px;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+.progress-steps-inner{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.all-steps{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.all-steps-label{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 10px;
+
+}
+
+
+.step-number{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: #999;
+
+  &.active{
+    background: #23d160;
+  }
+}
+
+.step-label{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  font-size: .9em;
+
+}
+
+.each-step{
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-line{
+  width:50%;
+  height: 3px;
+  background: #999;
+
+  &.active{
+    background: #23d160;
+  }
+
+}
