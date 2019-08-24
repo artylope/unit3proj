@@ -357,7 +357,7 @@ const modalfunc = function(){
             let string = JSON.stringify(cart_ids)
 
             //change modal into recipient details page
-            $(".cart-title").text("Recipient Details")
+            $(".cart-title").text("Delivery Details")
             $(".cart-body").html("")
             $(".checkout-button").remove()
             $(".cart-body").append(`
