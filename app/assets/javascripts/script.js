@@ -97,35 +97,33 @@ const modalfunc = function(){
     const refreshModal = function(data){
             $(".cart-body").html("")
             $(".cart-body").append(`
-                <table class="modal-table">
-                    <tbody class="modal-table-body">
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Category</th>
-                            <th>Options</th>
-                            <th>Image</th>
-                            <th>Quantity</th>
-                            <th>Total Price</th>
-                            <th></th>
-                        </tr>
-                    </tbody>
-                </table>`)
+              <div class="cart-items">
+              </div>
+                `)
 
             data.forEach(x=>{
-                $(".modal-table-body").append(`
-                    <tr>
-                        <td><input type="checkbox" class="cart-checkbox" name="selected_cart_ids[]" value="${x.cart_id}" data-stripe-id="${x.stripe_id}" data-quantity="${x.quantity}" checked/></td>
-                        <td>${x.furniture_name}</td>
-                        <td>${x.price.toFixed(2)}</td>
-                        <td>${x.category}</td>
-                        <td>${x.options}</td>
-                        <td><img src="${x.image}" style="width:200px;"/</td>
-                        <td>${x.quantity}</td>
-                        <td>${(x.quantity*x.price).toFixed(2)}</td>
-                        <td><a class="cart-delete bx bxs-x-circle"><input value="${x.cart_id}"hidden/></a></td>
-                    </tr>
+                $(".cart-items").append(`
+                  <div class="cart-item">
+                      <div class="cart-item-checkbox">
+                          <input type="checkbox" class="cart-checkbox" name="selected_cart_ids[]" value="${x.cart_id}" data-stripe-id="${x.stripe_id}" data-quantity="${x.quantity}" checked/>
+                      </div>
+                      <div class="cart-item-image">
+                          <img src="${x.image}"/>
+                      </div>
+                      <div class="cart-item-description">
+                          ${x.furniture_name}</br>
+                          ${x.category}</br>
+                          ${x.options}</br>
+                      </div>
+                      <div class="cart-item-qty">
+                          ${x.quantity}
+                      </div>
+                      <div class="cart-item-price">
+                          ${(x.quantity*x.price).toFixed(2)}
+                      </div>
+                      <a class="cart-delete bx bxs-x-circle"><input value="${x.cart_id}"hidden/></a>
+                  </div>
+
                     `)
 
             })
@@ -209,7 +207,7 @@ const modalfunc = function(){
         let total = 0
         $(".cart-checkbox").each(function(){
            if ($(this).prop("checked")){
-            total += parseFloat($(this).parent().next().next().text())
+            total += parseFloat($(this).parent().next().next().next().next().text())
            }
         })
         $(".cart-total").text('$'+ total.toFixed(2))
