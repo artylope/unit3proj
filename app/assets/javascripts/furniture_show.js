@@ -121,21 +121,24 @@ Paloma.controller('Furnitures', {
         $(".add-to-cart-button").click(function(){
             if($('.temp_information').data('user')){
                 $(".login-warning").hide()
-                $.ajax({
-                    url: `/carts`,
-                    type: 'POST',
-                    data:{quantity:$("#quantity-input").val(),furniture_option_id :$(".furniture_option_id_input").val()},
-                    dataType: 'json',
+                setTimeout(function(){
+                    $.ajax({
+                        url: `/carts`,
+                        type: 'POST',
+                        data:{quantity:$("#quantity-input").val(),furniture_option_id :$(".furniture_option_id_input").val()},
+                        dataType: 'json',
 
-                    success: function(data, textStatus, xhr) {
-                        console.log("POST TO CART DONE")
-                        console.log($(".cart-count").text())
-                        $(".cart-count").text(parseInt($(".cart-count").text())+1)
-                    },
-                    error: function(xhr, textStatus, errorThrown) {
-                        console.log('Error in Database');
-                    }
-                })
+                        success: function(data, textStatus, xhr) {
+                            console.log("POST TO CART DONE")
+                            console.log($(".cart-count").text())
+                            $(".cart-count").text(parseInt($(".cart-count").text())+1)
+                        },
+                        error: function(xhr, textStatus, errorThrown) {
+                            console.log('Error in Database');
+                        }
+                    })
+                },1000)
+
             }else{
                 $(".login-warning").show()
             }
