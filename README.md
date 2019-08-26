@@ -8,8 +8,8 @@ Built by - [Kenny Ang](https://github.com/kach92), [Mah CK](https://github.com/m
 Oak & Brass is a Furniture E-Commerce Web App built using Ruby on Rails (v 2.6.3). To set up, download the project and do a bundle install. It is not a real shop. It is a technical demo.
 
 ## Technologies used
-- Ruby on Rails, Javascript, jQuery, SASS, PostgreSQL
-- Stripe Api
+- Ruby on Rails, Javascript, jQuery, SASS, PostgreSQL, InteractJS
+- Stripe Api, 8th Wall Api
 
 ## Approach Taken
 Since it is a 3-person team project, we split the work equally - 1 handles the frontend, 1 handles the backend, and another handles the special functions of the project. One person has to handle the special function as he will need to find out and learn technologies that is unfamilar to us. Before we start the project we setup our ground rules clearly so that we can avoid issues when we integrate and merge our codes together. We also created a staging branch where any new branches and merging are created from it, so that we do not touch the master branch which is stable and issue free. Communication is key throughout the project.
