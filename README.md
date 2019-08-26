@@ -47,6 +47,6 @@ We did not create the photos and product content, they are borrowed various site
 
 
 ### Other Credits
-[Box Icons](https://boxicons.com/usage/) for the icons used in the Project.
-[Bulma](https://bulma.io) for the CSS framework for the base styling 
-[8th Wall](https://www.8thwall.com/) For the AR functionality
+[Box Icons](https://boxicons.com/usage/) for the icons used in the Project. </br>
+[Bulma](https://bulma.io) for the CSS framework for the base styling </br>
+[8th Wall](https://www.8thwall.com/) For the AR functionality </br>
